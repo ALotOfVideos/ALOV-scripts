@@ -133,10 +133,12 @@ function compare {
     input="$2"
     if [[ ! -f "$input" ]]; then
         echo "file '$input' does not exist" >&2
+        echo 1
         exit 1
     fi
     if [[ ! -f "$db" ]]; then
-        echo "file '$db' does not exist" >&2
+        echo "database '$db' does not exist" >&2
+        echo 1
         exit 1
     fi
 
@@ -153,7 +155,7 @@ function compare {
 
     # check existence
     printf "1. checking existence: " >&2
-    if [[ $vanilla == "" ]]; then
+    if [[ $vanilla == "" ]] || [[ $vanilla == "null" ]]; then
         echo -e "\e[31mWARNING: cutscene not found in vanilla database\e[0m" >&2
         (( errors++ ))
         echo 1
@@ -174,7 +176,7 @@ function compare {
         echo -e "\e[31mWARNING: $input is 1080p -> should be 1081p\e[0m" >&2
         (( errors++ ))
     else
-        echo -e "\e[31mWARNING: resolution is not 1081p/1440p/4K\e[0m" >&2
+        echo -e "\e[31mWARNING: resolution is not 1081p/1440p/4K ($(echo $bik | jq '.width')x$(echo $bik | jq '.height'))\e[0m" >&2
         (( errors++ ))
     fi
 
@@ -229,10 +231,12 @@ function check {
     dir="$2"
     if [[ ! -d "$dir" ]]; then
         echo "directory '$dir' does not exist" >&2
+        echo 1
         exit 1
     fi
     if [[ ! -f $db ]]; then
-        echo "file '$db' does not exist" >&2
+        echo "database '$db' does not exist" >&2
+        echo 1
         exit 1
     fi
 
