@@ -119,7 +119,14 @@ function index {
     let count=0
 
     printf "[" > $outfile
-    for f in $(find "$dir" -name "*.bik" | sort); do (( count++ )); echo "($count/$total) reading $f" >&2; bik=$(getBikProperties $f); printf "\n$bik" >> $outfile; printf "," >> $outfile; done
+    while IFS= read -r -d '' f; do
+        (( count++ ))
+        echo "($count/$total) reading $f" >&2
+        bik=$(getBikProperties "$f")
+        printf "\n$bik" >> $outfile
+        printf "," >> $outfile
+    done < <(find "$dir" -name "*.bik" -print0 | sort -z)
+
     truncate -s-1 $outfile
     echo -e "\n]" >> $outfile
 
