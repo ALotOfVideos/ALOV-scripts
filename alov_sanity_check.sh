@@ -161,24 +161,24 @@ function compare {
     let errors=0
 
     # check existence
-    printf "1. checking existence: " >&2
+    printf "%-25s" "1. checking existence: " >&2
     if [[ $vanilla == "" ]] || [[ $vanilla == "null" ]]; then
-        echo -e "\e[31mWARNING: cutscene not found in vanilla database\e[0m" >&2
+        echo -e "\e[31mWARNING: cutscene not found in database\e[0m" >&2
         (( errors++ ))
         echo 1
         return
     else
-        echo -e "\e[32mcutscene found in database\e[0m" >&2
+        echo -e "\e[32mOK (cutscene found in database)\e[0m" >&2
     fi
 
     # check resolution
-    printf "2. checking resolution: " >&2
+    printf "%-25s" "2. checking resolution: " >&2
     if [[ $(is1081p $bik) -eq 1 ]]; then
-        echo -e "\e[32mresolution OK (1081p)\e[0m" >&2
+        echo -e "\e[32mOK (1081p)\e[0m" >&2
     elif [[ $(is1440p $bik) -eq 1 ]]; then
-        echo -e "\e[32mresolution OK (1440p)\e[0m" >&2
+        echo -e "\e[32mOK (1440p)\e[0m" >&2
     elif [[ $(is4K $bik) -eq 1 ]]; then
-        echo -e "\e[32mresolution OK (4K)\e[0m" >&2
+        echo -e "\e[32mOK (4K)\e[0m" >&2
     elif [[ $(is1080p $bik) -eq 1 ]]; then
         echo -e "\e[31mWARNING: $input is 1080p -> should be 1081p\e[0m" >&2
         (( errors++ ))
@@ -188,17 +188,17 @@ function compare {
     fi
 
     # check frame count
-    printf "3. checking frame count: " >&2
+    printf "%-25s" "3. checking frame count: " >&2
     vanilla_c=$(echo $vanilla | jq '.frame_count')
     frame_count=$(echo $bik | jq '.frame_count')
     if [[ $vanilla_c == $frame_count ]]; then
-        echo -e "\e[32mframe counts match ($frame_count)\e[0m" >&2
+        echo -e "\e[32mOK: frame counts match ($frame_count)\e[0m" >&2
     else
         vanilla_fps=$(echo $vanilla | jq '.fps')
         bik_fps=$(echo $bik | jq '.fps')
         factor=$(bc -l <<< "$bik_fps / $vanilla_fps")
         if [[ 1 -eq $(bc -l <<< "scale=0;$frame_count == ($factor * $vanilla_c + 0.5)/1") ]]; then
-            echo -e "\e[32;7mINFO: frames were interpolated\e[0m" >&2
+            echo -e "\e[32;7mOK: frames were interpolated\e[0m" >&2
             printf "%-10s %4d %s %.2f %s\n" \
                    "vanilla:" "$vanilla_c" "frames @" "$vanilla_fps" "FPS" \
                    "found:" "$frame_count" "frames @" "$bik_fps" "FPS" >&2
