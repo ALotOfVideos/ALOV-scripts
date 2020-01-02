@@ -8,6 +8,7 @@
 
 import os.path
 from os import sep
+import pathlib
 import sys
 import subprocess as sp
 import json
@@ -16,11 +17,16 @@ import argparse
 import glob
 import math
 import re
+from collections import Counter
 
 verbosity = 1
-log_to_file = True
+log_to_file = False
 logfile = None
 log_verbosity = 2
+
+game = None
+folder_mappings = None
+db = None
 
 ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
 
@@ -28,24 +34,30 @@ def log(s, level=2):
     global verbosity
     global log_to_file
     global logfile
+    global log_verbosity
     # verbosity levels:
     # 0 WARN
     # 1 INFO
     # 2 ALL
     # 3 DEBUG
+    so = s
+    sf = s
     if level <= verbosity:
         if verbosity == 3:
-            s = "(seriousness %d) %s" % (level, s)
-        print(s, end='')
+            so = "(seriousness %d) %s" % (level, s)
+        print(so, end='')
 
     if log_to_file and level <= log_verbosity:
         if log_verbosity == 3:
-            s = "(seriousness %d) %s" % (level, s)
-        print(ansi_escape.sub('', s), end='', file=logfile)
+            sf = "(seriousness %d) %s" % (level, s)
+        print(ansi_escape.sub('', sf), end='', file=logfile)
 
 def error(s):
     # always print errors
     log("\033[31m%s\033[0m" % s, 0)
+
+def warning(s, level=1):
+    log("\033[31;7m%s\033[0m" % s, level)
 
 def log_ok(s, level=2):
     log("\033[32m%s\033[0m" % s, level)
@@ -71,7 +83,36 @@ def is1081p(input):
 def is1080p(input):
     return isRes(input, 1920, 1080)
 
-def getBikProperties(f):
+def getMappings():
+    global folder_mappings
+    global game
+    folder_mappings_path = 'folder_mappings.json'
+    if folder_mappings is None:
+        if (not os.path.isfile(folder_mappings_path)):
+            error("folder mappings %s does not exist\n" % folder_mappings_path)
+            return None
+        with open(folder_mappings_path, 'r') as fm_fp:
+            folder_mappings = json.load(fm_fp).get(game)
+    return folder_mappings
+
+def getDB():
+    global db
+    global game
+    db_path = game + "_complete.json"
+    if db is None:
+        if (not os.path.isfile(db_path)):
+            error("database %s does not exist\n" % db_path)
+            return None
+        with open(db_path, 'r') as db_fp:
+            db = json.load(db_fp)
+    return db
+
+def getRelativeDir(p, to=''):
+    if to == '':
+        return str(pathlib.Path(*pathlib.Path(p).parts[1:-1]))
+    return str(pathlib.Path(p).relative_to(to))
+
+def getBikProperties(f, root=''):
     if not os.path.isfile(f):
         error("file %s does not exist\n" % f)
         sys.exit(1)
@@ -82,6 +123,7 @@ def getBikProperties(f):
 
     bik = {
         "name": os.path.basename(f),
+        "dir": getRelativeDir(os.path.dirname(f), root),
         "width": probe_bik.get("streams")[0].get("width"),
         "height": probe_bik.get("streams")[0].get("height"),
         "fps": round(eval(probe_bik.get("streams")[0].get("r_frame_rate")), 2),
@@ -117,7 +159,7 @@ def index(d):
     for f in biks:
         count += 1
         log(log_string.format(count, total, f), level=0)
-        l.append(getBikProperties(f))
+        l.append(getBikProperties(f, d))
 
     with open(outfile, 'w') as out:
         json.dump(l, out, indent=0)
@@ -125,29 +167,45 @@ def index(d):
     log("\n", level=0)
     log("saved bik properties to %s\n" % outfile, level=0)
 
-def compare(db_path, f):
-    if (not os.path.isfile(db_path)):
-        error("database %s does not exist\n" % db_path)
-        return 1
+def compare(f, root=''):
     if (not os.path.isfile(f)):
         error("file %s does not exist\n" % f)
         return 1
 
-    # TODO this globally instead of each time
-    with open(db_path, 'r') as db_fp:
-        db = json.load(db_fp)
+    db = getDB()
+    if db is None:
+        error("database missing\n")
+        return 1
 
-    log("checking %s\n" % f, level=0)
 
-    name = os.path.basename(f)
-    bik = getBikProperties(f)
+    fm = getMappings()
+    if fm is None:
+        error("folder mappings missing\n")
+        return 1
+
+    bik = getBikProperties(f, root)
+    name = bik.get("name")
+    folder = fm.get(bik.get("dir"))
+
+    log("checking %s\n" % os.path.join(bik.get("dir"), name), level=0)
+
     vanilla = dict()
-    for v in db:
-        if (v.get("name") == name):
-            vanilla = v
-            break
+    if root == '':
+        for v in db:
+            if v.get("name") == name:
+                vanilla = v
+                break
+    else:
+        for v in db:
+            if v.get("dir") == folder and v.get("name") == name:
+                vanilla = v
+                break
 
-    errors = 0
+    log("ALOV file:    %s%s%s\n" % (bik.get("dir"), os.sep, name), level=3)
+    log("resolved dir: %s\n" % folder, level=3)
+    log("vanilla file: %s%s%s\n" % (vanilla.get("dir"), os.sep, vanilla.get("name")), level=3)
+
+    errors = {"db": 0, "res": 0, "frame": 0}
     capitalization_string = "{:>8s} {:s}\n"
     check_string = "{:<25s}"
     mag = math.floor(math.log(max(vanilla.get("frame_count", 0), bik.get("frame_count", 0)), 10)) + 1
@@ -157,19 +215,25 @@ def compare(db_path, f):
     if (vanilla.get("name") is None):
         log(check_string.format("1. checking existence:"), level=0)
         # search case-insensitive
-        for v in db:
-            if (v.get("name").lower() == name.lower()):
-                vanilla = v
-                break
+        if root == '':
+            for v in db:
+                if v.get("name").lower() == name.lower():
+                    vanilla = v
+                    break
+        else:
+            for v in db:
+                if v.get("dir") == folder and v.get("name").lower() == name.lower():
+                    vanilla = v
+                    break
         if (vanilla.get("name") is None):
             error("WARNING: cutscene not found in vanilla database\n")
-            errors += 1
+            errors["db"] += 1
             return errors
         else:
             error("WARNING: cutscene uses wrong capitalization\n")
             log(capitalization_string.format("vanilla:", v.get("name")), level=0)
             log(capitalization_string.format("found:", name), level=0)
-            errors += 1
+            errors["db"] += 1
     else:
         log(check_string.format("1. checking existence:"))
         log_ok("OK: cutscene found in database\n")
@@ -187,11 +251,11 @@ def compare(db_path, f):
     elif (is1080p(bik)):
         log(check_string.format("2. checking resolution:"), level=0)
         error("WARNING: %s is 1080p -> should be 1081p\n" % f)
-        errors += 1
+        errors["res"] += 1
     else:
         log(check_string.format("2. checking resolution:"), level=0)
         error("WARNING: resolution is not 1081p/1440p/4K (%dx%d)\n" % (bik.get("width"), bik.get("height")))
-        errors += 1
+        errors["res"] += 1
 
     # check frame count
     bfc = bik.get("frame_count")
@@ -210,10 +274,10 @@ def compare(db_path, f):
             log_info("OK: frames were interpolated\n")
             log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
             log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=1)
-        elif (factor != 1 and factor >= 29.97/30 and factor <= 30/29.97):
+        elif (factor != 1 and factor >= 29.8/30 and factor <= 30/29.8):
             if bfc == vfc:
                 log(check_string.format("3. checking frame count:"), level=1)
-                log_info("OK: FPS was rounded (%0.2f -> %0.2f)\n" % (vfps, bfps))
+                log_info("OK: FPS rounded (%0.2f -> %0.2f)\n" % (vfps, bfps))
             elif bfc == round(factor * vfc):
                 log(check_string.format("3. checking frame count:"), level=1)
                 log_info("OK: frames were interpolated\n")
@@ -224,51 +288,61 @@ def compare(db_path, f):
             #     error("ERROR: unhandled situation\n")
             #     log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=0)
             #     log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=0)
+        elif vfps in (15,20) and bfps == 60 and bfc == vfc:
+            log(check_string.format("3. checking frame count:"), level=1)
+            log_info("OK: FPS upgraded (%0.2f -> %0.2f)\n" % (vfps, bfps))
+        elif bfps == vfps and vfc > bfc and bfc >= vfc - 3:
+            log(check_string.format("3. checking frame count:"), level=1)
+            warning("WARNING: missing a few frames\n")
+            log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
+            log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=1)
+            errors["frame"] += 1
         else:
             log(check_string.format("3. checking frame count:"), level=0)
-            error("WARNING: frame rate/count mismatch\n")
-            log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=0)
-            log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=0)
-
             if bfps == vfps and bfc < factor * vfc:
+                error("WARNING: missing frames\n")
+                log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=0)
+                log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=0)
                 log("{:>10s} {:s}\n".format("should be:", "vanilla probably"), level=0)
             else:
+                error("WARNING: frame rate/count mismatch\n")
+                log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=0)
+                log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=0)
                 if not round(bfps) == 15:
-                    log(frames_string.format("should be:", bfc, "frames @", bfps, "FPS"), level=0)
+                    log(frames_string.format("should be:", round(factor*vfc), "frames @", round(factor*vfps), "FPS"), level=0)
                     if not factor == 2:
                         log(frames_string.format("or:", 2*vfc, "frames @", 2*vfps, "FPS"), level=0)
                 else:
-                    log(frames_string.format("should be:", 4*bfc, "frames @", 4*bfps, "FPS"), level=0)
+                    log(frames_string.format("should be:", 4*vfc, "frames @", 4*vfps, "FPS"), level=0)
+                    log(frames_string.format("or:", vfc, "frames @", 4*vfps, "FPS"), level=0)
                 log("(or vanilla)\n", level=0)
-            errors += 1
+            errors["frame"] += 1
     return errors
 
-def check(db_path, d):
-    if (not os.path.isfile(db_path)):
-        error("database %s does not exist\n" % db_path)
-        return 1
+def check(d):
     if (not os.path.isdir(d)):
         error("directory %s does not exist\n" % d)
         return 1
 
     log("checking ALOV release at %s\n\n" % d, level=0)
 
-    # TODO this globally instead of each time
-    with open(db_path, 'r') as db_fp:
-        db = json.load(db_fp)
+    db = getDB()
+    if db is None:
+        error("database missing\n")
+        return 1
 
     total = len(db)
     mag = math.floor(math.log(total, 10)) + 1
     log_string = "({:0" + str(mag) + "d}/{:0" + str(mag) + "d}) "
     count = 0
-    errors = 0
+    errors = {"db": 0, "res": 0, "frame": 0, "missing": 0}
 
     biks = sorted(glob.glob("%s%s**%s*.bik" % (d, os.sep, os.sep), recursive=True), key=str.lower)
 
     for bik in biks:
         count += 1
         log(log_string.format(count, total), level=0)
-        errors += compare(db_path, bik)
+        errors = dict(Counter(errors) + Counter(compare(bik, d)))
         # TODO pop these to display list of missing in the end
 
     log("\n", level=0)
@@ -276,7 +350,7 @@ def check(db_path, d):
         mismatch_string = "{:>8s} {:3d}\n"
         error(mismatch_string.format("vanilla:", total))
         error(mismatch_string.format("found:", count))
-        errors += total - count
+        errors = dict(Counter(errors) + Counter({"missing": total - count}))
     else:
         log_ok("found %d files in database\n")
         log("\033[32;1mrelease is complete.\033[0m\n")
@@ -288,8 +362,8 @@ def init_parser():
     actiongroup = parser.add_mutually_exclusive_group(required=True) # TODO name group once feature releases
     actiongroup.add_argument('-g', '--get-info', nargs=1, metavar='BIK', help='reads the supplied BIK file and outputs its properties as json')
     actiongroup.add_argument('-i', '--index', nargs=1, metavar='PATH', help='gets all bik files inside (sub)directory PATH and outputs a json file with info of all biks')
-    actiongroup.add_argument('--compare', nargs=2, metavar=('DB','BIK'), help='compares the supplied BIK to vanilla properties stored in DB')
-    actiongroup.add_argument('-c', '--check', nargs=2, metavar=('DB','PATH'), help='checks all (supported) biks in PATH against the given DB (should hold info for either ME1/2/3)')
+    actiongroup.add_argument('--compare', nargs=2, metavar=('GAME','BIK'), help='compares the supplied BIK to vanilla properties stored in database of GAME (ME1|ME2|ME3)')
+    actiongroup.add_argument('-c', '--check', nargs=2, metavar=('GAME','PATH'), help='checks all (supported) biks in PATH against the database of given GAME (ME1|ME2|ME3)')
 
     verbositygroup = parser.add_mutually_exclusive_group()
     verbositygroup.add_argument("-v", "--verbosity", action="count", default=0, help="increase output (stdout) verbosity")
@@ -303,6 +377,7 @@ def init_parser():
     return parser
 
 def main():
+    global game
     global verbosity
     global log_to_file
     global logfile
@@ -311,19 +386,32 @@ def main():
     parser = init_parser()
     args = parser.parse_args()
 
+    if (args.compare is not None and args.compare[0] not in ("ME1", "ME2", "ME3")):
+        error("wrong value for GAME: %s. Must be either ME1, ME2 or ME3.\n" % args.compare[0])
+        exit(1)
+    elif args.compare is not None:
+        game = args.compare[0]
+    if (args.check is not None and args.check[0] not in ("ME1", "ME2", "ME3")):
+        error("wrong value for GAME: %s. Must be either ME1, ME2 or ME3.\n" % args.check[0])
+        exit(1)
+    elif args.check is not None:
+        game = args.check[0]
+
     verbosity += args.verbosity
     verbosity = verbosity if args.quiet is None else args.quiet
     verbosity = verbosity if args.debug is None else args.debug
     log_to_file = True if args.no_log is None else args.no_log
+    log_path = "alov_sanity_checker_%s_%s.log" % (game, datetime.now().strftime("%y%m%dT%H%M"))
     if log_to_file:
-        logfile = open("alov_sanity_checker_%s.log" % datetime.now().strftime("%y%m%dT%H%M"), 'w')
+        logfile = open(log_path, 'w')
+        log("opened log file %s" % log_path, level=3)
     log_verbosity = args.log_verbosity
     log_verbosity = log_verbosity if args.error_log is None else args.error_log
     log_verbosity = log_verbosity if args.short_log is None else args.short_log
 
     log("%s\n" % args, level=3)
 
-    errors = 0
+    errors = {"db": 0, "res": 0, "frame": 0, "missing": 0}
 
     if args.get_info is not None:
         bik = getBikProperties(args.get_info[0])
@@ -332,17 +420,24 @@ def main():
         index(args.index[0])
     else:
         if args.compare is not None:
-            errors = compare(args.compare[0], args.compare[1])
+            errors = compare(args.compare[1])
         elif args.check is not None:
-            errors = check(args.check[0], args.check[1])
+            errors = check(args.check[1])
 
         log("\n", level=0)
-        if errors > 0:
-            error("%d issue(s) found\n" % errors)
+        errors["total"] = sum(errors.values())
+        if errors["total"] > 0:
+            error("%d issue(s) found:\n\n" % errors["total"])
+            errors_string = "{:<16s}: {:d}\n"
+            error(errors_string.format("Not in DB", errors.get("db", 0)))
+            error(errors_string.format("Wrong resolution", errors.get("res", 0)))
+            error(errors_string.format("Frame count/FPS", errors.get("frame", 0)))
+            error(errors_string.format("Missing files", errors.get("missing", 0)))
         else:
             log_ok("no issues found\n", level=0)
 
     if log_to_file:
+        log("logged to %s with verbosity %d\n" %(log_path, log_verbosity), level=0)
         logfile.close()
 
 if __name__== "__main__":

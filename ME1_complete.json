@@ -1,58 +1,450 @@
 [
-{"name":"artifact_movie_01.bik","width":1280,"height":720,"fps":30.00,"frame_count":8},
-{"name":"artifact_movie_02.bik","width":1280,"height":720,"fps":30.00,"frame_count":8},
-{"name":"artifact_movie_03.bik","width":1280,"height":720,"fps":30.00,"frame_count":13},
-{"name":"artifact_movie_04.bik","width":1280,"height":720,"fps":30.00,"frame_count":19},
-{"name":"artifact_movie_05.bik","width":1280,"height":720,"fps":30.00,"frame_count":20},
-{"name":"artifact_movie_06.bik","width":1280,"height":720,"fps":30.00,"frame_count":10},
-{"name":"artifact_movie_07.bik","width":1280,"height":720,"fps":30.00,"frame_count":12},
-{"name":"attractmovie.bik","width":1280,"height":720,"fps":29.97,"frame_count":1365},
-{"name":"attractmovieloc.bik","width":1280,"height":720,"fps":29.97,"frame_count":1396},
-{"name":"BWLogo.bik","width":1280,"height":720,"fps":29.97,"frame_count":226},
-{"name":"Citadel_Est.bik","width":1280,"height":720,"fps":30.00,"frame_count":120},
-{"name":"db_standard.bik","width":1280,"height":720,"fps":29.97,"frame_count":150},
-{"name":"END_70_C_Attack_Evil_CUT_01.bik","width":1280,"height":720,"fps":30.00,"frame_count":662},
-{"name":"END_70_C_Attack_Evil_CUT_02.bik","width":1280,"height":720,"fps":30.00,"frame_count":744},
-{"name":"END_70_C_Attack_Good_CUT_01.bik","width":1280,"height":720,"fps":30.00,"frame_count":463},
-{"name":"END_70_C_Attack_Good_CUT_02.bik","width":1280,"height":720,"fps":30.00,"frame_count":1073},
-{"name":"END_90_F_SovereignDead_CUT_01.bik","width":1280,"height":720,"fps":30.00,"frame_count":658},
-{"name":"END_90_F_SovereignDead_CUT_02.bik","width":1280,"height":720,"fps":30.00,"frame_count":159},
-{"name":"END_90_F_SovereignDead_CUT_03.bik","width":1280,"height":720,"fps":30.00,"frame_count":560},
-{"name":"END_90_F_SovereignDead_CUT_04.bik","width":1280,"height":720,"fps":30.00,"frame_count":208},
-{"name":"END_90_F_SovereignDead_CUT_05.bik","width":1280,"height":720,"fps":30.00,"frame_count":243},
-{"name":"END_90_SovereignGood_CUT_01.bik","width":1280,"height":720,"fps":30.00,"frame_count":667},
-{"name":"GLO_01_Relay.bik","width":1280,"height":720,"fps":30.00,"frame_count":270},
-{"name":"GLO_Relay_LOAD.bik","width":1280,"height":720,"fps":30.00,"frame_count":101},
-{"name":"Jug_70_Beacon_CUT_01.bik","width":1280,"height":720,"fps":29.97,"frame_count":3},
-{"name":"Jug_70_Beacon_CUT_02.bik","width":1280,"height":720,"fps":29.97,"frame_count":10},
-{"name":"Jug_70_Beacon_CUT_03.bik","width":1280,"height":720,"fps":29.97,"frame_count":12},
-{"name":"Jug_70_Beacon_CUT_04.bik","width":1280,"height":720,"fps":29.97,"frame_count":4},
-{"name":"Jug_70_Beacon_CUT_05.bik","width":1280,"height":720,"fps":29.97,"frame_count":27},
-{"name":"Jug_70_Beacon_CUT_06.bik","width":1280,"height":720,"fps":29.97,"frame_count":6},
-{"name":"Jug_70_Beacon_CUT_07.bik","width":1280,"height":720,"fps":29.97,"frame_count":6},
-{"name":"Jug_70_Beacon_CUT_08.bik","width":1280,"height":720,"fps":29.97,"frame_count":7},
-{"name":"Jug_70_Beacon_CUT_09.bik","width":1280,"height":720,"fps":29.97,"frame_count":7},
-{"name":"Jug_70_Beacon_CUT_10.bik","width":1280,"height":720,"fps":29.97,"frame_count":12},
-{"name":"Jug_70_Beacon_CUT_11.bik","width":1280,"height":720,"fps":29.97,"frame_count":7},
-{"name":"Jug_70_Beacon_CUT_12.bik","width":1280,"height":720,"fps":29.97,"frame_count":12},
-{"name":"Jug_70_Beacon_CUT_13.bik","width":1280,"height":720,"fps":29.97,"frame_count":23},
-{"name":"Jug_70_Beacon_CUT_14.bik","width":1280,"height":720,"fps":29.97,"frame_count":22},
-{"name":"Jug_70_Beacon_CUT_15.bik","width":1280,"height":720,"fps":29.97,"frame_count":19},
-{"name":"Jug_70_Beacon_CUT_16.bik","width":1280,"height":720,"fps":29.97,"frame_count":29},
-{"name":"LOS_40_J_Attack_CUT_01.bik","width":1280,"height":720,"fps":30.00,"frame_count":1099},
-{"name":"Mass_Effect_Logo_Movie.bik","width":1280,"height":720,"fps":29.97,"frame_count":230},
-{"name":"ME_EAsig_720p_v2_raw.bik","width":1280,"height":720,"fps":29.97,"frame_count":240},
-{"name":"MEvisionSEQ3.bik","width":1280,"height":720,"fps":30.00,"frame_count":963},
-{"name":"PRO_20_E_asariopening.bik","width":1280,"height":720,"fps":30.00,"frame_count":186},
-{"name":"STA_30_F_docking.bik","width":1280,"height":720,"fps":30.00,"frame_count":507},
-{"name":"STA_ArrivalSEQ01.bik","width":1280,"height":720,"fps":30.00,"frame_count":970},
-{"name":"STA_ArrivalSEQ02.bik","width":1280,"height":720,"fps":30.00,"frame_count":201},
-{"name":"STA_ArrivalSEQ03.bik","width":1280,"height":720,"fps":30.00,"frame_count":265},
-{"name":"STA_ArrivalSEQ04.bik","width":1280,"height":720,"fps":30.00,"frame_count":176},
-{"name":"sunset.bik","width":1280,"height":720,"fps":30.00,"frame_count":478},
-{"name":"UCW_Loading_Flyby.bik","width":1280,"height":720,"fps":30.00,"frame_count":150},
-{"name":"UplinkSEQ01.bik","width":1280,"height":720,"fps":30.00,"frame_count":533},
-{"name":"UplinkSEQ02.bik","width":1280,"height":720,"fps":30.00,"frame_count":1793},
-{"name":"DLC_UNC_Ending.bik","width":1280,"height":720,"fps":30.00,"frame_count":400},
-{"name":"DLC_UNC_Opening.bik","width":1280,"height":720,"fps":30.00,"frame_count":1004}
+{
+"name": "artifact_movie_01.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 8
+},
+{
+"name": "artifact_movie_02.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 8
+},
+{
+"name": "artifact_movie_03.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 13
+},
+{
+"name": "artifact_movie_04.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 19
+},
+{
+"name": "artifact_movie_05.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 20
+},
+{
+"name": "artifact_movie_06.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 10
+},
+{
+"name": "artifact_movie_07.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 12
+},
+{
+"name": "attractmovie.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 1365
+},
+{
+"name": "attractmovieloc.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 1396
+},
+{
+"name": "BWLogo.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 226
+},
+{
+"name": "Citadel_Est.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 120
+},
+{
+"name": "db_standard.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 150
+},
+{
+"name": "END_70_C_Attack_Evil_CUT_01.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 662
+},
+{
+"name": "END_70_C_Attack_Evil_CUT_02.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 744
+},
+{
+"name": "END_70_C_Attack_Good_CUT_01.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 463
+},
+{
+"name": "END_70_C_Attack_Good_CUT_02.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 1073
+},
+{
+"name": "END_90_F_SovereignDead_CUT_01.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 658
+},
+{
+"name": "END_90_F_SovereignDead_CUT_02.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 159
+},
+{
+"name": "END_90_F_SovereignDead_CUT_03.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 560
+},
+{
+"name": "END_90_F_SovereignDead_CUT_04.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 208
+},
+{
+"name": "END_90_F_SovereignDead_CUT_05.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 243
+},
+{
+"name": "END_90_SovereignGood_CUT_01.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 667
+},
+{
+"name": "GLO_01_Relay.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 270
+},
+{
+"name": "GLO_Relay_LOAD.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 101
+},
+{
+"name": "Jug_70_Beacon_CUT_01.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 3
+},
+{
+"name": "Jug_70_Beacon_CUT_02.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 10
+},
+{
+"name": "Jug_70_Beacon_CUT_03.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 12
+},
+{
+"name": "Jug_70_Beacon_CUT_04.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 4
+},
+{
+"name": "Jug_70_Beacon_CUT_05.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 27
+},
+{
+"name": "Jug_70_Beacon_CUT_06.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 6
+},
+{
+"name": "Jug_70_Beacon_CUT_07.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 6
+},
+{
+"name": "Jug_70_Beacon_CUT_08.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 7
+},
+{
+"name": "Jug_70_Beacon_CUT_09.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 7
+},
+{
+"name": "Jug_70_Beacon_CUT_10.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 12
+},
+{
+"name": "Jug_70_Beacon_CUT_11.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 7
+},
+{
+"name": "Jug_70_Beacon_CUT_12.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 12
+},
+{
+"name": "Jug_70_Beacon_CUT_13.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 23
+},
+{
+"name": "Jug_70_Beacon_CUT_14.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 22
+},
+{
+"name": "Jug_70_Beacon_CUT_15.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 19
+},
+{
+"name": "Jug_70_Beacon_CUT_16.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 29
+},
+{
+"name": "LOS_40_J_Attack_CUT_01.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 1099
+},
+{
+"name": "Mass_Effect_Logo_Movie.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 230
+},
+{
+"name": "ME_EAsig_720p_v2_raw.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 240
+},
+{
+"name": "MEvisionSEQ3.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 963
+},
+{
+"name": "PRO_20_E_asariopening.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 186
+},
+{
+"name": "STA_30_F_docking.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 507
+},
+{
+"name": "STA_ArrivalSEQ01.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 970
+},
+{
+"name": "STA_ArrivalSEQ02.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 201
+},
+{
+"name": "STA_ArrivalSEQ03.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 265
+},
+{
+"name": "STA_ArrivalSEQ04.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 176
+},
+{
+"name": "sunset.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 478
+},
+{
+"name": "UCW_Loading_Flyby.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 150
+},
+{
+"name": "UplinkSEQ01.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 533
+},
+{
+"name": "UplinkSEQ02.bik",
+"dir": "BioGame/CookedPC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 1793
+},
+{
+"name": "DLC_UNC_Ending.bik",
+"dir": "DLC/DLC_UNC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 400
+},
+{
+"name": "DLC_UNC_Opening.bik",
+"dir": "DLC/DLC_UNC/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 1004
+}
 ]
