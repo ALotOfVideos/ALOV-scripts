@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # A Lot of Videos (ALOV) sanity checker by HHL
-# checks ALOV release for completenes by comparing frame counts to vanilla
+# checks ALOV release for completeness by comparing frame counts to vanilla
 # github URL
 #
 # example usage:
