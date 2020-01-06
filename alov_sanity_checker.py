@@ -271,22 +271,30 @@ def compare(f, root=''):
     vfc = vanilla.get("frame_count")
     vfps = vanilla.get("fps")
 
+    debug_path = list()
+
     if bfc == vfc and bfps == vfps:
+        debug_path.append("if bfc == vfc and bfps == vfps:")
         log(check_string.format("3. checking frame count:"))
         log_ok("OK: frame counts match (%d)\n" % vfc)
     else:
+        debug_path.append("else")
         factor = bfps / vfps
         # TODO: sped up without interpolation
         if factor > 30/29.8 and bfc == round(factor * vfc):
+            debug_path.append("if factor > 30/29.8 and bfc == round(factor * vfc):")
             log(check_string.format("3. checking frame count:"), level=1)
             log_info("OK: frames were interpolated\n")
             log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
             log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=1)
         elif (factor != 1 and factor >= 29.8/30 and factor <= 30/29.8):
+            debug_path.append("elif (factor != 1 and factor >= 29.8/30 and factor <= 30/29.8):")
             if bfc == vfc:
+                debug_path.append("if bfc == vfc:")
                 log(check_string.format("3. checking frame count:"), level=1)
                 log_info("OK: FPS rounded (%0.2f -> %0.2f)\n" % (vfps, bfps))
             elif bfc == round(factor * vfc):
+                debug_path.append("elif bfc == round(factor * vfc):")
                 log(check_string.format("3. checking frame count:"), level=1)
                 log_info("OK: frames were interpolated\n")
                 log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
@@ -297,38 +305,49 @@ def compare(f, root=''):
             #     log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=0)
             #     log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=0)
         elif vfps in (15,20) and bfps == 60 and bfc == vfc:
+            debug_path.append("elif vfps in (15,20) and bfps == 60 and bfc == vfc:")
             log(check_string.format("3. checking frame count:"), level=1)
             log_info("OK: FPS upgraded (%0.2f -> %0.2f)\n" % (vfps, bfps))
         elif bfps == vfps and vfc > bfc and bfc >= vfc - 3:
+            debug_path.append("elif bfps == vfps and vfc > bfc and bfc >= vfc - 3:")
             log(check_string.format("3. checking frame count:"), level=1)
             warning("WARNING: missing a few frames\n")
             log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
             log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=1)
             errors["frame"] += 1
         elif factor < 29.8/30:
+            debug_path.append("elif factor < 29.8/30:")
             log(check_string.format("3. checking frame count:"), level=0)
             log("WARNING: FPS downgraded", level=0)
             errors["frame"] += 1
         else:
+            debug_path.append("else:")
             log(check_string.format("3. checking frame count:"), level=0)
             if bfps == vfps and bfc < factor * vfc:
+                debug_path.append("if bfps == vfps and bfc < factor * vfc:")
                 error("WARNING: missing frames\n")
                 log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=0)
                 log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=0)
                 log("{:>10s} {:s}\n".format("should be:", "vanilla probably"), level=0)
             else:
+                debug_path.append("else:")
                 error("WARNING: frame rate/count mismatch\n")
                 log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=0)
                 log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=0)
                 if not round(bfps) == 15:
+                    debug_path.append("if not round(bfps) == 15:")
                     log(frames_string.format("should be:", round(factor*vfc), "frames @", round(factor*vfps), "FPS"), level=0)
                     if not factor == 2:
+                        debug_path.append("if not factor == 2:")
                         log(frames_string.format("or:", 2*vfc, "frames @", 2*vfps, "FPS"), level=0)
                 else:
+                    debug_path.append("else:")
                     log(frames_string.format("should be:", 4*vfc, "frames @", 4*vfps, "FPS"), level=0)
                     log(frames_string.format("or:", vfc, "frames @", 4*vfps, "FPS"), level=0)
                 log("(or vanilla)\n", level=0)
             errors["frame"] += 1
+
+    log(debug_path, level=3)
 
     # check header integrity
     if not quick:
@@ -433,12 +452,12 @@ def main():
     log_path = "alov_sanity_checker_%s_%s.log" % (game, datetime.now().strftime("%y%m%dT%H%M"))
     if log_to_file:
         logfile = open(log_path, 'w')
-        log("opened log file %s" % log_path, level=3)
+        log("opened log file %s\n\n" % log_path, level=3)
     log_verbosity = args.log_verbosity
     log_verbosity = log_verbosity if args.error_log is None else args.error_log
     log_verbosity = log_verbosity if args.short_log is None else args.short_log
 
-    log("%s\n" % args, level=3)
+    log("%s\n\n" % args, level=3)
 
     errors = {"db": 0, "res": 0, "frame": 0, "missing": 0}
 
@@ -466,7 +485,7 @@ def main():
             log_ok("no issues found\n", level=0)
 
     if log_to_file:
-        log("logged to %s with verbosity %d\n" %(log_path, log_verbosity), level=0)
+        log("\nlogged to %s with verbosity %d\n" %(log_path, log_verbosity), level=0)
         logfile.close()
 
 if __name__== "__main__":
