@@ -280,15 +280,16 @@ def compare(f, root=''):
     else:
         debug_path.append("else")
         factor = bfps / vfps
+        factor_thresh = 29.7/30
         # TODO: sped up without interpolation
-        if factor > 30/29.8 and bfc == round(factor * vfc):
-            debug_path.append("if factor > 30/29.8 and bfc == round(factor * vfc):")
+        if factor > 1/factor_thresh and bfc == round(factor * vfc):
+            debug_path.append("if factor > 1/factor_thresh and bfc == round(factor * vfc):")
             log(check_string.format("3. checking frame count:"), level=1)
             log_info("OK: frames were interpolated\n")
             log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
             log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=1)
-        elif (factor != 1 and factor >= 29.8/30 and factor <= 30/29.8):
-            debug_path.append("elif (factor != 1 and factor >= 29.8/30 and factor <= 30/29.8):")
+        elif (factor != 1 and factor >= factor_thresh and factor <= 1/factor_thresh):
+            debug_path.append("elif (factor != 1 and factor >= factor_thresh and factor <= 1/factor_thresh):")
             if bfc == vfc:
                 debug_path.append("if bfc == vfc:")
                 log(check_string.format("3. checking frame count:"), level=1)
@@ -315,8 +316,8 @@ def compare(f, root=''):
             log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
             log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=1)
             errors["frame"] += 1
-        elif factor < 29.8/30:
-            debug_path.append("elif factor < 29.8/30:")
+        elif factor < factor_thresh:
+            debug_path.append("elif factor < factor_thresh:")
             log(check_string.format("3. checking frame count:"), level=0)
             log("WARNING: FPS downgraded", level=0)
             errors["frame"] += 1
