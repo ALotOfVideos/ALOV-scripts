@@ -217,7 +217,7 @@ def compare(f, root=''):
     check_string = "{:<25s}"
     mag = math.floor(math.log(max(vanilla.get("frame_count", 0), bik.get("frame_count", 0)), 10)) + 1
     frames_string = "{:>10s} {:0" + str(mag) + "d} {:s} {:.2f} {:s}\n"
-    header_string = "{:>7s} {:0" + str(mag) + "d}"
+    header_string = "{:>7s} {:0" + str(mag) + "d}\n"
 
     # check existence
     if (vanilla.get("name") is None):
@@ -353,10 +353,10 @@ def compare(f, root=''):
     if not quick:
         if bik.get("frame_count") == bik.get("frame_count_header"):
             log(check_string.format("4. checking header:"))
-            log_ok("OK: header contains actual number of frames")
+            log_ok("OK: header contains actual number of frames\n")
         else:
             log(check_string.format("4. checking header"), level=0)
-            error("WARNING: header does not indicate actual number of frames")
+            error("WARNING: header does not indicate actual number of frames\n")
             log(header_string.format("header:", bik.get("frame_count_header")), level=0)
             log(header_string.format("actual:", bik.get("frame_count")), level=0)
 
