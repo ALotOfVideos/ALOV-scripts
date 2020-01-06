@@ -277,7 +277,7 @@ def compare(f, root=''):
     else:
         factor = bfps / vfps
         # TODO: sped up without interpolation
-        if factor >= 1.9 and bfc == round(factor * vfc):
+        if factor > 30/29.8 and bfc == round(factor * vfc):
             log(check_string.format("3. checking frame count:"), level=1)
             log_info("OK: frames were interpolated\n")
             log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
@@ -304,6 +304,10 @@ def compare(f, root=''):
             warning("WARNING: missing a few frames\n")
             log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
             log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=1)
+            errors["frame"] += 1
+        elif factor < 29.8/30:
+            log(check_string.format("3. checking frame count:"), level=0)
+            log("WARNING: FPS downgraded", level=0)
             errors["frame"] += 1
         else:
             log(check_string.format("3. checking frame count:"), level=0)
