@@ -19,14 +19,16 @@ import math
 import re
 from collections import Counter
 
-verbosity = 1
-log_to_file = False
-logfile = None
-log_verbosity = 2
+quick = False
 
 game = None
 folder_mappings = None
 db = None
+
+verbosity = 1
+log_to_file = False
+logfile = None
+log_verbosity = 2
 
 ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
 
@@ -117,7 +119,9 @@ def getBikProperties(f, root=''):
         error("file %s does not exist\n" % f)
         sys.exit(1)
 
-    ffmpeg_command = ["ffprobe", "-v", "quiet", "-hide_banner", "-select_streams", "v", "-print_format", "json", "-count_frames", "-show_entries", "stream=filename,nb_read_frames,r_frame_rate,width,height", "%s" % f]
+    ffmpeg_command = ["ffprobe", "-v", "quiet", "-hide_banner", "-select_streams", "v", "-print_format", "json", "-show_entries", "stream=filename,nb_read_frames,r_frame_rate,width,height,duration_ts", "%s" % f]
+    if not quick:
+        ffmpeg_command.append("-count_frames")
     probe = sp.Popen(ffmpeg_command, stdout=sp.PIPE)
     probe_bik = json.loads(probe.stdout.read())
 
@@ -127,7 +131,8 @@ def getBikProperties(f, root=''):
         "width": probe_bik.get("streams")[0].get("width"),
         "height": probe_bik.get("streams")[0].get("height"),
         "fps": round(eval(probe_bik.get("streams")[0].get("r_frame_rate")), 2),
-        "frame_count": int(probe_bik.get("streams")[0].get("nb_read_frames"))
+        "frame_count": int(probe_bik.get("streams")[0].get("nb_read_frames") if not quick else probe_bik.get("streams")[0].get("duration_ts")),
+        "frame_count_header": int(probe_bik.get("streams")[0].get("duration_ts"))
         }
 
     return bik
@@ -168,6 +173,8 @@ def index(d):
     log("saved bik properties to %s\n" % outfile, level=0)
 
 def compare(f, root=''):
+    global quick
+
     if (not os.path.isfile(f)):
         error("file %s does not exist\n" % f)
         return 1
@@ -210,6 +217,7 @@ def compare(f, root=''):
     check_string = "{:<25s}"
     mag = math.floor(math.log(max(vanilla.get("frame_count", 0), bik.get("frame_count", 0)), 10)) + 1
     frames_string = "{:>10s} {:0" + str(mag) + "d} {:s} {:.2f} {:s}\n"
+    header_string = "{:>7s} {:0" + str(mag) + "d}"
 
     # check existence
     if (vanilla.get("name") is None):
@@ -317,6 +325,18 @@ def compare(f, root=''):
                     log(frames_string.format("or:", vfc, "frames @", 4*vfps, "FPS"), level=0)
                 log("(or vanilla)\n", level=0)
             errors["frame"] += 1
+
+    # check header integrity
+    if not quick:
+        if bik.get("frame_count") == bik.get("frame_count_header"):
+            log(check_string.format("4. checking header:"))
+            log_ok("OK: header contains actual number of frames")
+        else:
+            log(check_string.format("4. checking header"), level=0)
+            error("WARNING: header does not indicate actual number of frames")
+            log(header_string.format("header:", bik.get("frame_count_header")), level=0)
+            log(header_string.format("actual:", bik.get("frame_count")), level=0)
+
     return errors
 
 def check(d):
@@ -365,18 +385,21 @@ def init_parser():
     actiongroup.add_argument('--compare', nargs=2, metavar=('GAME','BIK'), help='compares the supplied BIK to vanilla properties stored in database of GAME (ME1|ME2|ME3)')
     actiongroup.add_argument('-c', '--check', nargs=2, metavar=('GAME','PATH'), help='checks all (supported) biks in PATH against the database of given GAME (ME1|ME2|ME3)')
 
+    parser.add_argument('--quick', '--fast', action='store_const', const=True, default=False, help='only read bik header instead of actually counting frames')
+
     verbositygroup = parser.add_mutually_exclusive_group()
     verbositygroup.add_argument("-v", "--verbosity", action="count", default=0, help="increase output (stdout) verbosity")
     verbositygroup.add_argument("-q", "--quiet", "--silent", action='store_const', const=-0, help="decrease output (stdout) verbosity to silent")
     verbositygroup.add_argument('--debug', action='store_const', const=3, help='set stdout verbosity level to debug (maximum)')
     loggroup = parser.add_mutually_exclusive_group()
-    loggroup.add_argument('--no-log', action='store_const', const=False, help='disable log file')
+    loggroup.add_argument('--no-log', action='store_const', const=False, default=True, help='disable log file')
     loggroup.add_argument("--log-verbosity", default=2, help="set log verbosity")
     loggroup.add_argument("--short-log", action='store_const', const=1, help="set log file verbosity to INFO")
     loggroup.add_argument("--error-log", action='store_const', const=0, help="set log file verbosity to WARN")
     return parser
 
 def main():
+    global quick
     global game
     global verbosity
     global log_to_file
@@ -397,10 +420,12 @@ def main():
     elif args.check is not None:
         game = args.check[0]
 
+    quick = args.quick
+
     verbosity += args.verbosity
     verbosity = verbosity if args.quiet is None else args.quiet
     verbosity = verbosity if args.debug is None else args.debug
-    log_to_file = True if args.no_log is None else args.no_log
+    log_to_file = args.no_log
     log_path = "alov_sanity_checker_%s_%s.log" % (game, datetime.now().strftime("%y%m%dT%H%M"))
     if log_to_file:
         logfile = open(log_path, 'w')
