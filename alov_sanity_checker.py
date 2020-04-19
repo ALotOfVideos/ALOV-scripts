@@ -201,11 +201,13 @@ def compare(f, root=''):
 
     vanilla = dict()
     if root == '':
+        # comparing a bik manually(?): best effort search
         for v in db:
             if v.get("name") == name:
                 vanilla = v
                 break
     else:
+        # checking a release: we know the corresponding folder
         for v in db:
             if v.get("dir") == folder and v.get("name") == name:
                 vanilla = v
@@ -394,6 +396,8 @@ def check(d):
         log(log_string.format(count, total), level=0)
         errors = dict(Counter(errors) + Counter(compare(bik, d)))
         # TODO pop these to display list of missing in the end
+
+    count -= errors.get("db", 0)
 
     log("\n", level=0)
     if count != total:
