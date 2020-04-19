@@ -82,6 +82,9 @@ def is1440p(input):
 def is1081p(input):
     return isRes(input, 1920, 1081)
 
+def is1079p(input):
+    return isRes(input, 1920, 1079)
+
 def is1080p(input):
     return isRes(input, 1920, 1080)
 
@@ -250,6 +253,9 @@ def compare(f, root=''):
     if is1081p(bik):
         log(check_string.format("2. checking resolution:"))
         log_ok("OK: 1081p\n")
+    elif is1079p(bik):
+        log(check_string.format("2. checking resolution:"))
+        log_ok("OK: 1079p\n")
     elif is1440p(bik):
         log(check_string.format("2. checking resolution:"))
         log_ok("OK: 1440p\n")
@@ -258,11 +264,11 @@ def compare(f, root=''):
         log_ok("OK: 4K\n")
     elif (is1080p(bik)):
         log(check_string.format("2. checking resolution:"), level=0)
-        error("WARNING: %s is 1080p -> should be 1081p\n" % f)
+        error("WARNING: %s is 1080p -> should be 1079p\n" % f)
         errors["res"] += 1
     else:
         log(check_string.format("2. checking resolution:"), level=0)
-        error("WARNING: resolution is not 1081p/1440p/4K (%dx%d)\n" % (bik.get("width"), bik.get("height")))
+        error("WARNING: resolution is not 1079p/1081p/1440p/4K (%dx%d)\n" % (bik.get("width"), bik.get("height")))
         errors["res"] += 1
 
     # check frame count
