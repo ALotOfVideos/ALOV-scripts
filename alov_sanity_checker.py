@@ -194,7 +194,11 @@ def compare(f, root=''):
 
     bik = getBikProperties(f, root)
     name = bik.get("name")
-    folder = fm.get(bik.get("dir"))
+    folder = bik.get("dir")
+    # DLC_MOD_ALOV_Optional contains single files mapped to various origins
+    if folder == os.path.join("DLC_MOD_ALOV_Optional", "Movies"):
+        folder = os.path.join(folder, name)
+    folder = fm.get(folder)
 
     log("checking %s\n" % os.path.join(bik.get("dir"), name), level=0)
 

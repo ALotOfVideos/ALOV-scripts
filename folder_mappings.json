@@ -37,6 +37,14 @@
 			"Patches_Alternates/MEHEM_to_CEM_Lite": "ME3 Mods/MEHEM to CEM Lite/v0.5 to 1.4.1/DLC_CON_MtoC/Movies",
 			"Patches_Alternates/OMEGA_HUB": "ME3 Mods/Omega HUB/v0.61/DLC_MOD_EGM_Omg/Movies",
 			"Patches_Alternates/PEOM": "ME3 Mods/PEOM/v1.5.1/DLC_CON_PEOM/Movies",
-			"Patches_Alternates/PEOM_to_EGM": "ME3 Mods/PEOM to EGM/v1.5.1 to v1.20/DLC_CON_PEOM/Movies"
+			"Patches_Alternates/PEOM_to_EGM": "ME3 Mods/PEOM to EGM/v1.5.1 to v1.20/DLC_CON_PEOM/Movies",
+			"DLC_MOD_ALOV_Optional/Movies/End002_Smls_Tunnel.bik": "BIOGame/Movies",
+			"DLC_MOD_ALOV_Optional/Movies/load_OMG_1toHub.bik": "BIOGame/DLC/DLC_EXP_Pack002/Movies",
+			"DLC_MOD_ALOV_Optional/Movies/load_OMG_3to4.bik": "BIOGame/DLC/DLC_EXP_Pack002/Movies",
+			"DLC_MOD_ALOV_Optional/Movies/load_OMG_Hubto2a.bik": "BIOGame/DLC/DLC_EXP_Pack002/Movies",
+			"DLC_MOD_ALOV_Optional/Movies/load_OMG_Hubto3.bik": "BIOGame/DLC/DLC_EXP_Pack002/Movies",
+			"DLC_MOD_ALOV_Optional/Movies/ProMar_IM_Cutaway.bik": "BIOGame/Movies",
+			"DLC_MOD_ALOV_Optional/Movies/Smls_2_Loop.bik": "BIOGame/Movies",
+			"DLC_MOD_ALOV_Optional/Movies/Smls_NorFTL.bik": "BIOGame/Movies"
 		}
 }

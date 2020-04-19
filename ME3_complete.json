@@ -3224,6 +3224,14 @@
 "frame_count": 253
 },
 {
+"name": "NorEnd_Hackett_Speech_Intro.bik",
+"dir": "ME3 Mods/PEOM to EGM/v1.5.1 to v1.20/DLC_CON_PEOM/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 300
+},
+{
 "name": "End01_AAGun_Fail.bik",
 "dir": "ME3 Mods/PEOM/v1.5.1/DLC_CON_PEOM/Movies",
 "width": 1920,
@@ -3286,14 +3294,6 @@
 "height": 1080,
 "fps": 60.0,
 "frame_count": 1658
-},
-{
-"name": "NorEnd_Hackett_Speech_Intro.bik",
-"dir": "ME3 Mods/PEOM/v1.5.1/DLC_CON_PEOM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 300
 },
 {
 "name": "10.bik",
