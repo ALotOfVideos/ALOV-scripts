@@ -7,7 +7,6 @@
 # requirements: python 3.5, ffprobe (ffmpeg)
 
 import os.path
-from os import sep
 import pathlib
 import sys
 import subprocess as sp
@@ -21,9 +20,9 @@ from collections import Counter
 
 quick = False
 
-game = None
+game: str
 folder_mappings = None
-db = None
+global_db = None
 
 verbosity = 1
 log_to_file = False
@@ -70,30 +69,30 @@ def log_info(s, level=1):
 def debug(s, level=3):
     log(s, level)
 
-def isRes(input, w, h):
-    return (input.get("width") == w and input.get("height") == h)
+def isRes(i, w, h):
+    return i.get("width") == w and i.get("height") == h
 
-def is4K(input):
-    return isRes(input, 3840, 2160)
+def is4K(i):
+    return isRes(i, 3840, 2160)
 
-def is1440p(input):
-    return isRes(input, 2560, 1440)
+def is1440p(i):
+    return isRes(i, 2560, 1440)
 
-def is1081p(input):
-    return isRes(input, 1920, 1081)
+def is1081p(i):
+    return isRes(i, 1920, 1081)
 
-def is1079p(input):
-    return isRes(input, 1920, 1079)
+def is1079p(i):
+    return isRes(i, 1920, 1079)
 
-def is1080p(input):
-    return isRes(input, 1920, 1080)
+def is1080p(i):
+    return isRes(i, 1920, 1080)
 
 def getMappings():
     global folder_mappings
     global game
     folder_mappings_path = 'folder_mappings.json'
     if folder_mappings is None:
-        if (not os.path.isfile(folder_mappings_path)):
+        if not os.path.isfile(folder_mappings_path):
             error("folder mappings %s does not exist\n" % folder_mappings_path)
             return None
         with open(folder_mappings_path, 'r') as fm_fp:
@@ -101,16 +100,16 @@ def getMappings():
     return folder_mappings
 
 def getDB():
-    global db
+    global global_db
     global game
     db_path = game + "_complete.json"
-    if db is None:
-        if (not os.path.isfile(db_path)):
+    if global_db is None:
+        if not os.path.isfile(db_path):
             error("database %s does not exist\n" % db_path)
             return None
         with open(db_path, 'r') as db_fp:
-            db = json.load(db_fp)
-    return db
+            global_db = json.load(db_fp)
+    return global_db
 
 def getRelativeDir(p, to=''):
     if to == '':
@@ -141,7 +140,7 @@ def getBikProperties(f, root=''):
     return bik
 
 def index(d):
-    if (not os.path.isdir(d)):
+    if not os.path.isdir(d):
         error("directory %s does not exist\n" % d)
         sys.exit(1)
 
@@ -178,7 +177,7 @@ def index(d):
 def compare(f, root=''):
     global quick
 
-    if (not os.path.isfile(f)):
+    if not os.path.isfile(f):
         error("file %s does not exist\n" % f)
         return 1
 
@@ -225,7 +224,7 @@ def compare(f, root=''):
     header_string = "{:>7s} {:0" + str(mag) + "d}\n"
 
     # check existence
-    if (vanilla.get("name") is None):
+    if vanilla.get("name") is None:
         log(check_string.format("1. checking existence:"), level=0)
         # search case-insensitive
         if root == '':
@@ -238,13 +237,13 @@ def compare(f, root=''):
                 if v.get("dir") == folder and v.get("name").lower() == name.lower():
                     vanilla = v
                     break
-        if (vanilla.get("name") is None):
+        if vanilla.get("name") is None:
             error("WARNING: cutscene not found in vanilla database\n")
             errors["db"] += 1
             return errors
         else:
             error("WARNING: cutscene uses wrong capitalization\n")
-            log(capitalization_string.format("vanilla:", v.get("name")), level=0)
+            log(capitalization_string.format("vanilla:", vanilla.get("name")), level=0)
             log(capitalization_string.format("found:", name), level=0)
             errors["db"] += 1
     else:
@@ -264,7 +263,7 @@ def compare(f, root=''):
     elif is4K(bik):
         log(check_string.format("2. checking resolution:"))
         log_ok("OK: 4K\n")
-    elif (is1080p(bik)):
+    elif is1080p(bik):
         log(check_string.format("2. checking resolution:"), level=0)
         error("WARNING: %s is 1080p -> should be 1079p\n" % f)
         errors["res"] += 1
@@ -296,7 +295,7 @@ def compare(f, root=''):
             log_info("OK: frames were interpolated\n")
             log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
             log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=1)
-        elif (factor != 1 and factor >= factor_thresh and factor <= 1/factor_thresh):
+        elif factor != 1 and factor >= factor_thresh and factor <= 1/factor_thresh:
             debug_path.append("elif (factor != 1 and factor >= factor_thresh and factor <= 1/factor_thresh):")
             if bfc == vfc:
                 debug_path.append("if bfc == vfc:")
@@ -372,7 +371,7 @@ def compare(f, root=''):
     return errors
 
 def check(d):
-    if (not os.path.isdir(d)):
+    if not os.path.isdir(d):
         error("directory %s does not exist\n" % d)
         return 1
 
@@ -443,12 +442,12 @@ def main():
     parser = init_parser()
     args = parser.parse_args()
 
-    if (args.compare is not None and args.compare[0] not in ("ME1", "ME2", "ME3")):
+    if args.compare is not None and args.compare[0] not in ("ME1", "ME2", "ME3"):
         error("wrong value for GAME: %s. Must be either ME1, ME2 or ME3.\n" % args.compare[0])
         exit(1)
     elif args.compare is not None:
         game = args.compare[0]
-    if (args.check is not None and args.check[0] not in ("ME1", "ME2", "ME3")):
+    if args.check is not None and args.check[0] not in ("ME1", "ME2", "ME3"):
         error("wrong value for GAME: %s. Must be either ME1, ME2 or ME3.\n" % args.check[0])
         exit(1)
     elif args.check is not None:
