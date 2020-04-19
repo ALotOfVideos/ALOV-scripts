@@ -2,7 +2,9 @@
 	"ME1":
 		{
 			"BASEGAME": "BioGame/CookedPC/Movies",
-			"BDTS": "DLC/DLC_UNC/Movies"
+			"BDTS": "DLC/DLC_UNC/Movies",
+			"OPTIONAL": "BioGame/CookedPC/Movies",
+			"ME1Re": "ME1 Mods/ME1Recalibrated/v2.1/DLC_ME1Re/Movies"
 		},
 	"ME2":
 		{
