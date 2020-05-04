@@ -446,5 +446,13 @@
 "height": 720,
 "fps": 30.0,
 "frame_count": 1004
+},
+{
+"name": "STA_ArrivalSEQ04a.bik",
+"dir": "ME1 Mods/ME1Recalibrated/v2.1/DLC_ME1Re/Movies",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 214
 }
 ]

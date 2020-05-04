@@ -196,7 +196,8 @@ def compare(f, root=''):
     name = bik.get("name")
     folder = bik.get("dir")
     # DLC_MOD_ALOV_Optional contains single files mapped to various origins
-    if folder == os.path.join("DLC_MOD_ALOV_Optional", "Movies"):
+    if folder == os.path.join("DLC_MOD_ALOV_Optional", "Movies") or \
+       (folder == os.path.join("BASEGAME", "Movies") and name == "STA_ArrivalSEQ04a.bik"):
         folder = os.path.join(folder, name)
     folder = fm.get(folder)
 
