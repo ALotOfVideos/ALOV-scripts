@@ -333,12 +333,18 @@ def compare(f, root=''):
         else:
             debug_path.append("else:")
             log(check_string.format("3. checking frame count:"), level=0)
-            if bfps == vfps and bfc < factor * vfc:
-                debug_path.append("if bfps == vfps and bfc < factor * vfc:")
-                error("WARNING: missing frames\n")
-                log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=0)
-                log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=0)
-                log("{:>10s} {:s}\n".format("should be:", "vanilla probably"), level=0)
+            if bfps == vfps:
+                debug_path.append("if bfps == vfps:")
+                if bfc < vfc:
+                    error("WARNING: missing frames\n")
+                    log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=0)
+                    log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=0)
+                    log("{:>10s} {:s}\n".format("should be:", "vanilla probably"), level=0)
+                    errors["frame"] += 1
+                elif bfc % vfc == 0:
+                    log_info("OK: extended/looped clip\n")
+                    log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
+                    log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=1)
             else:
                 debug_path.append("else:")
                 error("WARNING: frame rate/count mismatch\n")
@@ -355,7 +361,7 @@ def compare(f, root=''):
                     log(frames_string.format("should be:", 4*vfc, "frames @", 4*vfps, "FPS"), level=0)
                     log(frames_string.format("or:", vfc, "frames @", 4*vfps, "FPS"), level=0)
                 log("(or vanilla)\n", level=0)
-            errors["frame"] += 1
+                errors["frame"] += 1
 
     log(debug_path, level=3)
 
