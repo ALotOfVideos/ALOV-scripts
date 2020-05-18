@@ -226,12 +226,12 @@ def compare(f, root=''):
     log("resolved dir: %s\n" % folder, level=3)
     log("vanilla file: %s%s%s\n" % (vanilla.get("dir"), os.sep, vanilla.get("name")), level=3)
 
-    errors = {"db": 0, "res": 0, "frame": 0}
-    capitalization_string = "{:>8s} {:s}\n"
+    errors = {"db": 0, "res": 0, "frame": 0, "missing": 0, "header": 0}
+    capitalization_string = "{:>10s} {:s}\n"
     check_string = "{:<25s}"
     mag = math.floor(math.log(max(vanilla.get("frame_count", 0), bik.get("frame_count", 0)), 10)) + 1
     frames_string = "{:>10s} {:0" + str(mag) + "d} {:s} {:.2f} {:s}\n"
-    header_string = "{:>7s} {:0" + str(mag) + "d}\n"
+    header_string = "{:>10s} {:0" + str(mag) + "d}\n"
 
     # check existence
     if vanilla.get("name") is None:
@@ -256,6 +256,7 @@ def compare(f, root=''):
             log(capitalization_string.format("vanilla:", vanilla.get("name")), level=0)
             log(capitalization_string.format("found:", name), level=0)
             errors["db"] += 1
+            errors["missing"] -= 1
     else:
         log(check_string.format("1. checking existence:"))
         log_ok("OK: cutscene found in database\n")
@@ -368,6 +369,7 @@ def compare(f, root=''):
             error("WARNING: header does not indicate actual number of frames\n")
             log(header_string.format("header:", bik.get("frame_count_header")), level=0)
             log(header_string.format("actual:", bik.get("frame_count")), level=0)
+            errors["header"] += 1
 
     return errors
 
@@ -387,7 +389,7 @@ def check(d):
     mag = math.floor(math.log(total, 10)) + 1
     log_string = "({:0" + str(mag) + "d}/{:0" + str(mag) + "d}) "
     count = 0
-    errors = {"db": 0, "res": 0, "frame": 0, "missing": 0}
+    errors = {"db": 0, "res": 0, "frame": 0, "missing": 0, "header": 0}
 
     biks = sorted(glob.glob("%s%s**%s*.bik" % (d, os.sep, os.sep), recursive=True), key=str.lower)
 
@@ -397,13 +399,15 @@ def check(d):
         errors = dict(Counter(errors) + Counter(compare(bik, d)))
         # TODO pop these to display list of missing in the end
 
-    count -= errors.get("db", 0)
-
     log("\n", level=0)
     if count != total:
-        mismatch_string = "{:>8s} {:3d}\n"
+        mismatch_string = "{:>12s} {:3d}\n"
         error(mismatch_string.format("vanilla:", total))
         error(mismatch_string.format("found:", count))
+        if errors.get("db", 0) > 0:
+            error("    therein:\n")
+            error(mismatch_string.format("in db:", count - errors.get("db", 0)))
+            error(mismatch_string.format("unexpected:", errors.get("db", 0)))
         errors = dict(Counter(errors) + Counter({"missing": total - count}))
     else:
         log_ok("found %d files in database\n")
@@ -500,6 +504,8 @@ def main():
             error(errors_string.format("Wrong resolution", errors.get("res", 0)))
             error(errors_string.format("Frame count/FPS", errors.get("frame", 0)))
             error(errors_string.format("Missing files", errors.get("missing", 0)))
+            if not quick:
+                error(errors_string.format("Broken headers", errors.get("header", 0)))
         else:
             log_ok("no issues found\n", level=0)
 
