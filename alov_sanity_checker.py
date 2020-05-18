@@ -414,7 +414,7 @@ def check(d):
             error("    therein:\n")
             error(mismatch_string.format("in db:", count - errors.get("db", 0)))
             error(mismatch_string.format("unexpected:", errors.get("db", 0)))
-        errors = dict(Counter(errors) + Counter({"missing": total - count}))
+        errors = dict(Counter(errors) + Counter({"missing": total - (count - errors.get("db", 0))}))
     else:
         log_ok("found %d files in database\n")
         log("\033[32;1mrelease is complete.\033[0m\n")
