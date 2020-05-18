@@ -31,6 +31,9 @@ log_to_file = False
 logfile = None
 log_verbosity = 2
 
+poplist = []
+unknownlist = []
+
 ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
 
 def log(s, level=2):
@@ -181,6 +184,8 @@ def index(d):
 
 def compare(f, root=''):
     global quick
+    global poplist
+    global unknownlist
 
     if not os.path.isfile(f):
         error("file %s does not exist\n" % f)
@@ -249,17 +254,19 @@ def compare(f, root=''):
                     break
         if vanilla.get("name") is None:
             error("WARNING: cutscene not found in vanilla database\n")
-            errors["db"] += 1
             return errors
         else:
             error("WARNING: cutscene uses wrong capitalization\n")
             log(capitalization_string.format("vanilla:", vanilla.get("name")), level=0)
             log(capitalization_string.format("found:", name), level=0)
-            errors["db"] += 1
+            unknownlist.append({'n': name, 'd': folder})
             errors["missing"] -= 1
+        errors["db"] += 1
     else:
         log(check_string.format("1. checking existence:"))
         log_ok("OK: cutscene found in database\n")
+    if vanilla is not None:
+        poplist.append(vanilla)
 
     # check resolution
     if (r := isResolutionOK(bik)) is not None:
@@ -380,6 +387,9 @@ def compare(f, root=''):
     return errors
 
 def check(d):
+    global poplist
+    global unknownlist
+
     if not os.path.isdir(d):
         error("directory %s does not exist\n" % d)
         return 1
@@ -403,17 +413,27 @@ def check(d):
         count += 1
         log(log_string.format(count, total), level=0)
         errors = dict(Counter(errors) + Counter(compare(bik, d)))
-        # TODO pop these to display list of missing in the end
+
+    # TODO pop these to display list of missing in the end
+    missing = db
+    for i in poplist:
+        if i in missing:
+            missing.remove(i)
 
     log("\n", level=0)
-    if count != total:
+    if count != total or errors.get("db", 0) != 0:
         mismatch_string = "{:>12s} {:3d}\n"
+        missing_string = "{:>18s} {:s}\n"
         error(mismatch_string.format("vanilla:", total))
         error(mismatch_string.format("found:", count))
-        if errors.get("db", 0) > 0:
+        if errors.get("db", 0) != 0:
             error("    therein:\n")
             error(mismatch_string.format("in db:", count - errors.get("db", 0)))
             error(mismatch_string.format("unexpected:", errors.get("db", 0)))
+            error("\n")
+            error(missing_string.format("unexpected files:", ', '.join([i.get('n') + " (" + i.get('d') + ")" for i in unknownlist])))
+        if len(missing) > 0:
+            error(missing_string.format("missing files:", ', '.join([i.get('name') for i in missing])))
         errors = dict(Counter(errors) + Counter({"missing": total - (count - errors.get("db", 0))}))
     else:
         log_ok("found %d files in database\n")
