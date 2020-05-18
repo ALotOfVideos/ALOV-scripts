@@ -23,6 +23,8 @@ quick = False
 game: str
 folder_mappings = None
 global_db = None
+resolutions = None
+config = None
 
 verbosity = 1
 log_to_file = False
@@ -72,20 +74,23 @@ def debug(s, level=3):
 def isRes(i, w, h):
     return i.get("width") == w and i.get("height") == h
 
-def is4K(i):
-    return isRes(i, 3840, 2160)
+def isResolutionOK(i):
+    global resolutions
+    global config
+    allowed = config.get("resolutions")
+    for n in allowed:
+        r = resolutions.get(n, {})
+        if isRes(i, r.get("w"), r.get("h")):
+            return n
 
-def is1440p(i):
-    return isRes(i, 2560, 1440)
-
-def is1081p(i):
-    return isRes(i, 1920, 1081)
-
-def is1079p(i):
-    return isRes(i, 1920, 1079)
-
-def is1080p(i):
-    return isRes(i, 1920, 1080)
+def isResolutionIllegal(i):
+    global resolutions
+    global config
+    blacklist = ["1080p", "1440p"]
+    for n in blacklist:
+        r = resolutions.get(n, {})
+        if isRes(i, r.get("w"), r.get("h")):
+            return n
 
 def getMappings():
     global folder_mappings
@@ -256,25 +261,16 @@ def compare(f, root=''):
         log_ok("OK: cutscene found in database\n")
 
     # check resolution
-    if is1081p(bik):
+    if (r := isResolutionOK(bik)) is not None:
         log(check_string.format("2. checking resolution:"))
-        log_ok("OK: 1081p\n")
-    elif is1079p(bik):
-        log(check_string.format("2. checking resolution:"))
-        log_ok("OK: 1079p\n")
-    elif is1440p(bik):
-        log(check_string.format("2. checking resolution:"))
-        log_ok("OK: 1440p\n")
-    elif is4K(bik):
-        log(check_string.format("2. checking resolution:"))
-        log_ok("OK: 4K\n")
-    elif is1080p(bik):
+        log_ok(f"OK: {r}\n")
+    elif (r := isResolutionIllegal(bik)) is not None:
         log(check_string.format("2. checking resolution:"), level=0)
-        error("WARNING: %s is 1080p -> should be 1079p\n" % f)
+        error(f"WARNING: %s is using an illegal resolution ({r})\n" % f)
         errors["res"] += 1
     else:
         log(check_string.format("2. checking resolution:"), level=0)
-        error("WARNING: resolution is not 1079p/1081p/1440p/4K (%dx%d)\n" % (bik.get("width"), bik.get("height")))
+        error("WARNING: resolution not recognized (%dx%d)\n" % (bik.get("width"), bik.get("height")))
         errors["res"] += 1
 
     # check frame count
@@ -439,6 +435,8 @@ def init_parser():
 def main():
     global quick
     global game
+    global resolutions
+    global config
     global verbosity
     global log_to_file
     global logfile
@@ -475,6 +473,12 @@ def main():
     log("%s\n\n" % args, level=3)
 
     errors = {"db": 0, "res": 0, "frame": 0, "missing": 0}
+
+    with open("resolutions.json", 'r') as rez:
+        resolutions = json.load(rez)
+
+    with open("config.json", 'r') as conf:
+        config = json.load(conf).get(game)
 
     if args.get_info is not None:
         bik = getBikProperties(args.get_info[0])
