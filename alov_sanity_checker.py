@@ -7,6 +7,7 @@
 # requirements: python 3.5, ffprobe (ffmpeg)
 
 import os.path
+from os import name as osname
 import pathlib
 import sys
 import subprocess as sp
@@ -48,7 +49,12 @@ def log(s, level=2):
     if level <= verbosity:
         if verbosity == 3:
             so = "(seriousness %d) %s" % (level, s)
-        print(so, end='')
+        # disable colors on windows for now
+        # TODO curses colors? or colorama pkg? or? https://docs.python.org/3/howto/curses.html?highlight=color
+        if osname == 'nt':
+            print(ansi_escape.sub('', so), end='')
+        else:
+            print(so, end='')
 
     if log_to_file and level <= log_verbosity:
         if log_verbosity == 3:
