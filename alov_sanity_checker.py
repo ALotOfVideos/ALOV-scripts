@@ -206,12 +206,15 @@ def compare(f, root=''):
     name = realname
     if intermediate:
         name = realname[:-3] + "bik"
-    folder = bik.get("dir")
+    realfolder = bik.get("dir")
     # DLC_MOD_ALOV_Optional contains single files mapped to various origins
-    if folder == os.path.join("DLC_MOD_ALOV_Optional", "Movies") or \
-       (folder == os.path.join("BASEGAME", "Movies") and name == "STA_ArrivalSEQ04a.bik"):
-        folder = os.path.join(folder, name)
-    folder = fm.get(folder)
+    if realfolder == os.path.join("DLC_MOD_ALOV_Optional", "Movies") or \
+       (realfolder == os.path.join("BASEGAME", "Movies") and name == "STA_ArrivalSEQ04a.bik"):
+        realfolder = os.path.join(realfolder, name)
+    if osname == 'nt':
+        folder = fm.get(realfolder.replace('\\', '/'))
+    else:
+        folder = fm.get(realfolder)
 
     log("checking %s\n" % os.path.join(bik.get("dir"), realname), level=0)
 
