@@ -19,6 +19,8 @@ import re
 from collections import Counter
 
 quick = False
+intermediate = False
+filetype = ""
 
 game: str
 folder_mappings = None
@@ -176,6 +178,7 @@ def index(d):
 
 def compare(f, root=''):
     global quick
+    global intermediate
 
     if not os.path.isfile(f):
         error("file %s does not exist\n" % f)
@@ -193,7 +196,10 @@ def compare(f, root=''):
         return 1
 
     bik = getBikProperties(f, root)
-    name = bik.get("name")
+    realname = bik.get("name")
+    name = realname
+    if intermediate:
+        name = realname[:-3] + "bik"
     folder = bik.get("dir")
     # DLC_MOD_ALOV_Optional contains single files mapped to various origins
     if folder == os.path.join("DLC_MOD_ALOV_Optional", "Movies") or \
@@ -201,7 +207,7 @@ def compare(f, root=''):
         folder = os.path.join(folder, name)
     folder = fm.get(folder)
 
-    log("checking %s\n" % os.path.join(bik.get("dir"), name), level=0)
+    log("checking %s\n" % os.path.join(bik.get("dir"), realname), level=0)
 
     vanilla = dict()
     if root == '':
@@ -376,6 +382,8 @@ def compare(f, root=''):
     return errors
 
 def check(d):
+    global filetype
+    
     if not os.path.isdir(d):
         error("directory %s does not exist\n" % d)
         return 1
@@ -393,7 +401,7 @@ def check(d):
     count = 0
     errors = {"db": 0, "res": 0, "frame": 0, "missing": 0}
 
-    biks = sorted(glob.glob("%s%s**%s*.bik" % (d, os.sep, os.sep), recursive=True), key=str.lower)
+    biks = sorted(glob.glob("%s%s**%s*.%s" % (d, os.sep, os.sep, filetype), recursive=True), key=str.lower)
 
     for bik in biks:
         count += 1
@@ -424,6 +432,7 @@ def init_parser():
     actiongroup.add_argument('-c', '--check', nargs=2, metavar=('GAME','PATH'), help='checks all (supported) biks in PATH against the database of given GAME (ME1|ME2|ME3)')
 
     parser.add_argument('--quick', '--fast', action='store_const', const=True, default=False, help='only read bik header instead of actually counting frames')
+    parser.add_argument('--intermediate', '--prores', action='store_const', const=True, default=False, help='check using Apple ProRes .mov intermediate files instead of release biks')
 
     verbositygroup = parser.add_mutually_exclusive_group()
     verbositygroup.add_argument("-v", "--verbosity", action="count", default=0, help="increase output (stdout) verbosity")
@@ -438,6 +447,8 @@ def init_parser():
 
 def main():
     global quick
+    global intermediate
+    global filetype
     global game
     global verbosity
     global log_to_file
@@ -459,6 +470,10 @@ def main():
         game = args.check[0]
 
     quick = args.quick
+    intermediate = args.intermediate
+    filetype = "bik"
+    if intermediate:
+        filetype = "mov"
 
     verbosity += args.verbosity
     verbosity = verbosity if args.quiet is None else args.quiet
