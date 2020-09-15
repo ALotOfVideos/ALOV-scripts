@@ -62,7 +62,7 @@ def log(s, level=Verb.ALL, preColor='', postColor='\033[0m'):
         # TODO curses colors? or colorama pkg? or? https://docs.python.org/3/howto/curses.html?highlight=color
         if osname == 'nt':
             preColor = postColor = ''
-            
+
         so = log_newlines.sub('', s)
         so = f"{preColor}{so}{postColor}"
         newlines = s.count("\n")
@@ -219,6 +219,8 @@ def checkHeader(video, check_fstring, header_string="checking header: "):
 
 
 def index(d):
+    global filetype
+
     if not os.path.isdir(d):
         error(f"directory {d} does not exist\n")
         sys.exit(1)
@@ -242,6 +244,7 @@ def index(d):
     log_string = f"({{:0{str(mag)}d}}/{{:0{str(mag)}d}}) reading {{:s}}\n"  # TODO interpolate strings properly
     count = 0
     scannedBiks = list()
+    errors = {"header": 0}
     for f in biks:
         count += 1
         log(log_string.format(count, total, f), level=Verb.WARN)
@@ -254,6 +257,8 @@ def index(d):
 
     log("\n", level=Verb.WARN)
     log(f"saved bik properties to {outfile}\n", level=Verb.WARN)
+
+    return errors
 
 
 def compare(f, root=''):
@@ -286,6 +291,8 @@ def compare(f, root=''):
     # replace intermediate file extension with vanilla extension to match library
     if intermediate:
         ext = '.bik'
+        if game == 'MEA''':
+            ext = '.webm'
         name = file_ext.sub(ext, realname)
 
     realfolder = bik.get('dir')
@@ -608,9 +615,9 @@ def init_parser():
 
     actiongroup = parser.add_mutually_exclusive_group(required=True)
     actiongroup.add_argument('-g', '--get-info', nargs=1, metavar='BIK', help="reads the supplied BIK file and outputs its properties as json")
-    actiongroup.add_argument('-i', '--index', nargs=1, metavar='PATH', help="gets all bik files inside (sub)directory PATH and outputs a json file with info of all biks")
-    actiongroup.add_argument('--compare', nargs=2, metavar=('GAME', 'BIK'), help="compares the supplied BIK to vanilla properties stored in database of GAME (ME1|ME2|ME3)")
-    actiongroup.add_argument('-c', '--check', nargs=2, metavar=('GAME', 'PATH'), help="checks all (supported) biks in PATH against the database of given GAME (ME1|ME2|ME3)")
+    actiongroup.add_argument('-i', '--index', nargs=2, metavar=('GAME', 'PATH'), help="gets all cutscene files matching GAME (ME1|ME2|ME3|MEA) filetype inside (sub)directory PATH and outputs a json file with info of all biks")
+    actiongroup.add_argument('--compare', nargs=2, metavar=('GAME', 'BIK'), help="compares the supplied BIK to vanilla properties stored in database of GAME (ME1|ME2|ME3|MEA)")
+    actiongroup.add_argument('-c', '--check', nargs=2, metavar=('GAME', 'PATH'), help="checks all (supported) biks in PATH against the database of given GAME (ME1|ME2|ME3|MEA)")
 
     parser.add_argument('--quick', '--fast', action='store_const', const=True, default=False, help='only read bik header instead of actually counting frames')
     parser.add_argument('--intermediate', '--prores', action='store_const', const=True, default=False, help='check using Apple ProRes .mov intermediate files instead of release biks')
@@ -642,20 +649,42 @@ def main():
     parser = init_parser()
     args = parser.parse_args()
 
-    if args.compare is not None and args.compare[0] not in ('ME1', 'ME2', 'ME3'):
-        error(f"wrong value for GAME: {args.compare[0]}. Must be either ME1, ME2 or ME3.\n")
+    if args.index is not None and args.index[0] not in ('ME1', 'ME2', 'ME3', 'MEA'):
+        error(f"wrong value for GAME: {args.index[0]}. Must be either ME1, ME2, ME3 or MEA.\n")
+        exit(1)
+    elif args.index is not None:
+        game = args.index[0]
+    if args.compare is not None and args.compare[0] not in ('ME1', 'ME2', 'ME3', 'MEA'):
+        error(f"wrong value for GAME: {args.compare[0]}. Must be either ME1, ME2, ME3 or MEA.\n")
         exit(1)
     elif args.compare is not None:
         game = args.compare[0]
-    if args.check is not None and args.check[0] not in ('ME1', 'ME2', 'ME3'):
-        error(f"wrong value for GAME: {args.check[0]}. Must be either ME1, ME2 or ME3.\n")
+    if args.check is not None and args.check[0] not in ('ME1', 'ME2', 'ME3', 'MEA'):
+        error(f"wrong value for GAME: {args.check[0]}. Must be either ME1, ME2, ME3 or MEA.\n")
         exit(1)
     elif args.check is not None:
         game = args.check[0]
 
     quick = args.quick
     intermediate = args.intermediate
+
+    if args.index is not None and intermediate:
+        warning("You are trying to --index --intermediate. While possible, that usually doesn't make much sense.\n")
+        if input("Continue? [Y|n]") in ['N', 'n']:
+            exit(1)
+
+    if args.index is not None and quick:
+        warning("You are trying to --index --quick. That means the real files won't be tested, only headers read.\n")
+        if input("Continue? [Y|n]") in ['N', 'n']:
+            exit(1)
+
+    if game == 'MEA' and quick and not intermediate:
+        quick = False
+        log_info("MEA (webm) doesn't support --quick scan. Ignoring and performing regular scan.\n")
+
     filetype = 'bik'
+    if game == 'MEA':
+        filetype = 'webm'
     if intermediate:
         filetype = 'mov'
 
@@ -676,15 +705,15 @@ def main():
         log_path = f'alov_sanity_checker{log_path}.log'
 
         logfile = open(log_path, 'w')
-        log("opened log file %s\n\n" % log_path, level=Verb.WARN)
+        log(f"opened log file {log_path}\n\n", level=Verb.WARN)
 
-    log_verbosity = args.log_verbosity
+    log_verbosity = int(args.log_verbosity)
     log_verbosity = log_verbosity if args.error_log is None else args.error_log
     log_verbosity = log_verbosity if args.short_log is None else args.short_log
 
     log(f'{args}\n\n', level=Verb.DEBUG)
 
-    errors = {'db': 0, 'res': 0, 'frame': 0, 'missing': 0}
+    errors = {"db": 0, "res": 0, "frame": 0, "missing": 0, "header": 0}
 
     with open('resolutions.json', 'r') as rez:
         resolutions = json.load(rez)
@@ -696,10 +725,10 @@ def main():
     if args.get_info is not None:
         bik = getBikProperties(args.get_info[0])
         print(bik)
-    elif args.index is not None:
-        index(args.index[0])
     else:
-        if args.compare is not None:
+        if args.index is not None:
+            errors = index(args.index[1])
+        elif args.compare is not None:
             errors, _ = compare(args.compare[1])
         elif args.check is not None:
             errors = check(args.check[1])
