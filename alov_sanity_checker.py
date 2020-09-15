@@ -143,13 +143,36 @@ def getBikProperties(f, root=''):
         "width": probe_bik.get("streams")[0].get("width"),
         "height": probe_bik.get("streams")[0].get("height"),
         "fps": round(eval(probe_bik.get("streams")[0].get("r_frame_rate")), 2),
-        "frame_count": int(probe_bik.get("streams")[0].get("nb_read_frames") if not quick else probe_bik.get("streams")[0].get("duration_ts")),
-        "frame_count_header": int(probe_bik.get("streams")[0].get("duration_ts"))
+        "frame_count": int(probe_bik.get("streams")[0].get("nb_read_frames") if not quick else probe_bik.get("streams")[0].get("duration_ts", 0)),
+        "frame_count_header": int(probe_bik.get("streams")[0].get("duration_ts", 0))
         }
 
     return bik
 
+
+def checkHeader(video, check_fstring, header_string="checking header: "):
+    global quick
+
+    mag = math.floor(math.log(max(video.get("frame_count", 0), video.get("frame_count_header", 0)), 10)) + 1
+    header_fstring = "{:>7s} {:0" + str(mag) + "d}\n"
+    
+    if not quick:
+        if video.get("frame_count") == video.get("frame_count_header"):
+            log(check_fstring.format(header_string))
+            log_ok("OK: header contains actual number of frames\n")
+            return 0
+        else:
+            log(check_fstring.format(header_string), level=0)
+            error("WARNING: header does not indicate actual number of frames\n")
+            log(header_fstring.format("header:", video.get("frame_count_header")), level=0)
+            log(header_fstring.format("actual:", video.get("frame_count")), level=0)
+            return 1
+    return 0
+
+
 def index(d):
+    global filetype
+
     if not os.path.isdir(d):
         error("directory %s does not exist\n" % d)
         sys.exit(1)
@@ -166,23 +189,29 @@ def index(d):
     log("output database: %s\n" % outfile)
     log("\n", level=0)
 
-    biks = sorted(glob.glob("%s%s**%s*.bik" % (d, os.sep, os.sep), recursive=True), key=str.lower)
+    biks = sorted(glob.glob("%s%s**%s*.%s" % (d, os.sep, os.sep, filetype), recursive=True), key=str.lower)
 
     total = len(biks)
     mag = math.floor(math.log(total, 10)) + 1
     log_string = "({:0" + str(mag) + "d}/{:0" + str(mag) + "d}) reading {:s}\n"
     count = 0
     l = list()
+    errors = {"header": 0}
     for f in biks:
         count += 1
         log(log_string.format(count, total, f), level=0)
-        l.append(getBikProperties(f, d))
+        bik = getBikProperties(f, d)
+        errors["header"] += checkHeader(bik, "{:<25s}")
+        l.append(bik)
 
     with open(outfile, 'w') as out:
         json.dump(l, out, indent=0)
 
     log("\n", level=0)
     log("saved bik properties to %s\n" % outfile, level=0)
+    
+    return errors
+
 
 def compare(f, root=''):
     global quick
@@ -197,7 +226,6 @@ def compare(f, root=''):
         error("database missing\n")
         return 1
 
-
     fm = getMappings()
     if fm is None:
         error("folder mappings missing\n")
@@ -210,6 +238,8 @@ def compare(f, root=''):
     # replace intermediate file extension with vanilla extension to match library
     if intermediate:
         ext = ".bik"
+        if game == "MEA":
+            ext = ".webm"
         name = file_ext.sub(realname, ext)
 
     realfolder = bik.get("dir")
@@ -442,9 +472,9 @@ def init_parser():
     parser = argparse.ArgumentParser(description='ALOV sanity checker by HHL')
     actiongroup = parser.add_mutually_exclusive_group(required=True) # TODO name group once feature releases
     actiongroup.add_argument('-g', '--get-info', nargs=1, metavar='BIK', help='reads the supplied BIK file and outputs its properties as json')
-    actiongroup.add_argument('-i', '--index', nargs=1, metavar='PATH', help='gets all bik files inside (sub)directory PATH and outputs a json file with info of all biks')
-    actiongroup.add_argument('--compare', nargs=2, metavar=('GAME','BIK'), help='compares the supplied BIK to vanilla properties stored in database of GAME (ME1|ME2|ME3)')
-    actiongroup.add_argument('-c', '--check', nargs=2, metavar=('GAME','PATH'), help='checks all (supported) biks in PATH against the database of given GAME (ME1|ME2|ME3)')
+    actiongroup.add_argument('-i', '--index', nargs=2, metavar=('GAME','PATH'), help='gets all cutscene files matching GAME (ME1|ME2|ME3|MEA) filetype inside (sub)directory PATH and outputs a json file with info of all biks')
+    actiongroup.add_argument('--compare', nargs=2, metavar=('GAME','BIK'), help='compares the supplied BIK to vanilla properties stored in database of GAME (ME1|ME2|ME3|MEA)')
+    actiongroup.add_argument('-c', '--check', nargs=2, metavar=('GAME','PATH'), help='checks all (supported) biks in PATH against the database of given GAME (ME1|ME2|ME3|MEA)')
 
     parser.add_argument('--quick', '--fast', action='store_const', const=True, default=False, help='only read bik header instead of actually counting frames')
     parser.add_argument('--intermediate', '--prores', action='store_const', const=True, default=False, help='check using Apple ProRes .mov intermediate files instead of release biks')
@@ -473,20 +503,42 @@ def main():
     parser = init_parser()
     args = parser.parse_args()
 
-    if args.compare is not None and args.compare[0] not in ("ME1", "ME2", "ME3"):
-        error("wrong value for GAME: %s. Must be either ME1, ME2 or ME3.\n" % args.compare[0])
+    if args.index is not None and args.index[0] not in ("ME1", "ME2", "ME3", "MEA"):
+        error("wrong value for GAME: %s. Must be either ME1, ME2, ME3 or MEA.\n" % args.index[0])
+        exit(1)
+    elif args.index is not None:
+        game = args.index[0]
+    if args.compare is not None and args.compare[0] not in ("ME1", "ME2", "ME3", "MEA"):
+        error("wrong value for GAME: %s. Must be either ME1, ME2, ME3 or MEA.\n" % args.compare[0])
         exit(1)
     elif args.compare is not None:
         game = args.compare[0]
-    if args.check is not None and args.check[0] not in ("ME1", "ME2", "ME3"):
-        error("wrong value for GAME: %s. Must be either ME1, ME2 or ME3.\n" % args.check[0])
+    if args.check is not None and args.check[0] not in ("ME1", "ME2", "ME3", "MEA"):
+        error("wrong value for GAME: %s. Must be either ME1, ME2, ME3 or MEA.\n" % args.check[0])
         exit(1)
     elif args.check is not None:
         game = args.check[0]
 
     quick = args.quick
     intermediate = args.intermediate
+
+    if args.index is not None and intermediate:
+        warning("You are trying to --index --intermediate. While possible, that usually doesn't make much sense.\n")
+        if input("Continue? [Y|n]") in ["N", "n"]:
+            exit(1)
+    
+    if args.index is not None and quick:
+        warning("You are trying to --index --quick. That means the real files won't be tested, only headers read.\n")
+        if input("Continue? [Y|n]") in ["N", "n"]:
+            exit(1)
+
+    if game == "MEA" and quick and not intermediate:
+        quick = False
+        log_info("MEA (webm) doesn't support --quick scan. Ignoring and performing regular scan.\n")
+    
     filetype = "bik"
+    if game == "MEA":
+        filetype = "webm"
     if intermediate:
         filetype = "mov"
 
@@ -498,21 +550,21 @@ def main():
     if log_to_file:
         logfile = open(log_path, 'w')
         log("opened log file %s\n\n" % log_path, level=3)
-    log_verbosity = args.log_verbosity
+    log_verbosity = int(args.log_verbosity)
     log_verbosity = log_verbosity if args.error_log is None else args.error_log
     log_verbosity = log_verbosity if args.short_log is None else args.short_log
 
     log("%s\n\n" % args, level=3)
 
-    errors = {"db": 0, "res": 0, "frame": 0, "missing": 0}
+    errors = {"db": 0, "res": 0, "frame": 0, "missing": 0, "header": 0}
 
     if args.get_info is not None:
         bik = getBikProperties(args.get_info[0])
         print(bik)
-    elif args.index is not None:
-        index(args.index[0])
     else:
-        if args.compare is not None:
+        if args.index is not None:
+            errors = index(args.index[1])
+        elif args.compare is not None:
             errors = compare(args.compare[1])
         elif args.check is not None:
             errors = check(args.check[1])
