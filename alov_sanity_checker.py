@@ -33,6 +33,8 @@ logfile = None
 log_verbosity = 2
 
 ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
+file_ext = re.compile(r'\..+$')
+
 
 def log(s, level=2):
     global verbosity
@@ -204,8 +206,12 @@ def compare(f, root=''):
     bik = getBikProperties(f, root)
     realname = bik.get("name")
     name = realname
+
+    # replace intermediate file extension with vanilla extension to match library
     if intermediate:
-        name = realname[:-3] + "bik"
+        ext = ".bik"
+        name = file_ext.sub(realname, ext)
+
     realfolder = bik.get("dir")
     # DLC_MOD_ALOV_Optional contains single files mapped to various origins
     if realfolder == os.path.join("DLC_MOD_ALOV_Optional", "Movies") or \
