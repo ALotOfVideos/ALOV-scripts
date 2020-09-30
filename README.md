@@ -2,50 +2,34 @@
 
 Crossplatform-toolkit to evaluate ALOV.
 
-Most of these tools rely on ffmpeg or ffprobe for video decoding and metadata reading and thus require the respective executables in your $PATH or %PATH%. They are not redistributed with ALOV-scripts to avoid licensing issues and to allow you to update ffmpeg independently. On Linux, simply install a package providing ffmpeg using your packet manager. On Windows, either install ffmpeg and add it to your %PATH% environment variable, or simply copy ffmpeg.exe and ffprobe.exe to this directory.
+Most of these tools rely on [`ffmpeg` or `ffprobe`](https://ffmpeg.org) for video decoding and metadata reading and thus require the respective executables in your `$PATH` (Linux)/`%PATH%` (Windows).
+They are not redistributed with ALOV-scripts to avoid licensing issues and to allow you to update ffmpeg independently.
+On Linux, simply install a package providing ffmpeg using your packet manager (e.g. `sudo apt install ffmpeg`, `sudo pacman -Syu ffmpeg`).
+On Windows, either install ffmpeg and add it to your `%PATH%` environment variable, or simply copy ffmpeg.exe and `ffprobe.exe` to this directory.
 
 ## ALOV Sanity Checker
 
+The ALOV Sanity Checker is used to largely automate checking ALOV for integrity before release. Thus its releases happen in correspondence with ALOV itself.
+
 ### Requirements
 
-The biggest tool is the alov_sanity_checker.py Python script. It requires at least Python 3.5. If you want for any reason to avoid installing Python on the target system, an independent binary can be built for Windows using the build_exe.bat script (and similarly on Linux). Note that the building computer needs to run the _same_ os as the target computer, and have both Python and pip installed.
+The main tool is the `alov_sanity_checker.py` Python script. It requires at least Python 3.5.
+If you want to avoid installing Python on the target system for some reason, an independent binary can be built for Windows using the `build_exe.bat` script (and similarly on Linux).
+Note that the building computer needs to run the _same_ OS as the target computer, and have both Python and pip installed.
 
 ### Running
 
-```
-$ ./ALOV\ Sanity\ Checker.exe  --help
-usage: ALOV Sanity Checker.exe [-h]
-                               (-g BIK | -i PATH | --compare GAME BIK | -c GAME PATH)
-                               [--quick] [--intermediate] [-v | -q | --debug]
-                               [--no-log | --log-verbosity LOG_VERBOSITY | --short-log | --error-log]
+Run `./alov_sanity_checker.py --help` to display a complete list and explanation of arguments.
 
-ALOV sanity checker by HHL
+There are 4 modes:
+1. `--get-info` to display info about a file
+2. `--index` to read the properties from vanilla and store them
+3. `--compare` to compare a single video to the properties of the vanilla video with the same name
+4. `--check` to compare all videos in a whole set (i.e. ALOV release) to the according vanilla properties and also some additional stuff like completeness
 
-optional arguments:
-  -h, --help            show this help message and exit
-  -g BIK, --get-info BIK
-                        reads the supplied BIK file and outputs its properties
-                        as json
-  -i PATH, --index PATH
-                        gets all bik files inside (sub)directory PATH and
-                        outputs a json file with info of all biks
-  --compare GAME BIK    compares the supplied BIK to vanilla properties stored
-                        in database of GAME (ME1|ME2|ME3)
-  -c GAME PATH, --check GAME PATH
-                        checks all (supported) biks in PATH against the
-                        database of given GAME (ME1|ME2|ME3)
-  --quick, --fast       only read bik header instead of actually counting
-                        frames
-  --intermediate, --prores
-                        check using Apple ProRes .mov intermediate files
-                        instead of release biks
-  -v, --verbosity       increase output (stdout) verbosity
-  -q, --quiet, --silent
-                        decrease output (stdout) verbosity to silent
-  --debug               set stdout verbosity level to debug (maximum)
-  --no-log              disable log file
-  --log-verbosity LOG_VERBOSITY
-                        set log verbosity
-  --short-log           set log file verbosity to INFO
-  --error-log           set log file verbosity to WARN
-```
+This repo contains `index`es of the games (`MEX_complete.json`), so I don't expect you'd need to run the `index` mode.
+Next to the `MEX_complete.json` databases, there is also `folder_mappings.json`.
+This is needed for `--check`, because the directory structure of an ALOV release may not be the same of the installed game.
+This mappings file allows the tool to find the correct matching file, even for non-unique file names, and will be updated with the newest ALOV release.
+If you are `check`ing something else, e.g. `--intermediate`, and have a different directory structure, you can edit the mappings accordingly.
+It maps the actual folder your file is in on the left side to the folder the file will install to on the right side, with the exception of mods which I just store with a certain structure.
