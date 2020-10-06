@@ -7,6 +7,7 @@
 # requirements: python 3.5, ffprobe (ffmpeg)
 
 import os.path
+from os import name as osname
 import pathlib
 import sys
 import subprocess as sp
@@ -19,6 +20,8 @@ import re
 from collections import Counter
 
 quick = False
+intermediate = False
+filetype = ""
 
 game: str
 folder_mappings = None
@@ -35,6 +38,8 @@ poplist = []
 unknownlist = []
 
 ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
+file_ext = re.compile(r'\..+$')
+
 
 def log(s, level=2):
     global verbosity
@@ -51,7 +56,12 @@ def log(s, level=2):
     if level <= verbosity:
         if verbosity == 3:
             so = "(seriousness %d) %s" % (level, s)
-        print(so, end='')
+        # disable colors on windows for now
+        # TODO curses colors? or colorama pkg? or? https://docs.python.org/3/howto/curses.html?highlight=color
+        if osname == 'nt':
+            print(ansi_escape.sub('', so), end='')
+        else:
+            print(so, end='')
 
     if log_to_file and level <= log_verbosity:
         if log_verbosity == 3:
@@ -186,6 +196,7 @@ def compare(f, root=''):
     global quick
     global poplist
     global unknownlist
+    global intermediate
 
     if not os.path.isfile(f):
         error("file %s does not exist\n" % f)
@@ -203,15 +214,25 @@ def compare(f, root=''):
         return 1
 
     bik = getBikProperties(f, root)
-    name = bik.get("name")
-    folder = bik.get("dir")
-    # DLC_MOD_ALOV_Optional contains single files mapped to various origins
-    if folder == os.path.join("DLC_MOD_ALOV_Optional", "Movies") or \
-       (folder == os.path.join("BASEGAME", "Movies") and name == "STA_ArrivalSEQ04a.bik"):
-        folder = os.path.join(folder, name)
-    folder = fm.get(folder)
+    realname = bik.get("name")
+    name = realname
 
-    log("checking %s\n" % os.path.join(bik.get("dir"), name), level=0)
+    # replace intermediate file extension with vanilla extension to match library
+    if intermediate:
+        ext = ".bik"
+        name = file_ext.sub(realname, ext)
+
+    realfolder = bik.get("dir")
+    # DLC_MOD_ALOV_Optional contains single files mapped to various origins
+    if realfolder == os.path.join("DLC_MOD_ALOV_Optional", "Movies") or \
+       (realfolder == os.path.join("BASEGAME", "Movies") and name == "STA_ArrivalSEQ04a.bik"):
+        realfolder = os.path.join(realfolder, name)
+    if osname == 'nt':
+        folder = fm.get(realfolder.replace('\\', '/'))
+    else:
+        folder = fm.get(realfolder)
+
+    log("checking %s\n" % os.path.join(bik.get("dir"), realname), level=0)
 
     vanilla = dict()
     if root == '':
@@ -389,6 +410,7 @@ def compare(f, root=''):
 def check(d):
     global poplist
     global unknownlist
+    global filetype
 
     if not os.path.isdir(d):
         error("directory %s does not exist\n" % d)
@@ -407,7 +429,7 @@ def check(d):
     count = 0
     errors = {"db": 0, "res": 0, "frame": 0, "missing": 0, "header": 0}
 
-    biks = sorted(glob.glob("%s%s**%s*.bik" % (d, os.sep, os.sep), recursive=True), key=str.lower)
+    biks = sorted(glob.glob("%s%s**%s*.%s" % (d, os.sep, os.sep, filetype), recursive=True), key=str.lower)
 
     for bik in biks:
         count += 1
@@ -450,6 +472,7 @@ def init_parser():
     actiongroup.add_argument('-c', '--check', nargs=2, metavar=('GAME','PATH'), help='checks all (supported) biks in PATH against the database of given GAME (ME1|ME2|ME3)')
 
     parser.add_argument('--quick', '--fast', action='store_const', const=True, default=False, help='only read bik header instead of actually counting frames')
+    parser.add_argument('--intermediate', '--prores', action='store_const', const=True, default=False, help='check using Apple ProRes .mov intermediate files instead of release biks')
 
     verbositygroup = parser.add_mutually_exclusive_group()
     verbositygroup.add_argument("-v", "--verbosity", action="count", default=0, help="increase output (stdout) verbosity")
@@ -464,6 +487,8 @@ def init_parser():
 
 def main():
     global quick
+    global intermediate
+    global filetype
     global game
     global resolutions
     global config
@@ -487,6 +512,10 @@ def main():
         game = args.check[0]
 
     quick = args.quick
+    intermediate = args.intermediate
+    filetype = "bik"
+    if intermediate:
+        filetype = "mov"
 
     verbosity += args.verbosity
     verbosity = verbosity if args.quiet is None else args.quiet
