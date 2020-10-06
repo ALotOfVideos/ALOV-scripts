@@ -108,7 +108,14 @@ def isResolutionIllegal(i):
 def getMappings():
     global folder_mappings
     global game
-    folder_mappings_path = 'folder_mappings.json'
+    global intermediate
+    
+    if intermediate:
+        folder_mappings_path = 'folder_mappings_intermediate.json'
+    else:
+        folder_mappings_path = 'folder_mappings.json'
+    log_ok("loading %s" % folder_mappings_path)
+
     if folder_mappings is None:
         if not os.path.isfile(folder_mappings_path):
             error("folder mappings %s does not exist\n" % folder_mappings_path)
