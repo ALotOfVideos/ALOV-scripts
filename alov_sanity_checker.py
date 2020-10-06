@@ -186,6 +186,27 @@ def getBikProperties(f, root=''):
 
     return bik
 
+
+def checkHeader(video, check_fstring, header_string="checking header: "):
+    global quick
+
+    mag = math.floor(math.log(max(video.get("frame_count", 0), video.get("frame_count_header", 0)), 10)) + 1
+    header_fstring = "{:>7s} {:0" + str(mag) + "d}\n"
+
+    if not quick:
+        if video.get("frame_count") == video.get("frame_count_header"):
+            log(check_fstring.format(header_string))
+            log_ok("OK: header contains actual number of frames\n")
+            return 0
+        else:
+            log(check_fstring.format(header_string), level=Verb.WARN)
+            error("WARNING: header does not indicate actual number of frames\n")
+            log(header_fstring.format("header:", video.get("frame_count_header")), Verb.WARN)
+            log(header_fstring.format("actual:", video.get("frame_count")), Verb.WARN)
+            return 1
+    return 0
+
+
 def index(d):
     if not os.path.isdir(d):
         error("directory %s does not exist\n" % d)
@@ -289,15 +310,18 @@ def compare(f, root=''):
     log("vanilla file: %s%s%s\n" % (vanilla.get("dir"), os.sep, vanilla.get("name")), level=Verb.DEBUG)
 
     errors = {"db": 0, "res": 0, "frame": 0, "missing": 0, "header": 0}
-    capitalization_string = "{:>10s} {:s}\n"
-    check_string = "{:<25s}"
+    capitalization_fstring = "{:>10s} {:s}\n"
+    check_fstring = "{:<25s}"
+    exist_string = "1. checking existence:"
+    rez_string = "2. checking resolution:"
+    frame_string = "3. checking frame count:"
     mag = math.floor(math.log(max(vanilla.get("frame_count", 0), bik.get("frame_count", 0)), 10)) + 1
-    frames_string = "{:>10s} {:0" + str(mag) + "d} {:s} {:.2f} {:s}\n"
+    frames_fstring = "{:>10s} {:0" + str(mag) + "d} {:s} {:.2f} {:s}\n"
     header_string = "{:>10s} {:0" + str(mag) + "d}\n"
 
     # check existence
     if vanilla.get("name") is None:
-        log(check_string.format("1. checking existence:"), level=Verb.WARN)
+        log(check_fstring.format(exist_string), level=Verb.WARN)
         # search case-insensitive
         if root == '':
             for v in db:
@@ -314,27 +338,27 @@ def compare(f, root=''):
             return errors
         else:
             error("WARNING: cutscene uses wrong capitalization\n")
-            log(capitalization_string.format("vanilla:", vanilla.get("name")), level=Verb.WARN)
-            log(capitalization_string.format("found:", name), level=Verb.WARN)
+            log(capitalization_fstring.format("vanilla:", vanilla.get("name")), level=Verb.WARN)
+            log(capitalization_fstring.format("found:", name), level=Verb.WARN)
             unknownlist.append({'n': name, 'd': folder})
             errors["missing"] -= 1
         errors["db"] += 1
     else:
-        log(check_string.format("1. checking existence:"))
+        log(check_fstring.format(exist_string))
         log_ok("OK: cutscene found in database\n")
     if vanilla is not None:
         poplist.append(vanilla)
 
     # check resolution
     if (r := isResolutionOK(bik)) is not None:
-        log(check_string.format("2. checking resolution:"))
+        log(check_fstring.format("2. checking resolution:"))
         log_ok(f"OK: {r}\n")
     elif (r := isResolutionIllegal(bik)) is not None:
-        log(check_string.format("2. checking resolution:"), level=Verb.WARN)
+        log(check_fstring.format("2. checking resolution:"), level=Verb.WARN)
         error(f"WARNING: %s is using an illegal resolution ({r})\n" % f)
         errors["res"] += 1
     else:
-        log(check_string.format("2. checking resolution:"), level=Verb.WARN)
+        log(check_fstring.format(rez_string), level=Verb.WARN)
         error("WARNING: resolution not recognized (%dx%d)\n" % (bik.get("width"), bik.get("height")))
         errors["res"] += 1
 
@@ -348,7 +372,7 @@ def compare(f, root=''):
 
     if bfc == vfc and bfps == vfps:
         debug_path.append("if bfc == vfc and bfps == vfps:")
-        log(check_string.format("3. checking frame count:"))
+        log(check_fstring.format(frame_string))
         log_ok("OK: frame counts match (%d)\n" % vfc)
     else:
         debug_path.append("else")
@@ -357,89 +381,80 @@ def compare(f, root=''):
         # TODO: sped up without interpolation
         if factor > 1/factor_thresh and bfc == round(factor * vfc):
             debug_path.append("if factor > 1/factor_thresh and bfc == round(factor * vfc):")
-            log(check_string.format("3. checking frame count:"), level=Verb.INFO)
+            log(check_fstring.format(frame_string), level=Verb.INFO)
             log_info("OK: frames were interpolated\n")
-            log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
-            log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
+            log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
+            log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
         elif factor != 1 and factor >= factor_thresh and factor <= 1/factor_thresh:
             debug_path.append("elif (factor != 1 and factor >= factor_thresh and factor <= 1/factor_thresh):")
             if bfc == vfc:
                 debug_path.append("if bfc == vfc:")
-                log(check_string.format("3. checking frame count:"), level=Verb.INFO)
+                log(check_fstring.format(frame_string), level=Verb.INFO)
                 log_info("OK: FPS rounded (%0.2f -> %0.2f)\n" % (vfps, bfps))
             elif bfc == round(factor * vfc):
                 debug_path.append("elif bfc == round(factor * vfc):")
-                log(check_string.format("3. checking frame count:"), level=Verb.INFO)
+                log(check_fstring.format(frame_string), level=Verb.INFO)
                 log_info("OK: frames were interpolated\n")
-                log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
-                log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
+                log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
+                log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
             # else:
-            #     log(check_string.format("3. checking frame count:"), level=Verb.WARN)
+            #     log(check_string.format(frame_string), level=Verb.WARN)
             #     error("ERROR: unhandled situation\n")
             #     log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.WARN)
             #     log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.WARN)
         elif vfps in (15,20) and bfps == 60 and bfc == vfc:
             debug_path.append("elif vfps in (15,20) and bfps == 60 and bfc == vfc:")
-            log(check_string.format("3. checking frame count:"), level=Verb.INFO)
+            log(check_fstring.format(frame_string), level=Verb.INFO)
             log_info("OK: FPS upgraded (%0.2f -> %0.2f)\n" % (vfps, bfps))
         elif bfps == vfps and vfc > bfc and bfc >= vfc - 3:
             debug_path.append("elif bfps == vfps and vfc > bfc and bfc >= vfc - 3:")
-            log(check_string.format("3. checking frame count:"), level=Verb.INFO)
+            log(check_fstring.format(frame_string), level=Verb.INFO)
             warning("WARNING: missing a few frames\n")
-            log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
-            log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
+            log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
+            log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
             errors["frame"] += 1
         elif factor < factor_thresh:
             debug_path.append("elif factor < factor_thresh:")
-            log(check_string.format("3. checking frame count:"), level=Verb.WARN)
+            log(check_fstring.format(frame_string), level=Verb.WARN)
             log("WARNING: FPS downgraded", level=Verb.WARN)
             errors["frame"] += 1
         else:
             debug_path.append("else:")
-            log(check_string.format("3. checking frame count:"), level=Verb.WARN)
+            log(check_fstring.format(frame_string), level=Verb.WARN)
             if bfps == vfps:
                 debug_path.append("if bfps == vfps:")
                 if bfc < vfc:
                     error("WARNING: missing frames\n")
-                    log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.WARN)
-                    log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.WARN)
+                    log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.WARN)
+                    log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.WARN)
                     log("{:>10s} {:s}\n".format("should be:", "vanilla probably"), level=Verb.WARN)
                     errors["frame"] += 1
                 elif bfc % vfc == 0:
                     log_info("OK: extended/looped clip\n")
-                    log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
-                    log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
+                    log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
+                    log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
             else:
                 debug_path.append("else:")
                 error("WARNING: frame rate/count mismatch\n")
-                log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.WARN)
-                log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.WARN)
+                log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.WARN)
+                log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.WARN)
                 if not round(bfps) == 15:
                     debug_path.append("if not round(bfps) == 15:")
-                    log(frames_string.format("should be:", round(factor*vfc), "frames @", round(factor*vfps), "FPS"), level=Verb.WARN)
+                    log(frames_fstring.format("should be:", round(factor*vfc), "frames @", round(factor*vfps), "FPS"), level=Verb.WARN)
                     if not factor == 2:
                         debug_path.append("if not factor == 2:")
-                        log(frames_string.format("or:", 2*vfc, "frames @", 2*vfps, "FPS"), level=Verb.WARN)
+                        log(frames_fstring.format("or:", 2*vfc, "frames @", 2*vfps, "FPS"), level=Verb.WARN)
                 else:
                     debug_path.append("else:")
-                    log(frames_string.format("should be:", 4*vfc, "frames @", 4*vfps, "FPS"), level=Verb.WARN)
-                    log(frames_string.format("or:", vfc, "frames @", 4*vfps, "FPS"), level=Verb.WARN)
+                    log(frames_fstring.format("should be:", 4*vfc, "frames @", 4*vfps, "FPS"), level=Verb.WARN)
+                    log(frames_fstring.format("or:", vfc, "frames @", 4*vfps, "FPS"), level=Verb.WARN)
                 log("(or vanilla)\n", level=Verb.WARN)
                 errors["frame"] += 1
 
     log(debug_path, level=Verb.DEBUG)
 
     # check header integrity
-    if not quick:
-        if bik.get("frame_count") == bik.get("frame_count_header"):
-            log(check_string.format("4. checking header:"))
-            log_ok("OK: header contains actual number of frames\n")
-        else:
-            log(check_string.format("4. checking header"), level=Verb.WARN)
-            error("WARNING: header does not indicate actual number of frames\n")
-            log(header_string.format("header:", bik.get("frame_count_header")), level=Verb.WARN)
-            log(header_string.format("actual:", bik.get("frame_count")), level=Verb.WARN)
-            errors["header"] += 1
+    errors["header"] += checkHeader(bik, check_fstring, "4. checking header:")
 
     return errors
 
