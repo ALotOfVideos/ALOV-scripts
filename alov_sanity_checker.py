@@ -26,11 +26,16 @@ filetype = ""
 game: str
 folder_mappings = None
 global_db = None
+resolutions = None
+config = None
 
 verbosity = 1
 log_to_file = False
 logfile = None
 log_verbosity = 2
+
+poplist = []
+unknownlist = []
 
 ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
 file_ext = re.compile(r'\..+$')
@@ -82,20 +87,23 @@ def debug(s, level=3):
 def isRes(i, w, h):
     return i.get("width") == w and i.get("height") == h
 
-def is4K(i):
-    return isRes(i, 3840, 2160)
+def isResolutionOK(i):
+    global resolutions
+    global config
+    allowed = config.get("resolutions")
+    for n in allowed:
+        r = resolutions.get(n, {})
+        if isRes(i, r.get("w"), r.get("h")):
+            return n
 
-def is1440p(i):
-    return isRes(i, 2560, 1440)
-
-def is1081p(i):
-    return isRes(i, 1920, 1081)
-
-def is1079p(i):
-    return isRes(i, 1920, 1079)
-
-def is1080p(i):
-    return isRes(i, 1920, 1080)
+def isResolutionIllegal(i):
+    global resolutions
+    global config
+    blacklist = ["1080p", "1440p"]
+    for n in blacklist:
+        r = resolutions.get(n, {})
+        if isRes(i, r.get("w"), r.get("h")):
+            return n
 
 def getMappings():
     global folder_mappings
@@ -186,6 +194,8 @@ def index(d):
 
 def compare(f, root=''):
     global quick
+    global poplist
+    global unknownlist
     global intermediate
 
     if not os.path.isfile(f):
@@ -242,12 +252,12 @@ def compare(f, root=''):
     log("resolved dir: %s\n" % folder, level=3)
     log("vanilla file: %s%s%s\n" % (vanilla.get("dir"), os.sep, vanilla.get("name")), level=3)
 
-    errors = {"db": 0, "res": 0, "frame": 0}
-    capitalization_string = "{:>8s} {:s}\n"
+    errors = {"db": 0, "res": 0, "frame": 0, "missing": 0, "header": 0}
+    capitalization_string = "{:>10s} {:s}\n"
     check_string = "{:<25s}"
     mag = math.floor(math.log(max(vanilla.get("frame_count", 0), bik.get("frame_count", 0)), 10)) + 1
     frames_string = "{:>10s} {:0" + str(mag) + "d} {:s} {:.2f} {:s}\n"
-    header_string = "{:>7s} {:0" + str(mag) + "d}\n"
+    header_string = "{:>10s} {:0" + str(mag) + "d}\n"
 
     # check existence
     if vanilla.get("name") is None:
@@ -265,37 +275,31 @@ def compare(f, root=''):
                     break
         if vanilla.get("name") is None:
             error("WARNING: cutscene not found in vanilla database\n")
-            errors["db"] += 1
             return errors
         else:
             error("WARNING: cutscene uses wrong capitalization\n")
             log(capitalization_string.format("vanilla:", vanilla.get("name")), level=0)
             log(capitalization_string.format("found:", name), level=0)
-            errors["db"] += 1
+            unknownlist.append({'n': name, 'd': folder})
+            errors["missing"] -= 1
+        errors["db"] += 1
     else:
         log(check_string.format("1. checking existence:"))
         log_ok("OK: cutscene found in database\n")
+    if vanilla is not None:
+        poplist.append(vanilla)
 
     # check resolution
-    if is1081p(bik):
+    if (r := isResolutionOK(bik)) is not None:
         log(check_string.format("2. checking resolution:"))
-        log_ok("OK: 1081p\n")
-    elif is1079p(bik):
-        log(check_string.format("2. checking resolution:"))
-        log_ok("OK: 1079p\n")
-    elif is1440p(bik):
-        log(check_string.format("2. checking resolution:"))
-        log_ok("OK: 1440p\n")
-    elif is4K(bik):
-        log(check_string.format("2. checking resolution:"))
-        log_ok("OK: 4K\n")
-    elif is1080p(bik):
+        log_ok(f"OK: {r}\n")
+    elif (r := isResolutionIllegal(bik)) is not None:
         log(check_string.format("2. checking resolution:"), level=0)
-        error("WARNING: %s is 1080p -> should be 1079p\n" % f)
+        error(f"WARNING: %s is using an illegal resolution ({r})\n" % f)
         errors["res"] += 1
     else:
         log(check_string.format("2. checking resolution:"), level=0)
-        error("WARNING: resolution is not 1079p/1081p/1440p/4K (%dx%d)\n" % (bik.get("width"), bik.get("height")))
+        error("WARNING: resolution not recognized (%dx%d)\n" % (bik.get("width"), bik.get("height")))
         errors["res"] += 1
 
     # check frame count
@@ -357,12 +361,18 @@ def compare(f, root=''):
         else:
             debug_path.append("else:")
             log(check_string.format("3. checking frame count:"), level=0)
-            if bfps == vfps and bfc < factor * vfc:
-                debug_path.append("if bfps == vfps and bfc < factor * vfc:")
-                error("WARNING: missing frames\n")
-                log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=0)
-                log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=0)
-                log("{:>10s} {:s}\n".format("should be:", "vanilla probably"), level=0)
+            if bfps == vfps:
+                debug_path.append("if bfps == vfps:")
+                if bfc < vfc:
+                    error("WARNING: missing frames\n")
+                    log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=0)
+                    log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=0)
+                    log("{:>10s} {:s}\n".format("should be:", "vanilla probably"), level=0)
+                    errors["frame"] += 1
+                elif bfc % vfc == 0:
+                    log_info("OK: extended/looped clip\n")
+                    log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
+                    log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=1)
             else:
                 debug_path.append("else:")
                 error("WARNING: frame rate/count mismatch\n")
@@ -379,7 +389,7 @@ def compare(f, root=''):
                     log(frames_string.format("should be:", 4*vfc, "frames @", 4*vfps, "FPS"), level=0)
                     log(frames_string.format("or:", vfc, "frames @", 4*vfps, "FPS"), level=0)
                 log("(or vanilla)\n", level=0)
-            errors["frame"] += 1
+                errors["frame"] += 1
 
     log(debug_path, level=3)
 
@@ -393,12 +403,15 @@ def compare(f, root=''):
             error("WARNING: header does not indicate actual number of frames\n")
             log(header_string.format("header:", bik.get("frame_count_header")), level=0)
             log(header_string.format("actual:", bik.get("frame_count")), level=0)
+            errors["header"] += 1
 
     return errors
 
 def check(d):
+    global poplist
+    global unknownlist
     global filetype
-    
+
     if not os.path.isdir(d):
         error("directory %s does not exist\n" % d)
         return 1
@@ -414,7 +427,7 @@ def check(d):
     mag = math.floor(math.log(total, 10)) + 1
     log_string = "({:0" + str(mag) + "d}/{:0" + str(mag) + "d}) "
     count = 0
-    errors = {"db": 0, "res": 0, "frame": 0, "missing": 0}
+    errors = {"db": 0, "res": 0, "frame": 0, "missing": 0, "header": 0}
 
     biks = sorted(glob.glob("%s%s**%s*.%s" % (d, os.sep, os.sep, filetype), recursive=True), key=str.lower)
 
@@ -422,16 +435,28 @@ def check(d):
         count += 1
         log(log_string.format(count, total), level=0)
         errors = dict(Counter(errors) + Counter(compare(bik, d)))
-        # TODO pop these to display list of missing in the end
 
-    count -= errors.get("db", 0)
+    # TODO pop these to display list of missing in the end
+    missing = db
+    for i in poplist:
+        if i in missing:
+            missing.remove(i)
 
     log("\n", level=0)
-    if count != total:
-        mismatch_string = "{:>8s} {:3d}\n"
+    if count != total or errors.get("db", 0) != 0:
+        mismatch_string = "{:>12s} {:3d}\n"
+        missing_string = "{:>18s} {:s}\n"
         error(mismatch_string.format("vanilla:", total))
         error(mismatch_string.format("found:", count))
-        errors = dict(Counter(errors) + Counter({"missing": total - count}))
+        if errors.get("db", 0) != 0:
+            error("    therein:\n")
+            error(mismatch_string.format("in db:", count - errors.get("db", 0)))
+            error(mismatch_string.format("unexpected:", errors.get("db", 0)))
+            error("\n")
+            error(missing_string.format("unexpected files:", ', '.join([i.get('n') + " (" + i.get('d') + ")" for i in unknownlist])))
+        if len(missing) > 0:
+            error(missing_string.format("missing files:", ', '.join([i.get('name') for i in missing])))
+        errors = dict(Counter(errors) + Counter({"missing": total - (count - errors.get("db", 0))}))
     else:
         log_ok("found %d files in database\n")
         log("\033[32;1mrelease is complete.\033[0m\n")
@@ -465,6 +490,8 @@ def main():
     global intermediate
     global filetype
     global game
+    global resolutions
+    global config
     global verbosity
     global log_to_file
     global logfile
@@ -506,6 +533,12 @@ def main():
 
     errors = {"db": 0, "res": 0, "frame": 0, "missing": 0}
 
+    with open("resolutions.json", 'r') as rez:
+        resolutions = json.load(rez)
+
+    with open("config.json", 'r') as conf:
+        config = json.load(conf).get(game)
+
     if args.get_info is not None:
         bik = getBikProperties(args.get_info[0])
         print(bik)
@@ -526,6 +559,8 @@ def main():
             error(errors_string.format("Wrong resolution", errors.get("res", 0)))
             error(errors_string.format("Frame count/FPS", errors.get("frame", 0)))
             error(errors_string.format("Missing files", errors.get("missing", 0)))
+            if not quick:
+                error(errors_string.format("Broken headers", errors.get("header", 0)))
         else:
             log_ok("no issues found\n", level=0)
 
