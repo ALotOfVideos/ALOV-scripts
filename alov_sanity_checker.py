@@ -23,7 +23,7 @@ quick = False
 intermediate = False
 filetype = ""
 
-game: str
+game: str = None
 folder_mappings = None
 global_db = None
 resolutions = None
@@ -521,8 +521,8 @@ def main():
     verbosity = verbosity if args.quiet is None else args.quiet
     verbosity = verbosity if args.debug is None else args.debug
     log_to_file = args.no_log
-    log_path = "alov_sanity_checker_%s_%s.log" % (game, datetime.now().strftime("%y%m%dT%H%M"))
     if log_to_file:
+        log_path = "alov_sanity_checker_%s_%s.log" % (game, datetime.now().strftime("%y%m%dT%H%M"))
         logfile = open(log_path, 'w')
         log("opened log file %s\n\n" % log_path, level=3)
     log_verbosity = args.log_verbosity
@@ -536,8 +536,9 @@ def main():
     with open("resolutions.json", 'r') as rez:
         resolutions = json.load(rez)
 
-    with open("config.json", 'r') as conf:
-        config = json.load(conf).get(game)
+    if game:
+        with open("config.json", 'r') as conf:
+            config = json.load(conf).get(game)
 
     if args.get_info is not None:
         bik = getBikProperties(args.get_info[0])
