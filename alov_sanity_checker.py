@@ -2,7 +2,7 @@
 
 # A Lot of Videos (ALOV) sanity checker by HHL
 # checks ALOV release for completeness by comparing frame counts to vanilla
-# github URL
+# https://github.com/ALotOfVideos/ALOV-scripts
 #
 # requirements: python 3.5, ffprobe (ffmpeg)
 
@@ -73,6 +73,7 @@ def log(s, level=Verb.ALL):
             sf = "(seriousness %d) %s" % (level, s)
         print(ansi_escape.sub('', sf), end='', file=logfile)
 
+
 def error(s):
     # always print errors
     log("\033[31m%s\033[0m" % s, Verb.WARN)
@@ -81,17 +82,22 @@ def error(s):
 def warning(s, level=Verb.INFO):
     log("\033[31;7m%s\033[0m" % s, level)
 
+
 def log_ok(s, level=Verb.ALL):
     log("\033[32m%s\033[0m" % s, level)
+
 
 def log_info(s, level=Verb.INFO):
     log("\033[32;7m%s\033[0m" % s, level)
 
+
 def debug(s, level=Verb.DEBUG):
     log(s, level)
 
+
 def isRes(i, w, h):
     return i.get("width") == w and i.get("height") == h
+
 
 def isResolutionOK(i):
     global resolutions
@@ -102,6 +108,7 @@ def isResolutionOK(i):
         if isRes(i, r.get("w"), r.get("h")):
             return n
 
+
 def isResolutionIllegal(i):
     global resolutions
     global config
@@ -110,6 +117,7 @@ def isResolutionIllegal(i):
         r = resolutions.get(n, {})
         if isRes(i, r.get("w"), r.get("h")):
             return n
+
 
 def getMappings():
     global folder_mappings
@@ -130,6 +138,7 @@ def getMappings():
             folder_mappings = json.load(fm_fp).get(game)
     return folder_mappings
 
+
 def getDB():
     global global_db
     global game
@@ -142,10 +151,12 @@ def getDB():
             global_db = json.load(db_fp)
     return global_db
 
+
 def getRelativeDir(p, to=''):
     if to == '':
         return str(pathlib.Path(*pathlib.Path(p).parts[1:-1]))
     return str(pathlib.Path(p).relative_to(to))
+
 
 def getBikProperties(f, root=''):
     if not os.path.isfile(f):
@@ -211,6 +222,7 @@ def index(d):
 
     log("\n", level=Verb.WARN)
     log("saved bik properties to %s\n" % outfile, level=Verb.WARN)
+
 
 def compare(f, root=''):
     global quick
@@ -431,6 +443,7 @@ def compare(f, root=''):
 
     return errors
 
+
 def check(d):
     global poplist
     global unknownlist
@@ -487,6 +500,7 @@ def check(d):
 
     return errors
 
+
 def init_parser():
     global verbosity
     global log_verbosity
@@ -512,6 +526,7 @@ def init_parser():
     loggroup.add_argument("--short-log", action='store_const', const=Verb.INFO, help="set log file verbosity to INFO")
     loggroup.add_argument("--error-log", action='store_const', const=Verb.WARN, help="set log file verbosity to WARN")
     return parser
+
 
 def main():
     global quick
@@ -597,5 +612,6 @@ def main():
         log("\nlogged to %s with verbosity %d\n" % (log_path, log_verbosity), level=Verb.WARN)
         logfile.close()
 
-if __name__== "__main__":
+
+if __name__ == "__main__":
     main()
