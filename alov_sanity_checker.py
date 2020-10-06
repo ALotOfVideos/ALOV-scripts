@@ -230,13 +230,14 @@ def compare(f, root=''):
         name = file_ext.sub(ext, realname)
 
     realfolder = bik.get("dir")
-    # DLC_MOD_ALOV_Optional contains single files mapped to various origins
-    if realfolder == os.path.join("DLC_MOD_ALOV_Optional", "Movies") or \
-       (realfolder == os.path.join("BASEGAME", "Movies") and name == "STA_ArrivalSEQ04a.bik"):
-        realfolder = os.path.join(realfolder, name)
     if osname == 'nt':
-        folder = fm.get(realfolder.replace('\\', '/'))
-    else:
+        realfolder = realfolder.replace('\\', '/')
+
+    # some dirs contain single files mapped to various origins
+    # such single file mappings are preferred over the folder mapping
+    folder = realfolder + "/" + name  # needs literal / as database uses unix style separator
+    folder = fm.get(folder)
+    if folder is None:
         folder = fm.get(realfolder)
 
     log("checking %s\n" % os.path.join(bik.get("dir"), realname), level=0)
