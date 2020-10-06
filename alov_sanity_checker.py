@@ -220,7 +220,7 @@ def compare(f, root=''):
     # replace intermediate file extension with vanilla extension to match library
     if intermediate:
         ext = ".bik"
-        name = file_ext.sub(realname, ext)
+        name = file_ext.sub(ext, realname)
 
     realfolder = bik.get("dir")
     # DLC_MOD_ALOV_Optional contains single files mapped to various origins
