@@ -18,6 +18,7 @@ import glob
 import math
 import re
 from collections import Counter
+from enum import IntEnum
 
 quick = False
 intermediate = False
@@ -29,10 +30,18 @@ global_db = None
 resolutions = None
 config = None
 
-verbosity = 1
+
+class Verb(IntEnum):
+    WARN = 0
+    INFO = 1
+    ALL = 2
+    DEBUG = 3
+
+
+verbosity = Verb.INFO
 log_to_file = False
 logfile = None
-log_verbosity = 2
+log_verbosity = Verb.ALL
 
 poplist = []
 unknownlist = []
@@ -41,20 +50,16 @@ ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
 file_ext = re.compile(r'\..+$')
 
 
-def log(s, level=2):
+def log(s, level=Verb.ALL):
     global verbosity
     global log_to_file
     global logfile
     global log_verbosity
-    # verbosity levels:
-    # 0 WARN
-    # 1 INFO
-    # 2 ALL
-    # 3 DEBUG
+
     so = s
     sf = s
     if level <= verbosity:
-        if verbosity == 3:
+        if verbosity == Verb.DEBUG:
             so = "(seriousness %d) %s" % (level, s)
         # disable colors on windows for now
         # TODO curses colors? or colorama pkg? or? https://docs.python.org/3/howto/curses.html?highlight=color
@@ -64,24 +69,25 @@ def log(s, level=2):
             print(so, end='')
 
     if log_to_file and level <= log_verbosity:
-        if log_verbosity == 3:
+        if log_verbosity == Verb.DEBUG:
             sf = "(seriousness %d) %s" % (level, s)
         print(ansi_escape.sub('', sf), end='', file=logfile)
 
 def error(s):
     # always print errors
-    log("\033[31m%s\033[0m" % s, 0)
+    log("\033[31m%s\033[0m" % s, Verb.WARN)
 
-def warning(s, level=1):
+
+def warning(s, level=Verb.INFO):
     log("\033[31;7m%s\033[0m" % s, level)
 
-def log_ok(s, level=2):
+def log_ok(s, level=Verb.ALL):
     log("\033[32m%s\033[0m" % s, level)
 
-def log_info(s, level=1):
+def log_info(s, level=Verb.INFO):
     log("\033[32;7m%s\033[0m" % s, level)
 
-def debug(s, level=3):
+def debug(s, level=Verb.DEBUG):
     log(s, level)
 
 def isRes(i, w, h):
@@ -109,7 +115,7 @@ def getMappings():
     global folder_mappings
     global game
     global intermediate
-    
+
     if intermediate:
         folder_mappings_path = 'folder_mappings_intermediate.json'
     else:
@@ -174,7 +180,7 @@ def index(d):
         error("directory %s does not exist\n" % d)
         sys.exit(1)
 
-    log("indexing %s\n" % d, level=0)
+    log("indexing %s\n" % d, level=Verb.WARN)
 
     while True:
         outfile = "alov_index_%s" % datetime.now().strftime("%y%m%dT%H%M")
@@ -184,7 +190,7 @@ def index(d):
         if not os.path.isfile(outfile):
             break
     log("output database: %s\n" % outfile)
-    log("\n", level=0)
+    log("\n", level=Verb.WARN)
 
     biks = sorted(glob.glob("%s%s**%s*.bik" % (d, os.sep, os.sep), recursive=True), key=str.lower)
 
@@ -195,7 +201,7 @@ def index(d):
     l = list()
     for f in biks:
         count += 1
-        log(log_string.format(count, total, f), level=0)
+        log(log_string.format(count, total, f), level=Verb.WARN)
         bik = getBikProperties(f, d)
         if bik.get("defect") is None:
             l.append(bik)
@@ -203,8 +209,8 @@ def index(d):
     with open(outfile, 'w') as out:
         json.dump(l, out, indent=0)
 
-    log("\n", level=0)
-    log("saved bik properties to %s\n" % outfile, level=0)
+    log("\n", level=Verb.WARN)
+    log("saved bik properties to %s\n" % outfile, level=Verb.WARN)
 
 def compare(f, root=''):
     global quick
@@ -250,7 +256,7 @@ def compare(f, root=''):
     if folder is None:
         folder = fm.get(realfolder)
 
-    log("checking %s\n" % os.path.join(bik.get("dir"), realname), level=0)
+    log("checking %s\n" % os.path.join(bik.get("dir"), realname), level=Verb.WARN)
 
     vanilla = dict()
     if root == '':
@@ -266,9 +272,9 @@ def compare(f, root=''):
                 vanilla = v
                 break
 
-    log("ALOV file:    %s%s%s\n" % (bik.get("dir"), os.sep, name), level=3)
-    log("resolved dir: %s\n" % folder, level=3)
-    log("vanilla file: %s%s%s\n" % (vanilla.get("dir"), os.sep, vanilla.get("name")), level=3)
+    log("ALOV file:    %s%s%s\n" % (bik.get("dir"), os.sep, name), level=Verb.DEBUG)
+    log("resolved dir: %s\n" % folder, level=Verb.DEBUG)
+    log("vanilla file: %s%s%s\n" % (vanilla.get("dir"), os.sep, vanilla.get("name")), level=Verb.DEBUG)
 
     errors = {"db": 0, "res": 0, "frame": 0, "missing": 0, "header": 0}
     capitalization_string = "{:>10s} {:s}\n"
@@ -279,7 +285,7 @@ def compare(f, root=''):
 
     # check existence
     if vanilla.get("name") is None:
-        log(check_string.format("1. checking existence:"), level=0)
+        log(check_string.format("1. checking existence:"), level=Verb.WARN)
         # search case-insensitive
         if root == '':
             for v in db:
@@ -296,8 +302,8 @@ def compare(f, root=''):
             return errors
         else:
             error("WARNING: cutscene uses wrong capitalization\n")
-            log(capitalization_string.format("vanilla:", vanilla.get("name")), level=0)
-            log(capitalization_string.format("found:", name), level=0)
+            log(capitalization_string.format("vanilla:", vanilla.get("name")), level=Verb.WARN)
+            log(capitalization_string.format("found:", name), level=Verb.WARN)
             unknownlist.append({'n': name, 'd': folder})
             errors["missing"] -= 1
         errors["db"] += 1
@@ -312,11 +318,11 @@ def compare(f, root=''):
         log(check_string.format("2. checking resolution:"))
         log_ok(f"OK: {r}\n")
     elif (r := isResolutionIllegal(bik)) is not None:
-        log(check_string.format("2. checking resolution:"), level=0)
+        log(check_string.format("2. checking resolution:"), level=Verb.WARN)
         error(f"WARNING: %s is using an illegal resolution ({r})\n" % f)
         errors["res"] += 1
     else:
-        log(check_string.format("2. checking resolution:"), level=0)
+        log(check_string.format("2. checking resolution:"), level=Verb.WARN)
         error("WARNING: resolution not recognized (%dx%d)\n" % (bik.get("width"), bik.get("height")))
         errors["res"] += 1
 
@@ -339,77 +345,77 @@ def compare(f, root=''):
         # TODO: sped up without interpolation
         if factor > 1/factor_thresh and bfc == round(factor * vfc):
             debug_path.append("if factor > 1/factor_thresh and bfc == round(factor * vfc):")
-            log(check_string.format("3. checking frame count:"), level=1)
+            log(check_string.format("3. checking frame count:"), level=Verb.INFO)
             log_info("OK: frames were interpolated\n")
-            log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
-            log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=1)
+            log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
+            log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
         elif factor != 1 and factor >= factor_thresh and factor <= 1/factor_thresh:
             debug_path.append("elif (factor != 1 and factor >= factor_thresh and factor <= 1/factor_thresh):")
             if bfc == vfc:
                 debug_path.append("if bfc == vfc:")
-                log(check_string.format("3. checking frame count:"), level=1)
+                log(check_string.format("3. checking frame count:"), level=Verb.INFO)
                 log_info("OK: FPS rounded (%0.2f -> %0.2f)\n" % (vfps, bfps))
             elif bfc == round(factor * vfc):
                 debug_path.append("elif bfc == round(factor * vfc):")
-                log(check_string.format("3. checking frame count:"), level=1)
+                log(check_string.format("3. checking frame count:"), level=Verb.INFO)
                 log_info("OK: frames were interpolated\n")
-                log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
-                log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=1)
+                log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
+                log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
             # else:
-            #     log(check_string.format("3. checking frame count:"), level=0)
+            #     log(check_string.format("3. checking frame count:"), level=Verb.WARN)
             #     error("ERROR: unhandled situation\n")
-            #     log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=0)
-            #     log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=0)
+            #     log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.WARN)
+            #     log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.WARN)
         elif vfps in (15,20) and bfps == 60 and bfc == vfc:
             debug_path.append("elif vfps in (15,20) and bfps == 60 and bfc == vfc:")
-            log(check_string.format("3. checking frame count:"), level=1)
+            log(check_string.format("3. checking frame count:"), level=Verb.INFO)
             log_info("OK: FPS upgraded (%0.2f -> %0.2f)\n" % (vfps, bfps))
         elif bfps == vfps and vfc > bfc and bfc >= vfc - 3:
             debug_path.append("elif bfps == vfps and vfc > bfc and bfc >= vfc - 3:")
-            log(check_string.format("3. checking frame count:"), level=1)
+            log(check_string.format("3. checking frame count:"), level=Verb.INFO)
             warning("WARNING: missing a few frames\n")
-            log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
-            log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=1)
+            log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
+            log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
             errors["frame"] += 1
         elif factor < factor_thresh:
             debug_path.append("elif factor < factor_thresh:")
-            log(check_string.format("3. checking frame count:"), level=0)
-            log("WARNING: FPS downgraded", level=0)
+            log(check_string.format("3. checking frame count:"), level=Verb.WARN)
+            log("WARNING: FPS downgraded", level=Verb.WARN)
             errors["frame"] += 1
         else:
             debug_path.append("else:")
-            log(check_string.format("3. checking frame count:"), level=0)
+            log(check_string.format("3. checking frame count:"), level=Verb.WARN)
             if bfps == vfps:
                 debug_path.append("if bfps == vfps:")
                 if bfc < vfc:
                     error("WARNING: missing frames\n")
-                    log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=0)
-                    log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=0)
-                    log("{:>10s} {:s}\n".format("should be:", "vanilla probably"), level=0)
+                    log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.WARN)
+                    log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.WARN)
+                    log("{:>10s} {:s}\n".format("should be:", "vanilla probably"), level=Verb.WARN)
                     errors["frame"] += 1
                 elif bfc % vfc == 0:
                     log_info("OK: extended/looped clip\n")
-                    log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=1)
-                    log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=1)
+                    log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
+                    log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
             else:
                 debug_path.append("else:")
                 error("WARNING: frame rate/count mismatch\n")
-                log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=0)
-                log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=0)
+                log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.WARN)
+                log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.WARN)
                 if not round(bfps) == 15:
                     debug_path.append("if not round(bfps) == 15:")
-                    log(frames_string.format("should be:", round(factor*vfc), "frames @", round(factor*vfps), "FPS"), level=0)
+                    log(frames_string.format("should be:", round(factor*vfc), "frames @", round(factor*vfps), "FPS"), level=Verb.WARN)
                     if not factor == 2:
                         debug_path.append("if not factor == 2:")
-                        log(frames_string.format("or:", 2*vfc, "frames @", 2*vfps, "FPS"), level=0)
+                        log(frames_string.format("or:", 2*vfc, "frames @", 2*vfps, "FPS"), level=Verb.WARN)
                 else:
                     debug_path.append("else:")
-                    log(frames_string.format("should be:", 4*vfc, "frames @", 4*vfps, "FPS"), level=0)
-                    log(frames_string.format("or:", vfc, "frames @", 4*vfps, "FPS"), level=0)
-                log("(or vanilla)\n", level=0)
+                    log(frames_string.format("should be:", 4*vfc, "frames @", 4*vfps, "FPS"), level=Verb.WARN)
+                    log(frames_string.format("or:", vfc, "frames @", 4*vfps, "FPS"), level=Verb.WARN)
+                log("(or vanilla)\n", level=Verb.WARN)
                 errors["frame"] += 1
 
-    log(debug_path, level=3)
+    log(debug_path, level=Verb.DEBUG)
 
     # check header integrity
     if not quick:
@@ -417,10 +423,10 @@ def compare(f, root=''):
             log(check_string.format("4. checking header:"))
             log_ok("OK: header contains actual number of frames\n")
         else:
-            log(check_string.format("4. checking header"), level=0)
+            log(check_string.format("4. checking header"), level=Verb.WARN)
             error("WARNING: header does not indicate actual number of frames\n")
-            log(header_string.format("header:", bik.get("frame_count_header")), level=0)
-            log(header_string.format("actual:", bik.get("frame_count")), level=0)
+            log(header_string.format("header:", bik.get("frame_count_header")), level=Verb.WARN)
+            log(header_string.format("actual:", bik.get("frame_count")), level=Verb.WARN)
             errors["header"] += 1
 
     return errors
@@ -434,7 +440,7 @@ def check(d):
         error("directory %s does not exist\n" % d)
         return 1
 
-    log("checking ALOV release at %s\n\n" % d, level=0)
+    log("checking ALOV release at %s\n\n" % d, level=Verb.WARN)
 
     db = getDB()
     if db is None:
@@ -451,7 +457,7 @@ def check(d):
 
     for bik in biks:
         count += 1
-        log(log_string.format(count, total), level=0)
+        log(log_string.format(count, total), level=Verb.WARN)
         errors = dict(Counter(errors) + Counter(compare(bik, d)))
 
     # TODO pop these to display list of missing in the end
@@ -460,7 +466,7 @@ def check(d):
         if i in missing:
             missing.remove(i)
 
-    log("\n", level=0)
+    log("\n", level=Verb.WARN)
     if count != total or errors.get("db", 0) != 0:
         mismatch_string = "{:>12s} {:3d}\n"
         missing_string = "{:>18s} {:s}\n"
@@ -482,8 +488,12 @@ def check(d):
     return errors
 
 def init_parser():
+    global verbosity
+    global log_verbosity
+
     parser = argparse.ArgumentParser(description='ALOV sanity checker by HHL')
-    actiongroup = parser.add_mutually_exclusive_group(required=True) # TODO name group once feature releases
+
+    actiongroup = parser.add_mutually_exclusive_group(required=True)
     actiongroup.add_argument('-g', '--get-info', nargs=1, metavar='BIK', help='reads the supplied BIK file and outputs its properties as json')
     actiongroup.add_argument('-i', '--index', nargs=1, metavar='PATH', help='gets all bik files inside (sub)directory PATH and outputs a json file with info of all biks')
     actiongroup.add_argument('--compare', nargs=2, metavar=('GAME','BIK'), help='compares the supplied BIK to vanilla properties stored in database of GAME (ME1|ME2|ME3)')
@@ -493,14 +503,14 @@ def init_parser():
     parser.add_argument('--intermediate', '--prores', action='store_const', const=True, default=False, help='check using Apple ProRes .mov intermediate files instead of release biks')
 
     verbositygroup = parser.add_mutually_exclusive_group()
-    verbositygroup.add_argument("-v", "--verbosity", action="count", default=0, help="increase output (stdout) verbosity")
-    verbositygroup.add_argument("-q", "--quiet", "--silent", action='store_const', const=-0, help="decrease output (stdout) verbosity to silent")
-    verbositygroup.add_argument('--debug', action='store_const', const=3, help='set stdout verbosity level to debug (maximum)')
+    verbositygroup.add_argument("-v", "--verbosity", action="count", default=0, help="increase output (stdout) verbosity (default %d=%s)" % (verbosity.value, verbosity.name))
+    verbositygroup.add_argument("-q", "--quiet", "--silent", action='store_const', const=Verb.WARN, help="decrease output (stdout) verbosity to silent")
+    verbositygroup.add_argument('--debug', action='store_const', const=Verb.DEBUG, help='set stdout verbosity level to debug (maximum)')
     loggroup = parser.add_mutually_exclusive_group()
     loggroup.add_argument('--no-log', action='store_const', const=False, default=True, help='disable log file')
-    loggroup.add_argument("--log-verbosity", default=2, help="set log verbosity")
-    loggroup.add_argument("--short-log", action='store_const', const=1, help="set log file verbosity to INFO")
-    loggroup.add_argument("--error-log", action='store_const', const=0, help="set log file verbosity to WARN")
+    loggroup.add_argument("--log-verbosity", default=log_verbosity, help="set log verbosity (default %d=%s)" % (log_verbosity.value, log_verbosity.name))
+    loggroup.add_argument("--short-log", action='store_const', const=Verb.INFO, help="set log file verbosity to INFO")
+    loggroup.add_argument("--error-log", action='store_const', const=Verb.WARN, help="set log file verbosity to WARN")
     return parser
 
 def main():
@@ -542,12 +552,12 @@ def main():
     if log_to_file:
         log_path = "alov_sanity_checker_%s_%s.log" % (game, datetime.now().strftime("%y%m%dT%H%M"))
         logfile = open(log_path, 'w')
-        log("opened log file %s\n\n" % log_path, level=3)
+        log("opened log file %s\n\n" % log_path, level=Verb.DEBUG)
     log_verbosity = args.log_verbosity
     log_verbosity = log_verbosity if args.error_log is None else args.error_log
     log_verbosity = log_verbosity if args.short_log is None else args.short_log
 
-    log("%s\n\n" % args, level=3)
+    log("%s\n\n" % args, level=Verb.DEBUG)
 
     errors = {"db": 0, "res": 0, "frame": 0, "missing": 0}
 
@@ -569,7 +579,7 @@ def main():
         elif args.check is not None:
             errors = check(args.check[1])
 
-        log("\n", level=0)
+        log("\n", level=Verb.WARN)
         errors["total"] = sum(errors.values())
         if errors["total"] > 0:
             error("%d issue(s) found:\n\n" % errors["total"])
@@ -581,10 +591,10 @@ def main():
             if not quick:
                 error(errors_string.format("Broken headers", errors.get("header", 0)))
         else:
-            log_ok("no issues found\n", level=0)
+            log_ok("no issues found\n", level=Verb.WARN)
 
     if log_to_file:
-        log("\nlogged to %s with verbosity %d\n" %(log_path, log_verbosity), level=0)
+        log("\nlogged to %s with verbosity %d\n" % (log_path, log_verbosity), level=Verb.WARN)
         logfile.close()
 
 if __name__== "__main__":
