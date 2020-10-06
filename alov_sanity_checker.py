@@ -175,7 +175,7 @@ def getBikProperties(f, root=''):
         return {"defect": 1}
 
     bik = {
-        "name": os.path.basename(f),
+        "name": os.path.basename(f), # localisation .replace(f[-7:-4], "INT"),
         "dir": getRelativeDir(os.path.dirname(f), root),
         "width": probe_bik.get("width", 0),
         "height": probe_bik.get("height", 0),
