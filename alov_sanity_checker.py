@@ -151,15 +151,20 @@ def getBikProperties(f, root=''):
         ffmpeg_command.append("-count_frames")
     probe = sp.Popen(ffmpeg_command, stdout=sp.PIPE)
     probe_bik = json.loads(probe.stdout.read())
+    try:
+        probe_bik = probe_bik.get("streams")[0]
+    except TypeError:
+        error("%s could not be read: verify whether the file is intact\n" % f)
+        return {"defect": 1}
 
     bik = {
         "name": os.path.basename(f),
         "dir": getRelativeDir(os.path.dirname(f), root),
-        "width": probe_bik.get("streams")[0].get("width"),
-        "height": probe_bik.get("streams")[0].get("height"),
-        "fps": round(eval(probe_bik.get("streams")[0].get("r_frame_rate")), 2),
-        "frame_count": int(probe_bik.get("streams")[0].get("nb_read_frames") if not quick else probe_bik.get("streams")[0].get("duration_ts")),
-        "frame_count_header": int(probe_bik.get("streams")[0].get("duration_ts"))
+        "width": probe_bik.get("width", 0),
+        "height": probe_bik.get("height", 0),
+        "fps": round(eval(probe_bik.get("r_frame_rate")), 2),
+        "frame_count": int(probe_bik.get("nb_read_frames") if not quick else probe_bik.get("duration_ts")),
+        "frame_count_header": int(probe_bik.get("duration_ts"))
         }
 
     return bik
@@ -191,7 +196,9 @@ def index(d):
     for f in biks:
         count += 1
         log(log_string.format(count, total, f), level=0)
-        l.append(getBikProperties(f, d))
+        bik = getBikProperties(f, d)
+        if bik.get("defect") is None:
+            l.append(bik)
 
     with open(outfile, 'w') as out:
         json.dump(l, out, indent=0)
@@ -221,6 +228,9 @@ def compare(f, root=''):
         return 1
 
     bik = getBikProperties(f, root)
+    if bik.get("defect") is not None:
+        return bik
+
     realname = bik.get("name")
     name = realname
 
