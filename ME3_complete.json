@@ -5,7 +5,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End002_Crush.bik",
@@ -13,7 +14,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 2147
+"frame_count": 2147,
+"frame_count_header": 2147
 },
 {
 "name": "End002_Vis_BlueBad.bik",
@@ -21,7 +23,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 165
+"frame_count": 165,
+"frame_count_header": 165
 },
 {
 "name": "End002_Vis_GreenGood.bik",
@@ -29,7 +32,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 165
+"frame_count": 165,
+"frame_count_header": 165
 },
 {
 "name": "End002_Vis_RedBad.bik",
@@ -37,7 +41,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 165
+"frame_count": 165,
+"frame_count_header": 165
 },
 {
 "name": "End002_Vis_RedVap.bik",
@@ -45,7 +50,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 165
+"frame_count": 165,
+"frame_count_header": 165
 },
 {
 "name": "End03_C_Earth_CitSurReapers.bik",
@@ -53,7 +59,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 501
+"frame_count": 501,
+"frame_count_header": 501
 },
 {
 "name": "End03_C_FlashForward_JackGrave.bik",
@@ -61,7 +68,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_C_FlashForward_JackGrissom.bik",
@@ -69,7 +77,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_C_FlashForward_JacobLondon.bik",
@@ -77,7 +86,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_C_FlashForward_KasumiSit.bik",
@@ -85,7 +95,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_C_FlashForward_MirandaBase.bik",
@@ -93,7 +104,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_C_FlashForward_MordinStudies.bik",
@@ -101,7 +113,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_C_FlashForward_SamDaughter.bik",
@@ -109,7 +122,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_C_LondonRio_Outro.bik",
@@ -117,7 +131,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 905
+"frame_count": 905,
+"frame_count_header": 905
 },
 {
 "name": "End03_C_MR_Rebuild.bik",
@@ -125,7 +140,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 674
+"frame_count": 674,
+"frame_count_header": 674
 },
 {
 "name": "End03_C_MRDes_Good.bik",
@@ -133,7 +149,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1387
+"frame_count": 1387,
+"frame_count_header": 1387
 },
 {
 "name": "End03_C_NorEst.bik",
@@ -141,7 +158,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 112
+"frame_count": 112,
+"frame_count_header": 112
 },
 {
 "name": "End03_C_NormandyChaseExt.bik",
@@ -149,7 +167,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 792
+"frame_count": 792,
+"frame_count_header": 792
 },
 {
 "name": "End03_C_NorRetreatGood.bik",
@@ -157,7 +176,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 468
+"frame_count": 468,
+"frame_count_header": 468
 },
 {
 "name": "End03_C_RanGA_GethReapers.bik",
@@ -165,7 +185,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 280
+"frame_count": 280,
+"frame_count_header": 280
 },
 {
 "name": "End03_C_ShamIntro.bik",
@@ -173,7 +194,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 206
+"frame_count": 206,
+"frame_count_header": 206
 },
 {
 "name": "End03_CD_Sham.bik",
@@ -181,7 +203,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 248
+"frame_count": 248,
+"frame_count_header": 248
 },
 {
 "name": "End03_CD_ThessiaTuchTrans.bik",
@@ -189,7 +212,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 230
+"frame_count": 230,
+"frame_count_header": 230
 },
 {
 "name": "End03_CDS_CrewChase.bik",
@@ -197,7 +221,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 227
+"frame_count": 227,
+"frame_count_header": 227
 },
 {
 "name": "End03_D_CitPieces.bik",
@@ -205,7 +230,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 525
+"frame_count": 525,
+"frame_count_header": 525
 },
 {
 "name": "End03_D_CoatesRebHi.bik",
@@ -213,7 +239,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 333
+"frame_count": 333,
+"frame_count_header": 333
 },
 {
 "name": "End03_D_CoatesRebMin.bik",
@@ -221,7 +248,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 330
+"frame_count": 330,
+"frame_count_header": 330
 },
 {
 "name": "End03_D_Drift.bik",
@@ -229,7 +257,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1532
+"frame_count": 1532,
+"frame_count_header": 1532
 },
 {
 "name": "End03_D_FlashForward_JackLI.bik",
@@ -237,7 +266,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_D_FlashForward_JacobTeacher.bik",
@@ -245,7 +275,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_D_FlashForward_MirandaLI.bik",
@@ -253,7 +284,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_D_FlashForward_MirandaVan.bik",
@@ -261,7 +293,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_D_FlashForward_SamJust.bik",
@@ -269,7 +302,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_D_FlashForward_ZaeedSit.bik",
@@ -277,7 +311,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_D_FleetIntro.bik",
@@ -285,7 +320,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1177
+"frame_count": 1177,
+"frame_count_header": 1177
 },
 {
 "name": "End03_D_FutureEarth.bik",
@@ -293,7 +329,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 516
+"frame_count": 516,
+"frame_count_header": 516
 },
 {
 "name": "End03_D_LondonRio_IntroShort.bik",
@@ -301,7 +338,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 431
+"frame_count": 431,
+"frame_count_header": 431
 },
 {
 "name": "End03_D_LondonRio_Outro.bik",
@@ -309,7 +347,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 720
+"frame_count": 720,
+"frame_count_header": 720
 },
 {
 "name": "End03_D_LondonRioWorst_Outro.bik",
@@ -317,7 +356,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 720
+"frame_count": 720,
+"frame_count_header": 720
 },
 {
 "name": "End03_D_MRDes_Good.bik",
@@ -325,7 +365,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1588
+"frame_count": 1588,
+"frame_count_header": 1588
 },
 {
 "name": "End03_D_NorEst.bik",
@@ -333,7 +374,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 112
+"frame_count": 112,
+"frame_count_header": 112
 },
 {
 "name": "End03_D_NormandyChaseExt.bik",
@@ -341,7 +383,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 764
+"frame_count": 764,
+"frame_count_header": 764
 },
 {
 "name": "End03_D_NorRetreatGood.bik",
@@ -349,7 +392,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1147
+"frame_count": 1147,
+"frame_count_header": 1147
 },
 {
 "name": "End03_D_RanQA_QuarCity.bik",
@@ -357,7 +401,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 323
+"frame_count": 323,
+"frame_count_header": 323
 },
 {
 "name": "End03_D_RanQA_QuarCity_short.bik",
@@ -365,7 +410,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_D_RanQGD_WasteLand.bik",
@@ -373,7 +419,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 233
+"frame_count": 233,
+"frame_count_header": 233
 },
 {
 "name": "End03_D_ShamIntro.bik",
@@ -381,7 +428,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 206
+"frame_count": 206,
+"frame_count_header": 206
 },
 {
 "name": "End03_D_TutCF_Rachni.bik",
@@ -389,7 +437,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 202
+"frame_count": 202,
+"frame_count_header": 202
 },
 {
 "name": "End03_D_TutCF_TutBarren.bik",
@@ -397,7 +446,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 205
+"frame_count": 205,
+"frame_count_header": 205
 },
 {
 "name": "End03_D_TutCF_WasteLand.bik",
@@ -405,7 +455,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 288
+"frame_count": 288,
+"frame_count_header": 288
 },
 {
 "name": "End03_D_TutCF_WreaveWasteLand.bik",
@@ -413,7 +464,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 283
+"frame_count": 283,
+"frame_count_header": 283
 },
 {
 "name": "End03_D_TutCT_Baby.bik",
@@ -421,7 +473,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 231
+"frame_count": 231,
+"frame_count_header": 231
 },
 {
 "name": "End03_D_TutCT_EveBaby.bik",
@@ -429,7 +482,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 231
+"frame_count": 231,
+"frame_count_header": 231
 },
 {
 "name": "End03_D_TutCT_KroganChildren.bik",
@@ -437,7 +491,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 231
+"frame_count": 231,
+"frame_count_header": 231
 },
 {
 "name": "End03_D_TutCT_TutRebuild.bik",
@@ -445,7 +500,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 283
+"frame_count": 283,
+"frame_count_header": 283
 },
 {
 "name": "End03_D_TutCT_WreaveLand.bik",
@@ -453,7 +509,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 308
+"frame_count": 308,
+"frame_count_header": 308
 },
 {
 "name": "End03_D_TutCT_WreaveWarDebate.bik",
@@ -461,7 +518,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 322
+"frame_count": 322,
+"frame_count_header": 322
 },
 {
 "name": "End03_D_TutCT_WreaveWarRally.bik",
@@ -469,7 +527,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 353
+"frame_count": 353,
+"frame_count_header": 353
 },
 {
 "name": "End03_D_TutCT_WrexGruntLand.bik",
@@ -477,7 +536,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 262
+"frame_count": 262,
+"frame_count_header": 262
 },
 {
 "name": "End03_D_TutCT_WrexLand.bik",
@@ -485,7 +545,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 262
+"frame_count": 262,
+"frame_count_header": 262
 },
 {
 "name": "End03_Device_Dock_Bad.bik",
@@ -493,7 +554,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 2011
+"frame_count": 2011,
+"frame_count_header": 2011
 },
 {
 "name": "End03_Flashback_Cortez.bik",
@@ -501,7 +563,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_EDI.bik",
@@ -509,7 +572,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_Garrus.bik",
@@ -517,7 +581,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_Grunt.bik",
@@ -525,7 +590,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_JackME3.bik",
@@ -533,7 +599,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_Jacob.bik",
@@ -541,7 +608,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_James.bik",
@@ -549,7 +617,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_Javick.bik",
@@ -557,7 +626,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_Joker.bik",
@@ -565,7 +635,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_Legion.bik",
@@ -573,7 +644,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_Miranda.bik",
@@ -581,7 +653,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_Mordin.bik",
@@ -589,7 +662,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_Samara.bik",
@@ -597,7 +671,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_Tali.bik",
@@ -605,7 +680,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_Thane.bik",
@@ -613,7 +689,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_Traynor.bik",
@@ -621,7 +698,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 76
+"frame_count": 76,
+"frame_count_header": 76
 },
 {
 "name": "End03_Flashback_Wrex.bik",
@@ -629,7 +707,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_HelmDeath.bik",
@@ -637,7 +716,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 346
+"frame_count": 346,
+"frame_count_header": 346
 },
 {
 "name": "End03_NorDepart.bik",
@@ -645,7 +725,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 681
+"frame_count": 681,
+"frame_count_header": 681
 },
 {
 "name": "End03_NorEstablish.bik",
@@ -653,7 +734,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 498
+"frame_count": 498,
+"frame_count_header": 498
 },
 {
 "name": "End03_OO_Liara.bik",
@@ -661,7 +743,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 486
+"frame_count": 486,
+"frame_count_header": 486
 },
 {
 "name": "End03_S_CoatesReb.bik",
@@ -669,7 +752,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 333
+"frame_count": 333,
+"frame_count_header": 333
 },
 {
 "name": "End03_S_DNA.bik",
@@ -677,7 +761,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1316
+"frame_count": 1316,
+"frame_count_header": 1316
 },
 {
 "name": "End03_S_FlashForward_JackGrave.bik",
@@ -685,7 +770,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_S_FlashForward_JackGrissom.bik",
@@ -693,7 +779,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_s_FlashForward_JacobLondon.bik",
@@ -701,7 +788,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_S_FlashForward_KasumiKeiji.bik",
@@ -709,7 +797,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_S_FlashForward_MirandaVan.bik",
@@ -717,7 +806,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_S_FlashForward_SamDaughter.bik",
@@ -725,7 +815,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_S_FutureCity.bik",
@@ -733,7 +824,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 605
+"frame_count": 605,
+"frame_count_header": 605
 },
 {
 "name": "End03_S_LondonRio_Outro.bik",
@@ -741,7 +833,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 919
+"frame_count": 919,
+"frame_count_header": 919
 },
 {
 "name": "End03_S_MRDes_Good.bik",
@@ -749,7 +842,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 2143
+"frame_count": 2143,
+"frame_count_header": 2143
 },
 {
 "name": "End03_S_NorEst.bik",
@@ -757,7 +851,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 112
+"frame_count": 112,
+"frame_count_header": 112
 },
 {
 "name": "End03_S_NormandyChaseExt.bik",
@@ -765,7 +860,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 706
+"frame_count": 706,
+"frame_count_header": 706
 },
 {
 "name": "End03_S_NorRetreatGood.bik",
@@ -773,7 +869,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 930
+"frame_count": 930,
+"frame_count_header": 930
 },
 {
 "name": "End03_S_RanGA_GethRpr.bik",
@@ -781,7 +878,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 311
+"frame_count": 311,
+"frame_count_header": 311
 },
 {
 "name": "End03_S_RanQGA_NoMask.bik",
@@ -789,7 +887,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 300
+"frame_count": 300,
+"frame_count_header": 300
 },
 {
 "name": "End03_S_Tut_FutureCity.bik",
@@ -797,7 +896,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 198
+"frame_count": 198,
+"frame_count_header": 198
 },
 {
 "name": "End03_S_TutCT_Baby.bik",
@@ -805,7 +905,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 231
+"frame_count": 231,
+"frame_count_header": 231
 },
 {
 "name": "End03_S_TutCT_EveBaby.bik",
@@ -813,7 +914,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 231
+"frame_count": 231,
+"frame_count_header": 231
 },
 {
 "name": "End03_S_TutCT_TutRebuild.bik",
@@ -821,7 +923,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 283
+"frame_count": 283,
+"frame_count_header": 283
 },
 {
 "name": "End03_S_TutCT_WreaveLand.bik",
@@ -829,7 +932,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 262
+"frame_count": 262,
+"frame_count_header": 262
 },
 {
 "name": "End03_S_TutCT_WrexLand.bik",
@@ -837,7 +941,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 262
+"frame_count": 262,
+"frame_count_header": 262
 },
 {
 "name": "End03_SC_LondonRio_IntroShort.bik",
@@ -845,7 +950,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 424
+"frame_count": 424,
+"frame_count_header": 424
 },
 {
 "name": "EveFlashBack_Death.bik",
@@ -853,7 +959,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "KaidanFlashBack_Death.bik",
@@ -861,7 +968,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "LiaraFlashBack_Death.bik",
@@ -869,7 +977,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "OptOut_NewFinale.bik",
@@ -877,7 +986,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1833
+"frame_count": 1833,
+"frame_count_header": 1833
 },
 {
 "name": "Lev002_Asteroid_Arrival.bik",
@@ -885,7 +995,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 252
+"frame_count": 252,
+"frame_count_header": 252
 },
 {
 "name": "Lev002_Asteroid_Depart.bik",
@@ -893,7 +1004,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 115
+"frame_count": 115,
+"frame_count_header": 115
 },
 {
 "name": "Lev002_LoopingLoad.bik",
@@ -901,7 +1013,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "Lev003_DigSite_Arrival.bik",
@@ -909,7 +1022,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 195
+"frame_count": 195,
+"frame_count_header": 195
 },
 {
 "name": "Lev004_LeviathansReveal.bik",
@@ -917,7 +1031,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 431
+"frame_count": 431,
+"frame_count_header": 431
 },
 {
 "name": "Lev004_WW_ArrivalCrash1.bik",
@@ -925,7 +1040,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 129
+"frame_count": 129,
+"frame_count_header": 129
 },
 {
 "name": "Lev004_WW_ArrivalCrash2.bik",
@@ -933,7 +1049,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 22
+"frame_count": 22,
+"frame_count_header": 22
 },
 {
 "name": "Lev004_WW_ArrivalCrash3.bik",
@@ -941,7 +1058,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 57
+"frame_count": 57,
+"frame_count_header": 57
 },
 {
 "name": "Lev004_WW_ArrivalCrash4.bik",
@@ -949,7 +1067,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 261
+"frame_count": 261,
+"frame_count_header": 261
 },
 {
 "name": "Lev004_WW_CortezInsert.bik",
@@ -957,7 +1076,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 67
+"frame_count": 67,
+"frame_count_header": 67
 },
 {
 "name": "Lev004_WW_DescentBelow1.bik",
@@ -965,7 +1085,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 241
+"frame_count": 241,
+"frame_count_header": 241
 },
 {
 "name": "Lev004_WW_DescentBelow2.bik",
@@ -973,7 +1094,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 244
+"frame_count": 244,
+"frame_count_header": 244
 },
 {
 "name": "Lev004_WW_DescentLoop.bik",
@@ -981,7 +1103,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 317
+"frame_count": 317,
+"frame_count_header": 317
 },
 {
 "name": "Lev004_WW_DescentSurface1.bik",
@@ -989,7 +1112,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 246
+"frame_count": 246,
+"frame_count_header": 246
 },
 {
 "name": "Lev004_WW_DescentSurface2.bik",
@@ -997,7 +1121,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 158
+"frame_count": 158,
+"frame_count_header": 158
 },
 {
 "name": "Lev004_WW_EscapeBelow1.bik",
@@ -1005,7 +1130,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 282
+"frame_count": 282,
+"frame_count_header": 282
 },
 {
 "name": "Lev004_WW_EscapeLoop.bik",
@@ -1013,7 +1139,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 149
+"frame_count": 149,
+"frame_count_header": 149
 },
 {
 "name": "Lev004_WW_EscapeSurface1.bik",
@@ -1021,7 +1148,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 98
+"frame_count": 98,
+"frame_count_header": 98
 },
 {
 "name": "Lev004_WW_EscapeSurface2.bik",
@@ -1029,7 +1157,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 209
+"frame_count": 209,
+"frame_count_header": 209
 },
 {
 "name": "Lev004_WW_EscapeSurface3.bik",
@@ -1037,7 +1166,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 71
+"frame_count": 71,
+"frame_count_header": 71
 },
 {
 "name": "Lev004_WW_EscapeSurface4.bik",
@@ -1045,7 +1175,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 950
+"frame_count": 950,
+"frame_count_header": 950
 },
 {
 "name": "WaterWorldArrivalPart1.bik",
@@ -1053,7 +1184,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 299
+"frame_count": 299,
+"frame_count_header": 299
 },
 {
 "name": "load_OMG_1toHub.bik",
@@ -1061,7 +1193,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 148
+"frame_count": 148,
+"frame_count_header": 148
 },
 {
 "name": "load_OMG_3to4.bik",
@@ -1069,7 +1202,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 130
+"frame_count": 130,
+"frame_count_header": 130
 },
 {
 "name": "load_OMG_Hubto2a.bik",
@@ -1077,7 +1211,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 130
+"frame_count": 130,
+"frame_count_header": 130
 },
 {
 "name": "load_OMG_Hubto3.bik",
@@ -1085,7 +1220,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 130
+"frame_count": 130,
+"frame_count_header": 130
 },
 {
 "name": "Nor_CIC.bik",
@@ -1093,7 +1229,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 89
+"frame_count": 89,
+"frame_count_header": 89
 },
 {
 "name": "omg003_barriers_afterlife.bik",
@@ -1101,7 +1238,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 89
+"frame_count": 89,
+"frame_count_header": 89
 },
 {
 "name": "omg003_barriers_market.bik",
@@ -1109,7 +1247,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 71
+"frame_count": 71,
+"frame_count_header": 71
 },
 {
 "name": "omg003_barriers_mech.bik",
@@ -1117,7 +1256,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 154
+"frame_count": 154,
+"frame_count_header": 154
 },
 {
 "name": "omg003_barriers_vista.bik",
@@ -1125,7 +1265,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 138
+"frame_count": 138,
+"frame_count_header": 138
 },
 {
 "name": "omg02A_speech_general.bik",
@@ -1133,7 +1274,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 137
+"frame_count": 137,
+"frame_count_header": 137
 },
 {
 "name": "omg02A_speech_market.bik",
@@ -1141,7 +1283,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 115
+"frame_count": 115,
+"frame_count_header": 115
 },
 {
 "name": "omg02A_speech_tech.bik",
@@ -1149,7 +1292,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 136
+"frame_count": 136,
+"frame_count_header": 136
 },
 {
 "name": "omg02A_speech_vista.bik",
@@ -1157,7 +1301,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 118
+"frame_count": 118,
+"frame_count_header": 118
 },
 {
 "name": "OmgIntro_001_StealthEntry.bik",
@@ -1165,7 +1310,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 431
+"frame_count": 431,
+"frame_count_header": 431
 },
 {
 "name": "OmgIntro_002_HeadforCmdShp.bik",
@@ -1173,7 +1319,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 203
+"frame_count": 203,
+"frame_count_header": 203
 },
 {
 "name": "OmgIntro_003_SneakApproach.bik",
@@ -1181,7 +1328,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 127
+"frame_count": 127,
+"frame_count_header": 127
 },
 {
 "name": "OmgIntro_004_TakeOutCmdShpA.bik",
@@ -1189,7 +1337,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 214
+"frame_count": 214,
+"frame_count_header": 214
 },
 {
 "name": "OmgIntro_005_TakeOutCmdShpB.bik",
@@ -1197,7 +1346,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 231
+"frame_count": 231,
+"frame_count_header": 231
 },
 {
 "name": "OmgIntro_006_FleetJoins.bik",
@@ -1205,7 +1355,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 256
+"frame_count": 256,
+"frame_count_header": 256
 },
 {
 "name": "OmgIntro_007_Cannon.bik",
@@ -1213,7 +1364,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 160
+"frame_count": 160,
+"frame_count_header": 160
 },
 {
 "name": "OmgIntro_008_OmegaAttacks.bik",
@@ -1221,7 +1373,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 196
+"frame_count": 196,
+"frame_count_header": 196
 },
 {
 "name": "OmgIntro_009_PodEject.bik",
@@ -1229,7 +1382,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 155
+"frame_count": 155,
+"frame_count_header": 155
 },
 {
 "name": "OmgIntro_010_PodCrash.bik",
@@ -1237,7 +1391,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 191
+"frame_count": 191,
+"frame_count_header": 191
 },
 {
 "name": "Cit001_BarIntroEstablishing.bik",
@@ -1245,7 +1400,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 614
+"frame_count": 614,
+"frame_count_header": 614
 },
 {
 "name": "Cit001_FF_distraction.bik",
@@ -1253,7 +1409,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 231
+"frame_count": 231,
+"frame_count_header": 231
 },
 {
 "name": "cit003_begin_assault_1.bik",
@@ -1261,7 +1418,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 118
+"frame_count": 118,
+"frame_count_header": 118
 },
 {
 "name": "cit003_begin_assault_2.bik",
@@ -1269,7 +1427,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 88
+"frame_count": 88,
+"frame_count_header": 88
 },
 {
 "name": "cit003_begin_assault_3.bik",
@@ -1277,7 +1436,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 98
+"frame_count": 98,
+"frame_count_header": 98
 },
 {
 "name": "cit003_cit001_door_flashback.bik",
@@ -1285,7 +1445,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 248
+"frame_count": 248,
+"frame_count_header": 248
 },
 {
 "name": "Cit004_CloneEnd_Part2.bik",
@@ -1293,7 +1454,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 238
+"frame_count": 238,
+"frame_count_header": 238
 },
 {
 "name": "Cit004_EpilogueMercDrones.bik",
@@ -1301,7 +1463,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 135
+"frame_count": 135,
+"frame_count_header": 135
 },
 {
 "name": "Cit004_NormandyDepart.bik",
@@ -1309,7 +1472,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 440
+"frame_count": 440,
+"frame_count_header": 440
 },
 {
 "name": "Cit004_NormandyDockReturn.bik",
@@ -1317,7 +1481,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 449
+"frame_count": 449,
+"frame_count_header": 449
 },
 {
 "name": "Cit004_normandyfly1.bik",
@@ -1325,7 +1490,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 183
+"frame_count": 183,
+"frame_count_header": 183
 },
 {
 "name": "Cit004_normandyfly2.bik",
@@ -1333,7 +1499,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 275
+"frame_count": 275,
+"frame_count_header": 275
 },
 {
 "name": "Cit004_normandyfly3.bik",
@@ -1341,7 +1508,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 96
+"frame_count": 96,
+"frame_count_header": 96
 },
 {
 "name": "Cit004_normandyfly4.bik",
@@ -1349,7 +1517,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 298
+"frame_count": 298,
+"frame_count_header": 298
 },
 {
 "name": "Cit004_normandyfly5.bik",
@@ -1357,7 +1526,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 258
+"frame_count": 258,
+"frame_count_header": 258
 },
 {
 "name": "Cit004_normandyfly6.bik",
@@ -1365,7 +1535,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 36
+"frame_count": 36,
+"frame_count_header": 36
 },
 {
 "name": "Cit004_normandyfly7.bik",
@@ -1373,7 +1544,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 247
+"frame_count": 247,
+"frame_count_header": 247
 },
 {
 "name": "Cit_LoopingRedCar.bik",
@@ -1381,7 +1553,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 199
+"frame_count": 199,
+"frame_count_header": 199
 },
 {
 "name": "Cit_loopingShuttle.bik",
@@ -1389,7 +1562,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 199
+"frame_count": 199,
+"frame_count_header": 199
 },
 {
 "name": "CitApt_SmlsLoad.bik",
@@ -1397,7 +1571,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 149
+"frame_count": 149,
+"frame_count_header": 149
 },
 {
 "name": "CitApt_Turian_Shot.bik",
@@ -1405,7 +1580,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 134
+"frame_count": 134,
+"frame_count_header": 134
 },
 {
 "name": "CitApt_Volus.bik",
@@ -1413,7 +1589,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 126
+"frame_count": 126,
+"frame_count_header": 126
 },
 {
 "name": "CitAptBench_SmlsLoad.bik",
@@ -1421,7 +1598,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 149
+"frame_count": 149,
+"frame_count_header": 149
 },
 {
 "name": "CitSim_SmlsLoad.bik",
@@ -1429,7 +1607,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 149
+"frame_count": 149,
+"frame_count_header": 149
 },
 {
 "name": "CitSimBench_SmlsLoad.bik",
@@ -1437,7 +1616,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 149
+"frame_count": 149,
+"frame_count_header": 149
 },
 {
 "name": "CitSTREET_SmlsLoad.bik",
@@ -1445,7 +1625,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 149
+"frame_count": 149,
+"frame_count_header": 149
 },
 {
 "name": "Cortez_shuttle_leave.bik",
@@ -1453,7 +1634,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 160
+"frame_count": 160,
+"frame_count_header": 160
 },
 {
 "name": "Cortez_shuttle_spin.bik",
@@ -1461,7 +1643,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 199
+"frame_count": 199,
+"frame_count_header": 199
 },
 {
 "name": "Grunt_Drunk.bik",
@@ -1469,7 +1652,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 109
+"frame_count": 109,
+"frame_count_header": 109
 },
 {
 "name": "Grunt_Hospital.bik",
@@ -1477,7 +1661,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 161
+"frame_count": 161,
+"frame_count_header": 161
 },
 {
 "name": "Grunt_Statue.bik",
@@ -1485,7 +1670,8 @@
 "width": 1280,
 "height": 768,
 "fps": 30.0,
-"frame_count": 131
+"frame_count": 131,
+"frame_count_header": 131
 },
 {
 "name": "Grunt_Throw.bik",
@@ -1493,7 +1679,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 75
+"frame_count": 75,
+"frame_count_header": 75
 },
 {
 "name": "JokerTale_Part1.bik",
@@ -1501,7 +1688,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 970
+"frame_count": 970,
+"frame_count_header": 970
 },
 {
 "name": "JokerTale_Part2.bik",
@@ -1509,7 +1697,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 294
+"frame_count": 294,
+"frame_count_header": 294
 },
 {
 "name": "JokerTale_Part3.bik",
@@ -1517,7 +1706,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 738
+"frame_count": 738,
+"frame_count_header": 738
 },
 {
 "name": "Cat001_Prothean_FlashBack1.bik",
@@ -1525,7 +1715,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 530
+"frame_count": 530,
+"frame_count_header": 530
 },
 {
 "name": "Cat001_Prothean_FlashBack1_Outro.bik",
@@ -1533,7 +1724,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 232
+"frame_count": 232,
+"frame_count_header": 232
 },
 {
 "name": "Cat001_Prothean_FlashBack2.bik",
@@ -1541,7 +1733,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 181
+"frame_count": 181,
+"frame_count_header": 181
 },
 {
 "name": "Cat001_Prothean_FlashBack2_Outro.bik",
@@ -1549,7 +1742,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 205
+"frame_count": 205,
+"frame_count_header": 205
 },
 {
 "name": "Cat001_Prothean_FlashBack2b.bik",
@@ -1557,7 +1751,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 131
+"frame_count": 131,
+"frame_count_header": 131
 },
 {
 "name": "DLC_Cat001_Fb1_Ingame.bik",
@@ -1565,7 +1760,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 119
+"frame_count": 119,
+"frame_count_header": 119
 },
 {
 "name": "DLC_Cat001_Fb2_Ingame.bik",
@@ -1573,7 +1769,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 100
+"frame_count": 100,
+"frame_count_header": 100
 },
 {
 "name": "dlcmiddle.bik",
@@ -1581,7 +1778,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 2450
+"frame_count": 2450,
+"frame_count_header": 2450
 },
 {
 "name": "flashback1.bik",
@@ -1589,7 +1787,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 2350
+"frame_count": 2350,
+"frame_count_header": 2350
 },
 {
 "name": "Lifepod_FullScene.bik",
@@ -1597,7 +1796,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 3935
+"frame_count": 3935,
+"frame_count_header": 3935
 },
 {
 "name": "PostCat1_VisionBink.bik",
@@ -1605,7 +1805,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 209
+"frame_count": 209,
+"frame_count_header": 209
 },
 {
 "name": "AdvCombat1_PC.bik",
@@ -1613,7 +1814,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1306
+"frame_count": 1306,
+"frame_count_header": 1306
 },
 {
 "name": "AdvCombat2_PC.bik",
@@ -1621,7 +1823,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1529
+"frame_count": 1529,
+"frame_count_header": 1529
 },
 {
 "name": "AdvCombat3_PC.bik",
@@ -1629,7 +1832,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1134
+"frame_count": 1134,
+"frame_count_header": 1134
 },
 {
 "name": "cat002_100_arrival.bik",
@@ -1637,7 +1841,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 207
+"frame_count": 207,
+"frame_count_header": 207
 },
 {
 "name": "Cat003_100_DockArv.bik",
@@ -1645,7 +1850,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1217
+"frame_count": 1217,
+"frame_count_header": 1217
 },
 {
 "name": "Cat004_arrival_pt1.bik",
@@ -1653,7 +1859,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 175
+"frame_count": 175,
+"frame_count_header": 175
 },
 {
 "name": "Cat004_arrival_pt3.bik",
@@ -1661,7 +1868,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 484
+"frame_count": 484,
+"frame_count_header": 484
 },
 {
 "name": "Cat004_Cit_Close.bik",
@@ -1669,7 +1877,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 762
+"frame_count": 762,
+"frame_count_header": 762
 },
 {
 "name": "Cat004_Loop.bik",
@@ -1677,7 +1886,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "CerJcb_Arrival_pt2.bik",
@@ -1685,7 +1895,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 343
+"frame_count": 343,
+"frame_count_header": 343
 },
 {
 "name": "CerJcb_Depart_pt1.bik",
@@ -1693,7 +1904,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 175
+"frame_count": 175,
+"frame_count_header": 175
 },
 {
 "name": "CerJcb_Depart_pt2.bik",
@@ -1701,7 +1913,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 99
+"frame_count": 99,
+"frame_count_header": 99
 },
 {
 "name": "Cithub_Load01.bik",
@@ -1709,7 +1922,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 156
+"frame_count": 156,
+"frame_count_header": 156
 },
 {
 "name": "Cithub_Load02.bik",
@@ -1717,7 +1931,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 156
+"frame_count": 156,
+"frame_count_header": 156
 },
 {
 "name": "Cithub_Load03.bik",
@@ -1725,7 +1940,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 241
+"frame_count": 241,
+"frame_count_header": 241
 },
 {
 "name": "Cithub_Load04.bik",
@@ -1733,7 +1949,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 241
+"frame_count": 241,
+"frame_count_header": 241
 },
 {
 "name": "Cithub_Load05.bik",
@@ -1741,7 +1958,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 156
+"frame_count": 156,
+"frame_count_header": 156
 },
 {
 "name": "Cithub_Load06.bik",
@@ -1749,7 +1967,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 241
+"frame_count": 241,
+"frame_count_header": 241
 },
 {
 "name": "Cithub_Load07.bik",
@@ -1757,7 +1976,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 241
+"frame_count": 241,
+"frame_count_header": 241
 },
 {
 "name": "Cithub_Load08.bik",
@@ -1765,7 +1985,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 241
+"frame_count": 241,
+"frame_count_header": 241
 },
 {
 "name": "Device_Complete.bik",
@@ -1773,7 +1994,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 628
+"frame_count": 628,
+"frame_count_header": 628
 },
 {
 "name": "Device_Reveal.bik",
@@ -1781,7 +2003,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 919
+"frame_count": 919,
+"frame_count_header": 919
 },
 {
 "name": "End001_ShuttleDown_End.bik",
@@ -1789,7 +2012,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 261
+"frame_count": 261,
+"frame_count_header": 261
 },
 {
 "name": "End001_ShuttleDown_Start.bik",
@@ -1797,7 +2021,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 195
+"frame_count": 195,
+"frame_count_header": 195
 },
 {
 "name": "End002_Smls_Tunnel.bik",
@@ -1805,7 +2030,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End004.bik",
@@ -1813,7 +2039,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 2251
+"frame_count": 2251,
+"frame_count_header": 2251
 },
 {
 "name": "End01_HammerFail.bik",
@@ -1821,7 +2048,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1604
+"frame_count": 1604,
+"frame_count_header": 1604
 },
 {
 "name": "End01_HammerIntro.bik",
@@ -1829,7 +2057,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1512
+"frame_count": 1512,
+"frame_count_header": 1512
 },
 {
 "name": "End01_HammerLand.bik",
@@ -1837,7 +2066,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1673
+"frame_count": 1673,
+"frame_count_header": 1673
 },
 {
 "name": "End01_Sheild_Intro.bik",
@@ -1845,7 +2075,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 2071
+"frame_count": 2071,
+"frame_count_header": 2071
 },
 {
 "name": "End01_Sword_Bad_Pt1.bik",
@@ -1853,7 +2084,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 147
+"frame_count": 147,
+"frame_count_header": 147
 },
 {
 "name": "End01_Sword_Bad_Pt2.bik",
@@ -1861,7 +2093,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 987
+"frame_count": 987,
+"frame_count_header": 987
 },
 {
 "name": "End01_Sword_Descent.bik",
@@ -1869,7 +2102,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 592
+"frame_count": 592,
+"frame_count_header": 592
 },
 {
 "name": "End01_Sword_Good.bik",
@@ -1877,7 +2111,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 922
+"frame_count": 922,
+"frame_count_header": 922
 },
 {
 "name": "End01_Sword_intro_pt10.bik",
@@ -1885,7 +2120,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1278
+"frame_count": 1278,
+"frame_count_header": 1278
 },
 {
 "name": "End01_Sword_intro_pt2.bik",
@@ -1893,7 +2129,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 443
+"frame_count": 443,
+"frame_count_header": 443
 },
 {
 "name": "End01_Sword_intro_pt3AD.bik",
@@ -1901,7 +2138,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 480
+"frame_count": 480,
+"frame_count_header": 480
 },
 {
 "name": "End01_Sword_intro_pt3DA.bik",
@@ -1909,7 +2147,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 480
+"frame_count": 480,
+"frame_count_header": 480
 },
 {
 "name": "End01_Sword_intro_pt4G.bik",
@@ -1917,7 +2156,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 419
+"frame_count": 419,
+"frame_count_header": 419
 },
 {
 "name": "End01_Sword_intro_pt4Q.bik",
@@ -1925,7 +2165,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 419
+"frame_count": 419,
+"frame_count_header": 419
 },
 {
 "name": "End01_Sword_intro_pt6.bik",
@@ -1933,7 +2174,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 696
+"frame_count": 696,
+"frame_count_header": 696
 },
 {
 "name": "End01_Sword_intro_pt8.bik",
@@ -1941,7 +2183,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 737
+"frame_count": 737,
+"frame_count_header": 737
 },
 {
 "name": "End02_Cit_Flower.bik",
@@ -1949,7 +2192,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 644
+"frame_count": 644,
+"frame_count_header": 644
 },
 {
 "name": "End03_Anderson_Short.bik",
@@ -1957,7 +2201,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 151
+"frame_count": 151,
+"frame_count_header": 151
 },
 {
 "name": "End03_B_SphereExp.bik",
@@ -1965,7 +2210,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 358
+"frame_count": 358,
+"frame_count_header": 358
 },
 {
 "name": "End03_Device_Dock.bik",
@@ -1973,7 +2219,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1395
+"frame_count": 1395,
+"frame_count_header": 1395
 },
 {
 "name": "End03_Flashback_Anderson.bik",
@@ -1981,7 +2228,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 102
+"frame_count": 102,
+"frame_count_header": 102
 },
 {
 "name": "End03_Flashback_Ash.bik",
@@ -1989,7 +2237,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 76
+"frame_count": 76,
+"frame_count_header": 76
 },
 {
 "name": "End03_Flashback_Joker.bik",
@@ -1997,7 +2246,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 97
+"frame_count": 97,
+"frame_count_header": 97
 },
 {
 "name": "End03_Flashback_Kaiden.bik",
@@ -2005,7 +2255,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 76
+"frame_count": 76,
+"frame_count_header": 76
 },
 {
 "name": "End03_Flashback_Liara.bik",
@@ -2013,7 +2264,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 76
+"frame_count": 76,
+"frame_count_header": 76
 },
 {
 "name": "End03_G_SphereExp.bik",
@@ -2021,7 +2273,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 567
+"frame_count": 567,
+"frame_count_header": 567
 },
 {
 "name": "End03_Im_Short.bik",
@@ -2029,7 +2282,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 151
+"frame_count": 151,
+"frame_count_header": 151
 },
 {
 "name": "End03_LondonBlue.bik",
@@ -2037,7 +2291,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 357
+"frame_count": 357,
+"frame_count_header": 357
 },
 {
 "name": "End03_LondonBlueBad.bik",
@@ -2045,7 +2300,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 768
+"frame_count": 768,
+"frame_count_header": 768
 },
 {
 "name": "End03_LondonBlueGood.bik",
@@ -2053,7 +2309,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 768
+"frame_count": 768,
+"frame_count_header": 768
 },
 {
 "name": "End03_LondonBlueOutro.bik",
@@ -2061,7 +2318,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1499
+"frame_count": 1499,
+"frame_count_header": 1499
 },
 {
 "name": "End03_LondonGreen.bik",
@@ -2069,7 +2327,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 357
+"frame_count": 357,
+"frame_count_header": 357
 },
 {
 "name": "End03_LondonGreenGood.bik",
@@ -2077,7 +2336,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 757
+"frame_count": 757,
+"frame_count_header": 757
 },
 {
 "name": "End03_LondonGreenOutro.bik",
@@ -2085,7 +2345,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1822
+"frame_count": 1822,
+"frame_count_header": 1822
 },
 {
 "name": "End03_LondonIntro.bik",
@@ -2093,7 +2354,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 335
+"frame_count": 335,
+"frame_count_header": 335
 },
 {
 "name": "End03_LondonRed.bik",
@@ -2101,7 +2363,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 357
+"frame_count": 357,
+"frame_count_header": 357
 },
 {
 "name": "End03_LondonRedGood.bik",
@@ -2109,7 +2372,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 764
+"frame_count": 764,
+"frame_count_header": 764
 },
 {
 "name": "End03_LondonRedOutro.bik",
@@ -2117,7 +2381,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1996
+"frame_count": 1996,
+"frame_count_header": 1996
 },
 {
 "name": "End03_LondonRedVap.bik",
@@ -2125,7 +2390,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 764
+"frame_count": 764,
+"frame_count_header": 764
 },
 {
 "name": "End03_R_SphereExp.bik",
@@ -2133,7 +2399,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 603
+"frame_count": 603,
+"frame_count_header": 603
 },
 {
 "name": "End03_Shepard_Alive_Fem.bik",
@@ -2141,7 +2408,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 660
+"frame_count": 660,
+"frame_count_header": 660
 },
 {
 "name": "End03_Shepard_Alive_Male.bik",
@@ -2149,7 +2417,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 660
+"frame_count": 660,
+"frame_count_header": 660
 },
 {
 "name": "End3_LondonRedBad.bik",
@@ -2157,7 +2426,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 764
+"frame_count": 764,
+"frame_count_header": 764
 },
 {
 "name": "Ght002_Geth_Death.bik",
@@ -2165,7 +2435,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1384
+"frame_count": 1384,
+"frame_count_header": 1384
 },
 {
 "name": "GLO_01_Relay.bik",
@@ -2173,7 +2444,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 273
+"frame_count": 273,
+"frame_count_header": 273
 },
 {
 "name": "Gth001_Arrival_Pt1.bik",
@@ -2181,7 +2453,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 465
+"frame_count": 465,
+"frame_count_header": 465
 },
 {
 "name": "Gth001_Arrival_pt2.bik",
@@ -2189,7 +2462,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 571
+"frame_count": 571,
+"frame_count_header": 571
 },
 {
 "name": "Gth001_Depart.bik",
@@ -2197,7 +2471,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 958
+"frame_count": 958,
+"frame_count_header": 958
 },
 {
 "name": "Gth002_Quar_Death.bik",
@@ -2205,7 +2480,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 2068
+"frame_count": 2068,
+"frame_count_header": 2068
 },
 {
 "name": "Gth002_QuarBomb_Gun.bik",
@@ -2213,7 +2489,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 241
+"frame_count": 241,
+"frame_count_header": 241
 },
 {
 "name": "GthLeg_Admiral_GTHShip1.bik",
@@ -2221,7 +2498,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 417
+"frame_count": 417,
+"frame_count_header": 417
 },
 {
 "name": "GthLeg_Admiral_GTHShip2.bik",
@@ -2229,7 +2507,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 296
+"frame_count": 296,
+"frame_count_header": 296
 },
 {
 "name": "Kro001_100_SurArrival_Animatic.bik",
@@ -2237,7 +2516,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 238
+"frame_count": 238,
+"frame_count_header": 238
 },
 {
 "name": "Kro001_100_SurArrival_pt2.bik",
@@ -2245,7 +2525,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 193
+"frame_count": 193,
+"frame_count_header": 193
 },
 {
 "name": "Kro001_ExoIntro_Drop.bik",
@@ -2253,7 +2534,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 94
+"frame_count": 94,
+"frame_count_header": 94
 },
 {
 "name": "Kro002_Convoy_PR.bik",
@@ -2261,7 +2543,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 91
+"frame_count": 91,
+"frame_count_header": 91
 },
 {
 "name": "Kro002_Cure_PR.bik",
@@ -2269,7 +2552,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 320
+"frame_count": 320,
+"frame_count_header": 320
 },
 {
 "name": "Kro002_CurePR_01.bik",
@@ -2277,7 +2561,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 182
+"frame_count": 182,
+"frame_count_header": 182
 },
 {
 "name": "Kro002_CurePR_03.bik",
@@ -2285,7 +2570,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 362
+"frame_count": 362,
+"frame_count_header": 362
 },
 {
 "name": "Kro002_Fight_pt1.bik",
@@ -2293,7 +2579,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 323
+"frame_count": 323,
+"frame_count_header": 323
 },
 {
 "name": "Kro002_Fight_pt2.bik",
@@ -2301,7 +2588,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 248
+"frame_count": 248,
+"frame_count_header": 248
 },
 {
 "name": "Kro002_Fight_Pt3.bik",
@@ -2309,7 +2597,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 697
+"frame_count": 697,
+"frame_count_header": 697
 },
 {
 "name": "KroGar_100_Arrival.bik",
@@ -2317,7 +2606,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1648
+"frame_count": 1648,
+"frame_count_header": 1648
 },
 {
 "name": "load_f01.bik",
@@ -2325,7 +2615,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 59
+"frame_count": 59,
+"frame_count_header": 59
 },
 {
 "name": "ME3_ProCit_Loop.bik",
@@ -2333,7 +2624,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "ME3_sig_logo.bik",
@@ -2341,7 +2633,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 187
+"frame_count": 187,
+"frame_count_header": 187
 },
 {
 "name": "Nor_CIC.bik",
@@ -2349,7 +2642,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 89
+"frame_count": 89,
+"frame_count_header": 89
 },
 {
 "name": "Nor_PreHenchmanSelect.bik",
@@ -2357,7 +2651,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 157
+"frame_count": 157,
+"frame_count_header": 157
 },
 {
 "name": "norend_hackett_speech_Geth.bik",
@@ -2365,7 +2660,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 148
+"frame_count": 148,
+"frame_count_header": 148
 },
 {
 "name": "NorEnd_Hackett_Speech_Intro.bik",
@@ -2373,7 +2669,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 461
+"frame_count": 461,
+"frame_count_header": 461
 },
 {
 "name": "norend_hackett_Speech_quarian.bik",
@@ -2381,7 +2678,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 153
+"frame_count": 153,
+"frame_count_header": 153
 },
 {
 "name": "norend_hackett_Speech_Turian.bik",
@@ -2389,7 +2687,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 209
+"frame_count": 209,
+"frame_count_header": 209
 },
 {
 "name": "NorKro_SummitVid_Mordin.bik",
@@ -2397,7 +2696,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 355
+"frame_count": 355,
+"frame_count_header": 355
 },
 {
 "name": "NorKro_SummitVid_Padok.bik",
@@ -2405,7 +2705,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 353
+"frame_count": 353,
+"frame_count_header": 353
 },
 {
 "name": "NumberReel.bik",
@@ -2413,7 +2714,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 59
+"frame_count": 59,
+"frame_count_header": 59
 },
 {
 "name": "OmgJck_Arrival_Pt1.bik",
@@ -2421,7 +2723,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 659
+"frame_count": 659,
+"frame_count_header": 659
 },
 {
 "name": "OmgJck_Arrival_Pt2.bik",
@@ -2429,7 +2732,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 520
+"frame_count": 520,
+"frame_count_header": 520
 },
 {
 "name": "ProCit_100_Arrival.bik",
@@ -2437,7 +2741,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1727
+"frame_count": 1727,
+"frame_count_header": 1727
 },
 {
 "name": "ProCit_Arrival_Generic.bik",
@@ -2445,7 +2750,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 263
+"frame_count": 263,
+"frame_count_header": 263
 },
 {
 "name": "proear_intro_Animatic.bik",
@@ -2453,7 +2759,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1152
+"frame_count": 1152,
+"frame_count_header": 1152
 },
 {
 "name": "ProEar_Intro_Pt2.bik",
@@ -2461,7 +2768,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 532
+"frame_count": 532,
+"frame_count_header": 532
 },
 {
 "name": "ProEar_Intro_Pt2_Fem.bik",
@@ -2469,7 +2777,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 532
+"frame_count": 532,
+"frame_count_header": 532
 },
 {
 "name": "ProEar_Intro_Pt4.bik",
@@ -2477,7 +2786,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 428
+"frame_count": 428,
+"frame_count_header": 428
 },
 {
 "name": "ProEar_Intro_Pt6.bik",
@@ -2485,7 +2795,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 478
+"frame_count": 478,
+"frame_count_header": 478
 },
 {
 "name": "ProEar_Intro_Pt6_Fem.bik",
@@ -2493,7 +2804,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 478
+"frame_count": 478,
+"frame_count_header": 478
 },
 {
 "name": "ProEar_Intro_Pt8.bik",
@@ -2501,7 +2813,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1661
+"frame_count": 1661,
+"frame_count_header": 1661
 },
 {
 "name": "ProMar_Arrival_pt1.bik",
@@ -2509,7 +2822,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1012
+"frame_count": 1012,
+"frame_count_header": 1012
 },
 {
 "name": "ProMar_Arrival_pt2.bik",
@@ -2517,7 +2831,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 291
+"frame_count": 291,
+"frame_count_header": 291
 },
 {
 "name": "ProMar_Depart.bik",
@@ -2525,7 +2840,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 212
+"frame_count": 212,
+"frame_count_header": 212
 },
 {
 "name": "ProMar_EscapePt2_Joker.bik",
@@ -2533,7 +2849,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 67
+"frame_count": 67,
+"frame_count_header": 67
 },
 {
 "name": "ProMar_Escapept4_Est.bik",
@@ -2541,7 +2858,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 111
+"frame_count": 111,
+"frame_count_header": 111
 },
 {
 "name": "ProMar_IM_Cutaway.bik",
@@ -2549,7 +2867,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 112
+"frame_count": 112,
+"frame_count_header": 112
 },
 {
 "name": "ProMar_Smls_Load.bik",
@@ -2557,7 +2876,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "Smls_2_Loop.bik",
@@ -2565,7 +2885,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 160
+"frame_count": 160,
+"frame_count_header": 160
 },
 {
 "name": "Smls_Kro001.bik",
@@ -2573,7 +2894,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 145
+"frame_count": 145,
+"frame_count_header": 145
 },
 {
 "name": "Smls_NorFTL.bik",
@@ -2581,7 +2903,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 265
+"frame_count": 265,
+"frame_count_header": 265
 },
 {
 "name": "Smls_NorLoopLF.bik",
@@ -2589,7 +2912,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 200
+"frame_count": 200,
+"frame_count_header": 200
 },
 {
 "name": "Smls_NorLoopRt.bik",
@@ -2597,7 +2921,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 200
+"frame_count": 200,
+"frame_count_header": 200
 },
 {
 "name": "Smls_OmgJck.bik",
@@ -2605,7 +2930,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 180
+"frame_count": 180,
+"frame_count_header": 180
 },
 {
 "name": "Smls_ShutLoop_Kro002.bik",
@@ -2613,7 +2939,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 167
+"frame_count": 167,
+"frame_count_header": 167
 },
 {
 "name": "Smls_ShutSpace_LF.bik",
@@ -2621,7 +2948,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 239
+"frame_count": 239,
+"frame_count_header": 239
 },
 {
 "name": "Smls_ShutSpace_RT.bik",
@@ -2629,7 +2957,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 239
+"frame_count": 239,
+"frame_count_header": 239
 },
 {
 "name": "StartupLoop.bik",
@@ -2637,7 +2966,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 149
+"frame_count": 149,
+"frame_count_header": 149
 },
 {
 "name": "Ark002_attack.bik",
@@ -2645,7 +2975,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 264
+"frame_count": 264,
+"frame_count_header": 264
 },
 {
 "name": "Ark002_Intro.bik",
@@ -2653,7 +2984,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 417
+"frame_count": 417,
+"frame_count_header": 417
 },
 {
 "name": "Ark002_OutroC.bik",
@@ -2661,7 +2993,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 29.97,
-"frame_count": 844
+"frame_count": 844,
+"frame_count_header": 844
 },
 {
 "name": "ArkGlb_FTL.bik",
@@ -2669,7 +3002,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 30.0,
-"frame_count": 798
+"frame_count": 798,
+"frame_count_header": 798
 },
 {
 "name": "Cit001_BarIntroEstablishing.bik",
@@ -2677,7 +3011,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 613
+"frame_count": 613,
+"frame_count_header": 613
 },
 {
 "name": "CitSTREET_SmlsLoad.bik",
@@ -2685,7 +3020,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 2
+"frame_count": 2,
+"frame_count_header": 2
 },
 {
 "name": "Smls_CEMLoopLF.bik",
@@ -2693,7 +3029,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 1
+"frame_count": 1,
+"frame_count_header": 1
 },
 {
 "name": "CitSTREET_SmlsLoad.bik",
@@ -2701,7 +3038,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 2
+"frame_count": 2,
+"frame_count_header": 2
 },
 {
 "name": "ME3_ProCEM_Loop.bik",
@@ -2709,7 +3047,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 29.97,
-"frame_count": 2
+"frame_count": 2,
+"frame_count_header": 2
 },
 {
 "name": "Smls_CEMLoopLF.bik",
@@ -2717,7 +3056,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 1
+"frame_count": 1,
+"frame_count_header": 1
 },
 {
 "name": "GLO_mm_Relay.bik",
@@ -2725,7 +3065,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 64
+"frame_count": 64,
+"frame_count_header": 64
 },
 {
 "name": "mm_Approach.bik",
@@ -2733,7 +3074,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 146
+"frame_count": 146,
+"frame_count_header": 146
 },
 {
 "name": "mm_AsteroidX57.bik",
@@ -2741,7 +3083,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 400
+"frame_count": 400,
+"frame_count_header": 400
 },
 {
 "name": "mm_Beacon.bik",
@@ -2749,7 +3092,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 1091
+"frame_count": 1091,
+"frame_count_header": 1091
 },
 {
 "name": "mm_CollectorShp.bik",
@@ -2757,7 +3101,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 413
+"frame_count": 413,
+"frame_count_header": 413
 },
 {
 "name": "mm_HereticStn.bik",
@@ -2765,7 +3110,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 294
+"frame_count": 294,
+"frame_count_header": 294
 },
 {
 "name": "mm_Implants.bik",
@@ -2773,7 +3119,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 29.97,
-"frame_count": 312
+"frame_count": 312,
+"frame_count_header": 312
 },
 {
 "name": "mm_ImplantsSht.bik",
@@ -2781,7 +3128,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 30
+"frame_count": 30,
+"frame_count_header": 30
 },
 {
 "name": "mm_MinutemanSn.bik",
@@ -2789,7 +3137,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 188
+"frame_count": 188,
+"frame_count_header": 188
 },
 {
 "name": "mm_Omega4.bik",
@@ -2797,7 +3146,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 30.0,
-"frame_count": 179
+"frame_count": 179,
+"frame_count_header": 179
 },
 {
 "name": "mm_OmegaA.bik",
@@ -2805,7 +3155,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 30.0,
-"frame_count": 289
+"frame_count": 289,
+"frame_count_header": 289
 },
 {
 "name": "mm_OmegaB.bik",
@@ -2813,7 +3164,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 30.0,
-"frame_count": 177
+"frame_count": 177,
+"frame_count_header": 177
 },
 {
 "name": "mm_ReaperRelayArv.bik",
@@ -2821,7 +3173,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 60
+"frame_count": 60,
+"frame_count_header": 60
 },
 {
 "name": "mm_TartarusCERB.bik",
@@ -2829,7 +3182,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 30.0,
-"frame_count": 297
+"frame_count": 297,
+"frame_count_header": 297
 },
 {
 "name": "mm_TartarusCOLL.bik",
@@ -2837,7 +3191,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 30.0,
-"frame_count": 469
+"frame_count": 469,
+"frame_count_header": 469
 },
 {
 "name": "mm_VirmireAsh.bik",
@@ -2845,7 +3200,8 @@
 "width": 1950,
 "height": 1080,
 "fps": 29.97,
-"frame_count": 705
+"frame_count": 705,
+"frame_count_header": 705
 },
 {
 "name": "mm_VirmireKdn.bik",
@@ -2853,7 +3209,8 @@
 "width": 1950,
 "height": 1080,
 "fps": 29.97,
-"frame_count": 701
+"frame_count": 701,
+"frame_count_header": 701
 },
 {
 "name": "End03_D_RanGA_Geth.bik",
@@ -2861,7 +3218,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 234
+"frame_count": 234,
+"frame_count_header": 234
 },
 {
 "name": "End03_D_RanQGA_NoMask.bik",
@@ -2869,7 +3227,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 325
+"frame_count": 325,
+"frame_count_header": 325
 },
 {
 "name": "End03_Flashback_Kelly.bik",
@@ -2877,7 +3236,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 30.0,
-"frame_count": 82
+"frame_count": 82,
+"frame_count_header": 82
 },
 {
 "name": "End03_NorDepart.bik",
@@ -2885,7 +3245,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 696
+"frame_count": 696,
+"frame_count_header": 696
 },
 {
 "name": "End02_Cit_Flower.bik",
@@ -2893,7 +3254,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 240
+"frame_count": 240,
+"frame_count_header": 240
 },
 {
 "name": "End02_Cit_Flower2.bik",
@@ -2901,7 +3263,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 120
+"frame_count": 120,
+"frame_count_header": 120
 },
 {
 "name": "End02_Cit_Flower3.bik",
@@ -2909,7 +3272,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End02_Cit_Flower4.bik",
@@ -2917,7 +3281,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 134
+"frame_count": 134,
+"frame_count_header": 134
 },
 {
 "name": "End004.bik",
@@ -2925,7 +3290,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 2243
+"frame_count": 2243,
+"frame_count_header": 2243
 },
 {
 "name": "End03_C_FlashForward_JackGrave.bik",
@@ -2933,7 +3299,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_NorDepart.bik",
@@ -2941,7 +3308,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 708
+"frame_count": 708,
+"frame_count_header": 708
 },
 {
 "name": "End710.bik",
@@ -2949,7 +3317,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 2243
+"frame_count": 2243,
+"frame_count_header": 2243
 },
 {
 "name": "CEM004.bik",
@@ -2957,7 +3326,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 29.97,
-"frame_count": 1949
+"frame_count": 1949,
+"frame_count_header": 1949
 },
 {
 "name": "CEM004.bik",
@@ -2965,7 +3335,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 29.97,
-"frame_count": 705
+"frame_count": 705,
+"frame_count_header": 705
 },
 {
 "name": "End02_Cit_Flower.bik",
@@ -2973,7 +3344,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "ME3_ProCEM_Loop.bik",
@@ -2981,7 +3353,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 1
+"frame_count": 1,
+"frame_count_header": 1
 },
 {
 "name": "End004.bik",
@@ -2989,7 +3362,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 29.97,
-"frame_count": 840
+"frame_count": 840,
+"frame_count_header": 840
 },
 {
 "name": "End004.bik",
@@ -2997,7 +3371,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 29.97,
-"frame_count": 840
+"frame_count": 840,
+"frame_count_header": 840
 },
 {
 "name": "End03_D_NormandyChaseExt.bik",
@@ -3005,7 +3380,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 941
+"frame_count": 941,
+"frame_count_header": 941
 },
 {
 "name": "End03_LondonRedOutro.bik",
@@ -3013,7 +3389,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 3441
+"frame_count": 3441,
+"frame_count_header": 3441
 },
 {
 "name": "End03_D_MRDes_Good.bik",
@@ -3021,7 +3398,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 1588
+"frame_count": 1588,
+"frame_count_header": 1588
 },
 {
 "name": "End03_D_NormandyChaseExt.bik",
@@ -3029,7 +3407,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 763
+"frame_count": 763,
+"frame_count_header": 763
 },
 {
 "name": "End03_Flashback_Kelly.bik",
@@ -3037,7 +3416,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 30.0,
-"frame_count": 82
+"frame_count": 82,
+"frame_count_header": 82
 },
 {
 "name": "End03_LondonRedOutro.bik",
@@ -3045,7 +3425,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 3337
+"frame_count": 3337,
+"frame_count_header": 3337
 },
 {
 "name": "End03_C_FlashForward_JackGrave.bik",
@@ -3053,7 +3434,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 150
+"frame_count": 150,
+"frame_count_header": 150
 },
 {
 "name": "End03_NorDepart.bik",
@@ -3061,7 +3443,8 @@
 "width": 1280,
 "height": 720,
 "fps": 29.97,
-"frame_count": 708
+"frame_count": 708,
+"frame_count_header": 708
 },
 {
 "name": "CEM004.bik",
@@ -3069,7 +3452,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 29.97,
-"frame_count": 1949
+"frame_count": 1949,
+"frame_count_header": 1949
 },
 {
 "name": "CEM004.bik",
@@ -3077,7 +3461,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 29.97,
-"frame_count": 705
+"frame_count": 705,
+"frame_count_header": 705
 },
 {
 "name": "End004.bik",
@@ -3085,7 +3470,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 2263
+"frame_count": 2263,
+"frame_count_header": 2263
 },
 {
 "name": "End02_Cit_Flower.bik",
@@ -3093,7 +3479,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 4145
+"frame_count": 4145,
+"frame_count_header": 4145
 },
 {
 "name": "End03_C_NorEst.bik",
@@ -3101,7 +3488,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 700
+"frame_count": 700,
+"frame_count_header": 700
 },
 {
 "name": "End03_D_CitPieces.bik",
@@ -3109,7 +3497,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 538
+"frame_count": 538,
+"frame_count_header": 538
 },
 {
 "name": "End03_D_FlashForward_MirandaVan.bik",
@@ -3117,7 +3506,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 163
+"frame_count": 163,
+"frame_count_header": 163
 },
 {
 "name": "End03_D_NorRetreatGood.bik",
@@ -3125,7 +3515,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 2901
+"frame_count": 2901,
+"frame_count_header": 2901
 },
 {
 "name": "End03_D_RanQGD_WasteLand.bik",
@@ -3133,7 +3524,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 234
+"frame_count": 234,
+"frame_count_header": 234
 },
 {
 "name": "End03_Flashback_EDI.bik",
@@ -3141,7 +3533,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 106
+"frame_count": 106,
+"frame_count_header": 106
 },
 {
 "name": "End03_LondonBlueOutro.bik",
@@ -3149,7 +3542,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 6929
+"frame_count": 6929,
+"frame_count_header": 6929
 },
 {
 "name": "End03_LondonGreenOutro.bik",
@@ -3157,7 +3551,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 6929
+"frame_count": 6929,
+"frame_count_header": 6929
 },
 {
 "name": "End03_NorDepart.bik",
@@ -3165,7 +3560,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 709
+"frame_count": 709,
+"frame_count_header": 709
 },
 {
 "name": "End03_OO_Liara.bik",
@@ -3173,7 +3569,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 499
+"frame_count": 499,
+"frame_count_header": 499
 },
 {
 "name": "End03_S_NorEst.bik",
@@ -3181,7 +3578,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 700
+"frame_count": 700,
+"frame_count_header": 700
 },
 {
 "name": "End03_S_NorRetreatGood.bik",
@@ -3189,7 +3587,8 @@
 "width": 1280,
 "height": 720,
 "fps": 24.0,
-"frame_count": 930
+"frame_count": 930,
+"frame_count_header": 930
 },
 {
 "name": "End03_S_RanQGA_NoMask.bik",
@@ -3197,7 +3596,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 325
+"frame_count": 325,
+"frame_count_header": 325
 },
 {
 "name": "OptOut_NewFinale.bik",
@@ -3205,7 +3605,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 1843
+"frame_count": 1843,
+"frame_count_header": 1843
 },
 {
 "name": "OmgHub_Approach.bik",
@@ -3213,7 +3614,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 646
+"frame_count": 646,
+"frame_count_header": 646
 },
 {
 "name": "OmgHub_Depart.bik",
@@ -3221,7 +3623,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 253
+"frame_count": 253,
+"frame_count_header": 253
 },
 {
 "name": "NorEnd_Hackett_Speech_Intro.bik",
@@ -3229,7 +3632,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 300
+"frame_count": 300,
+"frame_count_header": 300
 },
 {
 "name": "End01_AAGun_Fail.bik",
@@ -3237,7 +3641,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 30.0,
-"frame_count": 300
+"frame_count": 300,
+"frame_count_header": 300
 },
 {
 "name": "End01_Hammer_Assault_High.bik",
@@ -3245,7 +3650,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 30.0,
-"frame_count": 2504
+"frame_count": 2504,
+"frame_count_header": 2504
 },
 {
 "name": "End01_Hammer_Assault_Low.bik",
@@ -3253,7 +3659,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 30.0,
-"frame_count": 2638
+"frame_count": 2638,
+"frame_count_header": 2638
 },
 {
 "name": "End01_Hammer_Assault_Medium.bik",
@@ -3261,7 +3668,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 30.0,
-"frame_count": 2617
+"frame_count": 2617,
+"frame_count_header": 2617
 },
 {
 "name": "End01_Hammer_Landing.bik",
@@ -3269,7 +3677,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 29.97,
-"frame_count": 2126
+"frame_count": 2126,
+"frame_count_header": 2126
 },
 {
 "name": "End01_Rannoch_Peace.bik",
@@ -3277,7 +3686,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 30.0,
-"frame_count": 543
+"frame_count": 543,
+"frame_count_header": 543
 },
 {
 "name": "End04_Andromeda_Teaser.bik",
@@ -3285,7 +3695,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 25.0,
-"frame_count": 573
+"frame_count": 573,
+"frame_count_header": 573
 },
 {
 "name": "Extended_Refusal.bik",
@@ -3293,7 +3704,8 @@
 "width": 1920,
 "height": 1080,
 "fps": 60.0,
-"frame_count": 1658
+"frame_count": 1658,
+"frame_count_header": 1658
 },
 {
 "name": "10.bik",
@@ -3301,7 +3713,8 @@
 "width": 256,
 "height": 128,
 "fps": 30.0,
-"frame_count": 687
+"frame_count": 687,
+"frame_count_header": 687
 },
 {
 "name": "11822C.bik",
@@ -3309,7 +3722,8 @@
 "width": 512,
 "height": 256,
 "fps": 30.0,
-"frame_count": 459
+"frame_count": 459,
+"frame_count_header": 459
 },
 {
 "name": "1578BB8.bik",
@@ -3317,7 +3731,8 @@
 "width": 512,
 "height": 256,
 "fps": 30.0,
-"frame_count": 358
+"frame_count": 358,
+"frame_count_header": 358
 },
 {
 "name": "169C6F4.bik",
@@ -3325,7 +3740,8 @@
 "width": 512,
 "height": 256,
 "fps": 30.0,
-"frame_count": 335
+"frame_count": 335,
+"frame_count_header": 335
 },
 {
 "name": "28E1CC.bik",
@@ -3333,7 +3749,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 200
+"frame_count": 200,
+"frame_count_header": 200
 },
 {
 "name": "5195B0.bik",
@@ -3341,7 +3758,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 148
+"frame_count": 148,
+"frame_count_header": 148
 },
 {
 "name": "6FB678.bik",
@@ -3349,7 +3767,8 @@
 "width": 1280,
 "height": 720,
 "fps": 30.0,
-"frame_count": 155
+"frame_count": 155,
+"frame_count_header": 155
 },
 {
 "name": "8F4298.bik",
@@ -3357,7 +3776,8 @@
 "width": 512,
 "height": 256,
 "fps": 30.0,
-"frame_count": 576
+"frame_count": 576,
+"frame_count_header": 576
 },
 {
 "name": "AC9764.bik",
@@ -3365,6 +3785,7 @@
 "width": 512,
 "height": 256,
 "fps": 30.0,
-"frame_count": 960
+"frame_count": 960,
+"frame_count_header": 960
 }
 ]
