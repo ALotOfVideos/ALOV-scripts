@@ -444,6 +444,15 @@ def compare(f, root=''):
                     log_info("OK: extended/looped clip\n")
                     log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
                     log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
+                elif bfc > vfc:
+                    debug_path.append("if bfc > vfc:")
+                    error("WARNING: too many frames\n")
+                    log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
+                    log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
+                    errors["frame"] += 1
+                else:
+                    debug_path.append("else")
+                    error("ERROR: uncovered case! This is a bug\n")
             else:
                 debug_path.append("else:")
                 error("WARNING: frame rate/count mismatch\n")
