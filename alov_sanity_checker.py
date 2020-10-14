@@ -553,7 +553,7 @@ def init_parser():
     parser.add_argument('--intermediate', '--prores', action='store_const', const=True, default=False, help='check using Apple ProRes .mov intermediate files instead of release biks')
 
     verbositygroup = parser.add_mutually_exclusive_group()
-    verbositygroup.add_argument("-v", "--verbosity", action="count", default=0, help="increase output (stdout) verbosity (default %d=%s)" % (verbosity.value, verbosity.name))
+    verbositygroup.add_argument("-v", "--verbosity", action="count", default=verbosity.value, help="increase output (stdout) verbosity (default %d=%s)" % (verbosity.value, verbosity.name))
     verbositygroup.add_argument("-q", "--quiet", "--silent", action='store_const', const=Verb.WARN, help="decrease output (stdout) verbosity to silent")
     verbositygroup.add_argument('--debug', action='store_const', const=Verb.DEBUG, help='set stdout verbosity level to debug (maximum)')
     loggroup = parser.add_mutually_exclusive_group()
