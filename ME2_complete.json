@@ -1816,5 +1816,14 @@
 "fps": 30.0,
 "frame_count": 209,
 "frame_count_header": 209
+},
+{
+"name": "ProFre_501_VeetorFootage.bik",
+"dir": "TextureMovies",
+"width": 640,
+"height": 360,
+"fps": 30.0,
+"frame_count": 999,
+"frame_count_header": 999
 }
 ]

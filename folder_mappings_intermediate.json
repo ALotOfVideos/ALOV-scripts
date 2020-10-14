@@ -19,7 +19,8 @@
 			"FIREWALKER": "BioGame/DLC/DLC_UNC_Hammer01/Movies",
 			"KASUMI": "BioGame/DLC/DLC_HEN_MT/Movies",
 			"LOTSB": "BioGame/DLC/DLC_EXP_Part01/Movies",
-			"OVERLORD": "BioGame/DLC/DLC_UNC_Pack01/Movies"
+			"OVERLORD": "BioGame/DLC/DLC_UNC_Pack01/Movies",
+			"./ProFre_501_VeetorFootage.bik": "TextureMovies"
 		},
 	"ME3":
 		{

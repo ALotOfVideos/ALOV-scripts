@@ -13,7 +13,8 @@
 			"FIREWALKER/Movies": "BioGame/DLC/DLC_UNC_Hammer01/Movies",
 			"KASUMI/Movies": "BioGame/DLC/DLC_HEN_MT/Movies",
 			"LOTSB/Movies": "BioGame/DLC/DLC_EXP_Part01/Movies",
-			"OVERLORD/Movies": "BioGame/DLC/DLC_UNC_Pack01/Movies"
+			"OVERLORD/Movies": "BioGame/DLC/DLC_UNC_Pack01/Movies",
+			"TextureMovies": "TextureMovies"
 		},
 	"ME3":
 		{
