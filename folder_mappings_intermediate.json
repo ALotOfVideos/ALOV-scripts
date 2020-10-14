@@ -4,6 +4,12 @@
 			"UPSCALES": "BioGame/CookedPC/Movies",
 			"UPSCALES/DLC_UNC_Opening.bik": "DLC/DLC_UNC/Movies",
 			"UPSCALES/DLC_UNC_Ending.bik": "DLC/DLC_UNC/Movies",
+			"./cutupscreen_1.bik": "TextureMovies",
+			"./cutupscreen_2.bik": "TextureMovies",
+			"./cutupscreen_3.bik": "TextureMovies",
+			"./cutupscreen_4.bik": "TextureMovies",
+			"./cutupscreen_5.bik": "TextureMovies",
+			"./SovereignStill.bik": "TextureMovies",
 			"BASEGAME/Movies/STA_ArrivalSEQ04a.bik": "ME1 Mods/ME1Recalibrated/v2.1/DLC_ME1Re/Movies"
 		},
 	"ME2":

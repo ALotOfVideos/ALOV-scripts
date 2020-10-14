@@ -3,6 +3,7 @@
 		{
 			"BASEGAME/Movies": "BioGame/CookedPC/Movies",
 			"BDTS/Movies": "DLC/DLC_UNC/Movies",
+			"BASEGAME TextureMovies": "TextureMovies",
 			"BASEGAME/Movies/STA_ArrivalSEQ04a.bik": "ME1 Mods/ME1Recalibrated/v2.1/DLC_ME1Re/Movies"
 		},
 	"ME2":

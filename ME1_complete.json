@@ -511,5 +511,59 @@
 "fps": 30.0,
 "frame_count": 214,
 "frame_count_header": 214
+},
+{
+"name": "cutupscreen_1.bik",
+"dir": "TextureMovies",
+"width": 426,
+"height": 240,
+"fps": 30.0,
+"frame_count": 386,
+"frame_count_header": 386
+},
+{
+"name": "cutupscreen_2.bik",
+"dir": "TextureMovies",
+"width": 426,
+"height": 240,
+"fps": 30.0,
+"frame_count": 114,
+"frame_count_header": 114
+},
+{
+"name": "cutupscreen_3.bik",
+"dir": "TextureMovies",
+"width": 426,
+"height": 240,
+"fps": 30.0,
+"frame_count": 695,
+"frame_count_header": 695
+},
+{
+"name": "cutupscreen_4.bik",
+"dir": "TextureMovies",
+"width": 426,
+"height": 240,
+"fps": 30.0,
+"frame_count": 115,
+"frame_count_header": 115
+},
+{
+"name": "cutupscreen_5.bik",
+"dir": "TextureMovies",
+"width": 426,
+"height": 240,
+"fps": 30.0,
+"frame_count": 10,
+"frame_count_header": 10
+},
+{
+"name": "SovereignStill.bik",
+"dir": "TextureMovies",
+"width": 1280,
+"height": 720,
+"fps": 29.97,
+"frame_count": 2,
+"frame_count_header": 2
 }
 ]
