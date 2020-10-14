@@ -641,6 +641,7 @@ def main():
             error("%d issue(s) found:\n\n" % errors["total"])
             errors_string = "{:<16s}: {:d}\n"
             error(errors_string.format("Not in DB", errors.get("db", 0)))
+            error(errors_string.format("Broken files", errors.get("defect", 0)))
             error(errors_string.format("Wrong resolution", errors.get("res", 0)))
             error(errors_string.format("Frame count/FPS", errors.get("frame", 0)))
             error(errors_string.format("Missing files", errors.get("missing", 0)))
