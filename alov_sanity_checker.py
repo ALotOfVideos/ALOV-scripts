@@ -48,51 +48,59 @@ unknownlist = []
 
 ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
 file_ext = re.compile(r'\..+$')
+log_newlines = re.compile(r'\n+$')
 
 
-def log(s, level=Verb.ALL):
+def log(s, level=Verb.ALL, pre='', post=''):
     global verbosity
     global log_to_file
     global logfile
     global log_verbosity
 
-    so = s
-    sf = s
     if level <= verbosity:
-        if verbosity == Verb.DEBUG:
-            so = "(seriousness %d) %s" % (level, s)
         # disable colors on windows for now
         # TODO curses colors? or colorama pkg? or? https://docs.python.org/3/howto/curses.html?highlight=color
         if osname == 'nt':
-            print(ansi_escape.sub('', so), end='')
-        else:
-            print(so, end='')
+            pre = post = ''
+            
+        so = log_newlines.sub('', s)
+        so = f"{pre}{so}{post}"
+        newlines = s.count("\n")
+        if verbosity == Verb.DEBUG:
+            so = f"[{pre}{level.name:5}{post}] {so}"
+            newlines = max(1, newlines)
+
+        so += newlines * "\n"
+        print(so, end='')
 
     if log_to_file and level <= log_verbosity:
+        sf = s
         if log_verbosity == Verb.DEBUG:
-            sf = "(seriousness %d) %s" % (level, s)
-        print(ansi_escape.sub('', sf), end='', file=logfile)
+            sf = f"[{level.name:5}] {s}"
+            if sf[-1] != "\n":
+                sf += "\n"
+        print(sf, end='', file=logfile)
 
 
 def error(s):
     # always print errors
-    log("\033[31m%s\033[0m" % s, Verb.WARN)
+    log(s, level=Verb.WARN, pre="\033[31m", post="\033[0m")
 
 
 def warning(s, level=Verb.INFO):
-    log("\033[31;7m%s\033[0m" % s, level)
+    log(s, level=level, pre="\033[31;7m", post="\033[0m")
 
 
 def log_ok(s, level=Verb.ALL):
-    log("\033[32m%s\033[0m" % s, level)
+    log(s, level=level, pre="\033[32m", post="\033[0m")
 
 
 def log_info(s, level=Verb.INFO):
-    log("\033[32;7m%s\033[0m" % s, level)
+    log(s, level=level, pre="\033[32;7m", post="\033[0m")
 
 
 def debug(s, level=Verb.DEBUG):
-    log(s, level)
+    log(s, level=level)
 
 
 def isRes(i, w, h):
@@ -124,18 +132,19 @@ def getMappings():
     global game
     global intermediate
 
-    if intermediate:
-        folder_mappings_path = 'folder_mappings_intermediate.json'
-    else:
-        folder_mappings_path = 'folder_mappings.json'
-    log_ok("loading %s" % folder_mappings_path)
-
     if folder_mappings is None:
+        if intermediate:
+            folder_mappings_path = 'folder_mappings_intermediate.json'
+        else:
+            folder_mappings_path = 'folder_mappings.json'
+        log_ok("loading %s\n\n" % folder_mappings_path)
+
         if not os.path.isfile(folder_mappings_path):
             error("folder mappings %s does not exist\n" % folder_mappings_path)
             return None
         with open(folder_mappings_path, 'r') as fm_fp:
             folder_mappings = json.load(fm_fp).get(game)
+
     return folder_mappings
 
 
@@ -315,7 +324,7 @@ def compare(f, root=''):
     exist_string = "1. checking existence:"
     rez_string = "2. checking resolution:"
     frame_string = "3. checking frame count:"
-    mag = math.floor(math.log(max(vanilla.get("frame_count", 0), bik.get("frame_count", 0)), 10)) + 1
+    mag = math.floor(math.log10(max(vanilla.get("frame_count", 0), bik.get("frame_count", 0)))) + 1
     frames_fstring = "{:>10s} {:0" + str(mag) + "d} {:s} {:.2f} {:s}\n"
     header_string = "{:>10s} {:0" + str(mag) + "d}\n"
 
@@ -351,10 +360,10 @@ def compare(f, root=''):
 
     # check resolution
     if (r := isResolutionOK(bik)) is not None:
-        log(check_fstring.format("2. checking resolution:"))
+        log(check_fstring.format(rez_string))
         log_ok(f"OK: {r}\n")
     elif (r := isResolutionIllegal(bik)) is not None:
-        log(check_fstring.format("2. checking resolution:"), level=Verb.WARN)
+        log(check_fstring.format(rez_string), level=Verb.WARN)
         error(f"WARNING: %s is using an illegal resolution ({r})\n" % f)
         errors["res"] += 1
     else:
@@ -424,12 +433,14 @@ def compare(f, root=''):
             if bfps == vfps:
                 debug_path.append("if bfps == vfps:")
                 if bfc < vfc:
+                    debug_path.append("if bfc < vfc:")
                     error("WARNING: missing frames\n")
                     log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.WARN)
                     log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.WARN)
                     log("{:>10s} {:s}\n".format("should be:", "vanilla probably"), level=Verb.WARN)
                     errors["frame"] += 1
                 elif bfc % vfc == 0:
+                    debug_path.append("elif bfc % vfc == 0:")
                     log_info("OK: extended/looped clip\n")
                     log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
                     log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
@@ -451,7 +462,7 @@ def compare(f, root=''):
                 log("(or vanilla)\n", level=Verb.WARN)
                 errors["frame"] += 1
 
-    log(debug_path, level=Verb.DEBUG)
+    log("%s\n" % debug_path, level=Verb.DEBUG)
 
     # check header integrity
     errors["header"] += checkHeader(bik, check_fstring, "4. checking header:")
@@ -468,7 +479,8 @@ def check(d):
         error("directory %s does not exist\n" % d)
         return 1
 
-    log("checking ALOV release at %s\n\n" % d, level=Verb.WARN)
+    log("checking ALOV release at %s\n" % d, level=Verb.WARN)
+    getMappings()
 
     db = getDB()
     if db is None:
@@ -578,9 +590,14 @@ def main():
     verbosity += args.verbosity
     verbosity = verbosity if args.quiet is None else args.quiet
     verbosity = verbosity if args.debug is None else args.debug
+
     log_to_file = args.no_log
     if log_to_file:
-        log_path = "alov_sanity_checker_%s_%s.log" % (game, datetime.now().strftime("%y%m%dT%H%M"))
+        log_path = "alov_sanity_checker_%s.log" % (datetime.now().strftime("%y%m%dT%H%M"))
+        if game is not None:
+            log_path = "alov_sanity_checker_%s_%s.log" % (game, datetime.now().strftime("%y%m%dT%H%M"))
+            if intermediate:
+                log_path = "alov_sanity_checker_%s_prores_%s.log" % (game, datetime.now().strftime("%y%m%dT%H%M"))
         logfile = open(log_path, 'w')
         log("opened log file %s\n\n" % log_path, level=Verb.DEBUG)
     log_verbosity = args.log_verbosity
