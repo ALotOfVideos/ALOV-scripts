@@ -3772,7 +3772,7 @@
 },
 {
 "name": "10.bik",
-"dir": "Movies.tfc",
+"dir": "TextureMovies/BASEGAME",
 "width": 256,
 "height": 128,
 "fps": 30.0,
@@ -3781,7 +3781,7 @@
 },
 {
 "name": "11822C.bik",
-"dir": "Movies.tfc",
+"dir": "TextureMovies/BASEGAME",
 "width": 512,
 "height": 256,
 "fps": 30.0,
@@ -3790,7 +3790,7 @@
 },
 {
 "name": "1578BB8.bik",
-"dir": "Movies.tfc",
+"dir": "TextureMovies/BASEGAME",
 "width": 512,
 "height": 256,
 "fps": 30.0,
@@ -3799,7 +3799,7 @@
 },
 {
 "name": "169C6F4.bik",
-"dir": "Movies.tfc",
+"dir": "TextureMovies/BASEGAME",
 "width": 512,
 "height": 256,
 "fps": 30.0,
@@ -3808,7 +3808,7 @@
 },
 {
 "name": "28E1CC.bik",
-"dir": "Movies.tfc",
+"dir": "TextureMovies/BASEGAME",
 "width": 1280,
 "height": 720,
 "fps": 30.0,
@@ -3817,7 +3817,7 @@
 },
 {
 "name": "5195B0.bik",
-"dir": "Movies.tfc",
+"dir": "TextureMovies/BASEGAME",
 "width": 1280,
 "height": 720,
 "fps": 30.0,
@@ -3826,7 +3826,7 @@
 },
 {
 "name": "6FB678.bik",
-"dir": "Movies.tfc",
+"dir": "TextureMovies/BASEGAME",
 "width": 1280,
 "height": 720,
 "fps": 30.0,
@@ -3835,7 +3835,7 @@
 },
 {
 "name": "8F4298.bik",
-"dir": "Movies.tfc",
+"dir": "TextureMovies/BASEGAME",
 "width": 512,
 "height": 256,
 "fps": 30.0,
@@ -3844,7 +3844,7 @@
 },
 {
 "name": "AC9764.bik",
-"dir": "Movies.tfc",
+"dir": "TextureMovies/BASEGAME",
 "width": 512,
 "height": 256,
 "fps": 30.0,
