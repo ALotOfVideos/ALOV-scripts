@@ -1,22 +1,72 @@
 {
     "ME1": {
-        "resolutions": [
-            "1152p",
-            "4K"
-        ]
+        "resolutions": {
+            "allowed": [
+                "1152p",
+                "4K"
+            ],
+            "illegal": [
+                "1080p",
+                "1440p"
+            ]
+        },
+        "resolutions_intermediate": {
+            "allowed": [
+                "4K"
+            ],
+            "illegal": [
+                "1152p",
+                "1080p",
+                "1440p"
+            ]
+        }
     },
     "ME2": {
-        "resolutions": [
-            "1079p",
-            "1081p",
-            "4K"
-        ]
+        "resolutions": {
+            "allowed": [
+                "1079p",
+                "1081p",
+                "4K"
+            ],
+            "illegal": [
+                "1080p",
+                "1440p"
+            ]
+        },
+        "resolutions_intermediate": {
+            "allowed": [
+                "4K"
+            ],
+            "illegal": [
+                "1079p",
+                "1081p",
+                "1080p",
+                "1440p"
+            ]
+        }
     },
     "ME3": {
-        "resolutions": [
-            "1079p",
-            "1081p",
-            "4K"
-        ]
+        "resolutions": {
+            "allowed": [
+                "1079p",
+                "1081p",
+                "4K"
+            ],
+            "illegal": [
+                "1080p",
+                "1440p"
+            ]
+        },
+        "resolutions_intermediate": {
+            "allowed": [
+                "4K"
+            ],
+            "illegal": [
+                "1079p",
+                "1081p",
+                "1080p",
+                "1440p"
+            ]
+        }
     }
 }

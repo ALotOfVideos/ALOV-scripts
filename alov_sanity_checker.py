@@ -110,7 +110,7 @@ def isRes(i, w, h):
 def isResolutionOK(i):
     global resolutions
     global config
-    allowed = config.get("resolutions")
+    allowed = config.get("resolutions", {}).get("allowed", [])
     for n in allowed:
         r = resolutions.get(n, {})
         if isRes(i, r.get("w"), r.get("h")):
@@ -120,8 +120,8 @@ def isResolutionOK(i):
 def isResolutionIllegal(i):
     global resolutions
     global config
-    blacklist = ["1080p", "1440p"]
-    for n in blacklist:
+    illegal = config.get("resolutions", {}).get("illegal", [])
+    for n in illegal:
         r = resolutions.get(n, {})
         if isRes(i, r.get("w"), r.get("h")):
             return n
