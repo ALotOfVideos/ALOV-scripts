@@ -137,7 +137,7 @@ def getMappings():
             folder_mappings_path = 'folder_mappings_intermediate.json'
         else:
             folder_mappings_path = 'folder_mappings.json'
-        log_ok("loading %s\n\n" % folder_mappings_path)
+        log("loading %s\n\n" % folder_mappings_path, level=Verb.ALL)
 
         if not os.path.isfile(folder_mappings_path):
             error("folder mappings %s does not exist\n" % folder_mappings_path)
@@ -200,7 +200,7 @@ def checkHeader(video, check_fstring, header_string="checking header: "):
     global quick
 
     mag = math.floor(math.log(max(video.get("frame_count", 0), video.get("frame_count_header", 0)), 10)) + 1
-    header_fstring = "{:>7s} {:0" + str(mag) + "d}\n"
+    header_fstring = "{:>7s} {:0" + str(mag) + "d} frames\n"
 
     if not quick:
         if video.get("frame_count") == video.get("frame_count_header"):
@@ -394,6 +394,12 @@ def compare(f, root=''):
             log_info("OK: frames were interpolated\n")
             log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
             log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
+        elif bfc == 1:
+            debug_path.append("elif bfc == 1:")
+            log(check_fstring.format(frame_string), level=Verb.WARN)
+            log_info("OK: video removed (startup logo?)\n", level=Verb.WARN)
+            log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
+            log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
         elif factor != 1 and factor >= factor_thresh and factor <= 1/factor_thresh:
             debug_path.append("elif (factor != 1 and factor >= factor_thresh and factor <= 1/factor_thresh):")
             if bfc == vfc:
@@ -406,11 +412,15 @@ def compare(f, root=''):
                 log_info("OK: frames were interpolated\n")
                 log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
                 log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
-            # else:
-            #     log(check_string.format(frame_string), level=Verb.WARN)
-            #     error("ERROR: unhandled situation\n")
-            #     log(frames_string.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.WARN)
-            #     log(frames_string.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.WARN)
+            else:
+                debug_path.append("else")
+                log(check_fstring.format(frame_string), level=Verb.WARN)
+                error("ERROR: uncovered case! Check it manually.\n")
+                error("This might be a bug.\n")
+                log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.WARN)
+                log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.WARN)
+                log(f"{'factor:':>10s} {factor}\n", level=Verb.WARN)
+                errors["frame"] += 1
         elif vfps in (15,20) and bfps == 60 and bfc == vfc:
             debug_path.append("elif vfps in (15,20) and bfps == 60 and bfc == vfc:")
             log(check_fstring.format(frame_string), level=Verb.INFO)
@@ -429,11 +439,11 @@ def compare(f, root=''):
             errors["frame"] += 1
         else:
             debug_path.append("else:")
-            log(check_fstring.format(frame_string), level=Verb.WARN)
             if bfps == vfps:
                 debug_path.append("if bfps == vfps:")
                 if bfc < vfc:
                     debug_path.append("if bfc < vfc:")
+                    log(check_fstring.format(frame_string), level=Verb.WARN)
                     error("WARNING: missing frames\n")
                     log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.WARN)
                     log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.WARN)
@@ -441,20 +451,29 @@ def compare(f, root=''):
                     errors["frame"] += 1
                 elif bfc % vfc == 0:
                     debug_path.append("elif bfc % vfc == 0:")
+                    log(check_fstring.format(frame_string), level=Verb.INFO)
                     log_info("OK: extended/looped clip\n")
                     log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
                     log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
                 elif bfc > vfc:
                     debug_path.append("if bfc > vfc:")
+                    log(check_fstring.format(frame_string), level=Verb.WARN)
                     error("WARNING: too many frames\n")
                     log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.INFO)
                     log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.INFO)
                     errors["frame"] += 1
                 else:
                     debug_path.append("else")
-                    error("ERROR: uncovered case! This is a bug\n")
+                    log(check_fstring.format(frame_string), level=Verb.WARN)
+                    error("ERROR: uncovered case! Check it manually.\n")
+                    error("This might be a bug.\n")
+                    log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.WARN)
+                    log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.WARN)
+                    log(f"{'factor:':>10s} {factor}\n", level=Verb.WARN)
+                    errors["frame"] += 1
             else:
                 debug_path.append("else:")
+                log(check_fstring.format(frame_string), level=Verb.WARN)
                 error("WARNING: frame rate/count mismatch\n")
                 log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.WARN)
                 log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.WARN)
@@ -497,7 +516,7 @@ def check(d):
         return 1
 
     total = len(db)
-    mag = math.floor(math.log(total, 10)) + 1
+    mag = math.floor(math.log10(total)) + 1
     log_string = "({:0" + str(mag) + "d}/{:0" + str(mag) + "d}) "
     count = 0
     errors = {"db": 0, "res": 0, "frame": 0, "missing": 0, "header": 0}
@@ -517,18 +536,30 @@ def check(d):
 
     log("\n", level=Verb.WARN)
     if count != total or errors.get("db", 0) != 0:
-        mismatch_string = "{:>12s} {:3d}\n"
-        missing_string = "{:>18s} {:s}\n"
+        mismatch_string = "{:>18s} {:" + str(math.floor(math.log10(max(total, count))) + 1) + "d}\n"
+        missing_string = "{:>18s}\n"
+        missing_string_f = "{:<19s}\n"
         error(mismatch_string.format("vanilla:", total))
         error(mismatch_string.format("found:", count))
+
         if errors.get("db", 0) != 0:
             error("    therein:\n")
             error(mismatch_string.format("in db:", count - errors.get("db", 0)))
             error(mismatch_string.format("unexpected:", errors.get("db", 0)))
             error("\n")
             error(missing_string.format("unexpected files:", ', '.join([i.get('n') + " (" + i.get('d') + ")" for i in unknownlist])))
+
         if len(missing) > 0:
-            error(missing_string.format("missing files:", ', '.join([i.get('name') for i in missing])))
+            error(missing_string.format("missing files:"))
+            # TODO sort by dir, pretty print
+            lastdir = ''
+            for i in missing:
+                directory = ' '*(len(lastdir))
+                if lastdir != i.get('dir'):
+                    directory = i.get('dir')
+                lastdir = i.get('dir')
+                error(f"{'':>19s}{os.path.join(directory, i.get('name'))}\n")
+                
         errors = dict(Counter(errors) + Counter({"missing": total - (count - errors.get("db", 0))}))
     else:
         log_ok("found %d files in database\n")
@@ -608,7 +639,7 @@ def main():
             if intermediate:
                 log_path = "alov_sanity_checker_%s_prores_%s.log" % (game, datetime.now().strftime("%y%m%dT%H%M"))
         logfile = open(log_path, 'w')
-        log("opened log file %s\n\n" % log_path, level=Verb.DEBUG)
+        log("opened log file %s\n\n" % log_path, level=Verb.WARN)
     log_verbosity = args.log_verbosity
     log_verbosity = log_verbosity if args.error_log is None else args.error_log
     log_verbosity = log_verbosity if args.short_log is None else args.short_log
