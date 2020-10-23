@@ -2971,7 +2971,7 @@
 },
 {
 "name": "Ark002_attack.bik",
-"dir": "ME3 Mods/ARK Mod/0.86/DLC_MOD_EGM_Ark/Movies",
+"dir": "ME3 Mods/ARK Mod/0.90/DLC_MOD_EGM_Ark/Movies",
 "width": 1280,
 "height": 720,
 "fps": 30.0,
@@ -2980,7 +2980,7 @@
 },
 {
 "name": "Ark002_Intro.bik",
-"dir": "ME3 Mods/ARK Mod/0.86/DLC_MOD_EGM_Ark/Movies",
+"dir": "ME3 Mods/ARK Mod/0.90/DLC_MOD_EGM_Ark/Movies",
 "width": 1280,
 "height": 720,
 "fps": 29.97,
@@ -2989,7 +2989,7 @@
 },
 {
 "name": "Ark002_OutroC.bik",
-"dir": "ME3 Mods/ARK Mod/0.86/DLC_MOD_EGM_Ark/Movies",
+"dir": "ME3 Mods/ARK Mod/0.90/DLC_MOD_EGM_Ark/Movies",
 "width": 1920,
 "height": 1080,
 "fps": 29.97,
@@ -2997,13 +2997,40 @@
 "frame_count_header": 844
 },
 {
+"name": "Ark004_Beacon.bik",
+"dir": "ME3 Mods/ARK Mod/0.90/DLC_MOD_EGM_Ark/Movies",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 90,
+"frame_count_header": 90
+},
+{
+"name": "ARK_INTRO_Shuttle_Cutscenes.bik",
+"dir": "ME3 Mods/ARK Mod/0.90/DLC_MOD_EGM_Ark/Movies",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 768,
+"frame_count_header": 768
+},
+{
 "name": "ArkGlb_FTL.bik",
-"dir": "ME3 Mods/ARK Mod/0.86/DLC_MOD_EGM_Ark/Movies",
+"dir": "ME3 Mods/ARK Mod/0.90/DLC_MOD_EGM_Ark/Movies",
 "width": 1920,
 "height": 1080,
 "fps": 30.0,
 "frame_count": 798,
 "frame_count_header": 798
+},
+{
+"name": "Smls_ShutLoop_Ark004.bik",
+"dir": "ME3 Mods/ARK Mod/0.90/DLC_MOD_EGM_Ark/Movies",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 167,
+"frame_count_header": 167
 },
 {
 "name": "Cit001_BarIntroEstablishing.bik",
@@ -3220,6 +3247,42 @@
 "fps": 30.0,
 "frame_count": 120,
 "frame_count_header": 120
+},
+{
+"name": "End03_D_CitPieces.bik",
+"dir": "ME3 Mods/ITEM",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 524,
+"frame_count_header": 524
+},
+{
+"name": "End03_D_FutureEarth.bik",
+"dir": "ME3 Mods/ITEM",
+"width": 1920,
+"height": 1079,
+"fps": 60.0,
+"frame_count": 1032,
+"frame_count_header": 1032
+},
+{
+"name": "End03_Device_Dock_Bad.bik",
+"dir": "ME3 Mods/ITEM",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 2428,
+"frame_count_header": 2428
+},
+{
+"name": "End03_NorDepart.bik",
+"dir": "ME3 Mods/ITEM",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 680,
+"frame_count_header": 680
 },
 {
 "name": "End03_D_RanGA_Geth.bik",
@@ -3742,6 +3805,24 @@
 "fps": 30.0,
 "frame_count": 1694,
 "frame_count_header": 1694
+},
+{
+"name": "Cit001_FF_distraction.bik",
+"dir": "ME3 Mods/Project Variety",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 231,
+"frame_count_header": 231
+},
+{
+"name": "Lev004_WW_CortezInsert.bik",
+"dir": "ME3 Mods/Project Variety",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 67,
+"frame_count_header": 67
 },
 {
 "name": "End03_Flashback_Tali.bik",
