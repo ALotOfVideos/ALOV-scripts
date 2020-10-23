@@ -5,7 +5,7 @@
 
 python.exe -m pip install pyinstaller --upgrade
 RD /S /Q dist
-pyinstaller alov_sanity_checker.py --name "ALOV Sanity Checker" --add-binary "ffprobe.exe;." --add-data "ME1_complete.json;." --add-data "ME2_complete.json;." --add-data "ME3_complete.json;." --add-data "folder_mappings.json;." -D --icon "ALOV_Checker_square.ico"
+pyinstaller alov_sanity_checker.py --name "ALOV Sanity Checker" --add-binary "ffprobe.exe;." --add-data "ME1_complete.json;." --add-data "ME2_complete.json;." --add-data "ME3_complete.json;." --add-data "folder_mappings.json;." --add-data "folder_mappings_intermediate.json;." --add-data "resolutions.json;." --add-data "config.json;." -D --icon "ALOV_Checker_square.ico"
 RD /S /Q __pycache__
 RD /S /Q build
 DEL /Q "ALOV Sanity Checker.spec"
