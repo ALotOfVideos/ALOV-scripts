@@ -3250,7 +3250,7 @@
 },
 {
 "name": "End03_D_CitPieces.bik",
-"dir": "ME3 Mods/ITEM",
+"dir": "ME3 Mods/ITEM/1.5",
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
@@ -3259,7 +3259,7 @@
 },
 {
 "name": "End03_D_FutureEarth.bik",
-"dir": "ME3 Mods/ITEM",
+"dir": "ME3 Mods/ITEM/1.5",
 "width": 1920,
 "height": 1079,
 "fps": 60.0,
@@ -3267,8 +3267,26 @@
 "frame_count_header": 1032
 },
 {
+"name": "End03_D_RanGeth.bik",
+"dir": "ME3 Mods/ITEM/1.5",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 234,
+"frame_count_header": 234
+},
+{
+"name": "End03_D_RanPeace.bik",
+"dir": "ME3 Mods/ITEM/1.5",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 325,
+"frame_count_header": 325
+},
+{
 "name": "End03_Device_Dock_Bad.bik",
-"dir": "ME3 Mods/ITEM",
+"dir": "ME3 Mods/ITEM/1.5",
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
@@ -3277,12 +3295,30 @@
 },
 {
 "name": "End03_NorDepart.bik",
-"dir": "ME3 Mods/ITEM",
+"dir": "ME3 Mods/ITEM/1.5",
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
 "frame_count": 680,
 "frame_count_header": 680
+},
+{
+"name": "End03_Shepard_Alive_Fem.bik",
+"dir": "ME3 Mods/ITEM/1.5",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 660,
+"frame_count_header": 660
+},
+{
+"name": "End03_Shepard_Alive_Male.bik",
+"dir": "ME3 Mods/ITEM/1.5",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 660,
+"frame_count_header": 660
 },
 {
 "name": "End03_D_RanGA_Geth.bik",
