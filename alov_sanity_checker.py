@@ -349,7 +349,7 @@ def compare(f, root=''):
             error("WARNING: cutscene uses wrong capitalization\n")
             log(capitalization_fstring.format("vanilla:", vanilla.get("name")), level=Verb.WARN)
             log(capitalization_fstring.format("found:", name), level=Verb.WARN)
-            unknownlist.append({'n': name, 'd': folder})
+            unknownlist.append({'name': name, 'dir': folder})
             errors["missing"] -= 1
         errors["db"] += 1
     else:
@@ -498,6 +498,16 @@ def compare(f, root=''):
     return errors
 
 
+def printTree(files):
+    lastdir = ''
+    for i in files:
+        directory = ' '*(len(lastdir))
+        if lastdir != i.get('dir'):
+            directory = i.get('dir')
+        lastdir = i.get('dir')
+        error(f"{'':>19s}{directory + '/' + i.get('name')}\n")  # literal / for consistency with database
+
+
 def check(d):
     global poplist
     global unknownlist
@@ -547,18 +557,12 @@ def check(d):
             error(mismatch_string.format("in db:", count - errors.get("db", 0)))
             error(mismatch_string.format("unexpected:", errors.get("db", 0)))
             error("\n")
-            error(missing_string.format("unexpected files:", ', '.join([i.get('n') + " (" + i.get('d') + ")" for i in unknownlist])))
+            error(missing_string.format("unexpected files:"))
+            printTree(unknownlist)
 
         if len(missing) > 0:
             error(missing_string.format("missing files:"))
-            # TODO sort by dir, pretty print
-            lastdir = ''
-            for i in missing:
-                directory = ' '*(len(lastdir))
-                if lastdir != i.get('dir'):
-                    directory = i.get('dir')
-                lastdir = i.get('dir')
-                error(f"{'':>19s}{directory + '/' + i.get('name')}\n")  # literal / for consistency with database
+            printTree(missing)
 
         errors = dict(Counter(errors) + Counter({"missing": total - (count - errors.get("db", 0))}))
     else:
