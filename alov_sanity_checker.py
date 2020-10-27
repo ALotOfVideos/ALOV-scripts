@@ -497,7 +497,7 @@ def compare(f, root=''):
     # check header integrity
     errors["header"] += checkHeader(bik, check_fstring, "4. checking header:")
 
-    return errors
+    return errors, {'resolution': r, 'bik': bik}
 
 
 def printTree(files):
@@ -535,35 +535,59 @@ def check(d):
 
     biks = sorted(glob.glob("%s%s**%s*.%s" % (d, os.sep, os.sep, filetype), recursive=True), key=str.lower)
 
+    resolutions = dict()
     for bik in biks:
         count += 1
         log(log_string.format(count, total), level=Verb.WARN)
-        errors = dict(Counter(errors) + Counter(compare(bik, d)))
+        e, r = compare(bik, d)
+        errors = dict(Counter(errors) + Counter(e))
+        if resolutions.get(r['resolution']) is None:
+            resolutions[r['resolution']] = list()
+        resolutions[r['resolution']].append(r['bik'])
 
-    # TODO pop these to display list of missing in the end
+
+    missing_fstring = "{:>18s}\n"
+
+    log("\n", level=Verb.WARN)
+    resolutionsCounter = Counter({k: len(v) for k,v in resolutions.items()})
+    mainResolution = resolutionsCounter.most_common(1)[0]
+    if resolutionIsOK(mainResolution[0]):
+        log_ok(f"Detected resolution of this package: {mainResolution[0]} (x{mainResolution[1]})\n")
+    elif resolutionIsIllegal(mainResolution[0]):
+        error(f"ERROR: Detected resolution of this package: {mainResolution[0]} (x{mainResolution[1]})\n")
+    else:
+        warning(f"WARNING: Detected resolution of this package: {mainResolution[0]} (x{mainResolution[1]})\n")
+    if len(resolutions) > 1:
+        del resolutionsCounter[mainResolution[0]]
+        # TODO search and delete explicitly allowed resolutions from devitation.json
+        error(missing_fstring.format("inconsistencies:"))
+        for k, v in resolutionsCounter.items():
+            error(f"{k:>17s}: {v}\n")
+            printTree(resolutions[k])
+        errors['res_glo'] = sum(resolutionsCounter.values())
+
     missing = db
     for i in poplist:
         if i in missing:
             missing.remove(i)
 
     log("\n", level=Verb.WARN)
-    if count != total or errors.get("db", 0) != 0:
-        mismatch_string = "{:>18s} {:" + str(math.floor(math.log10(max(total, count))) + 1) + "d}\n"
-        missing_string = "{:>18s}\n"
-        missing_string_f = "{:<19s}\n"
-        error(mismatch_string.format("vanilla:", total))
-        error(mismatch_string.format("found:", count))
+    if count != total or errors.get('db', 0) != 0:
+        mag = math.floor(math.log10(max(total, count))) + 1
+        mismatch_fstring = f"{{:>18s}} {{:{str(mag)}d}}\n"  # TODO interpolate strings properly
+        error(mismatch_fstring.format("vanilla:", total))
+        error(mismatch_fstring.format("found:", count))
 
-        if errors.get("db", 0) != 0:
-            error("    therein:\n")
-            error(mismatch_string.format("in db:", count - errors.get("db", 0)))
-            error(mismatch_string.format("unexpected:", errors.get("db", 0)))
+        if errors.get('db', 0) != 0:
+            error(f"{'therein:':>12s}\n")
+            error(mismatch_fstring.format("in db:", count - errors.get('db', 0)))
+            error(mismatch_fstring.format("unexpected:", errors.get('db', 0)))
             error("\n")
-            error(missing_string.format("unexpected files:"))
+            error(missing_fstring.format("unexpected files:"))
             printTree(unknownlist)
 
         if len(missing) > 0:
-            error(missing_string.format("missing files:"))
+            error(missing_fstring.format("missing files:"))
             printTree(missing)
 
         errors = dict(Counter(errors) + Counter({"missing": total - (count - errors.get("db", 0))}))
@@ -683,13 +707,14 @@ def main():
         if errors["total"] > 0:
             error("%d issue(s) found:\n\n" % errors["total"])
             errors_string = "{:<16s}: {:d}\n"
-            error(errors_string.format("Not in DB", errors.get("db", 0)))
-            error(errors_string.format("Broken files", errors.get("defect", 0)))
-            error(errors_string.format("Wrong resolution", errors.get("res", 0)))
-            error(errors_string.format("Frame count/FPS", errors.get("frame", 0)))
-            error(errors_string.format("Missing files", errors.get("missing", 0)))
+            error(errors_string.format("Not in DB", errors.get('db', 0)))
+            error(errors_string.format("Broken files", errors.get('defect', 0)))
+            error(errors_string.format("Wrong resolution", errors.get('res', 0)))
+            error(errors_string.format("Inconsistent res", errors.get('res_glo', 0)))
+            error(errors_string.format("Frame count/FPS", errors.get('frame', 0)))
+            error(errors_string.format("Missing files", errors.get('missing', 0)))
             if not quick:
-                error(errors_string.format("Broken headers", errors.get("header", 0)))
+                error(errors_string.format("Broken headers", errors.get('header', 0)))
         else:
             log_ok("no issues found\n", level=Verb.WARN)
 
