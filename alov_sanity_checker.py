@@ -104,27 +104,28 @@ def debug(s, level=Verb.DEBUG):
 
 
 def isRes(i, w, h):
-    return i.get("width") == w and i.get("height") == h
+    return i.get('width') == w and i.get('height') == h
 
 
-def isResolutionOK(i):
+def getResolutionAlias(i):
     global resolutions
-    global config
-    allowed = config.get("resolutions", {}).get("allowed", [])
-    for n in allowed:
-        r = resolutions.get(n, {})
-        if isRes(i, r.get("w"), r.get("h")):
+    for n, r in resolutions.items():
+        if isRes(i, r.get('w'), r.get('h')):
             return n
+    return f"{i.get('width')}x{i.get('height')}"
 
 
-def isResolutionIllegal(i):
-    global resolutions
+def resolutionIs(what, r):
     global config
-    illegal = config.get("resolutions", {}).get("illegal", [])
-    for n in illegal:
-        r = resolutions.get(n, {})
-        if isRes(i, r.get("w"), r.get("h")):
-            return n
+    return r in config.get('resolutions', {}).get(what, [])
+
+
+def resolutionIsOK(r):
+    return resolutionIs('allowed', r)
+
+
+def resolutionIsIllegal(r):
+    return resolutionIs('illegal', r)
 
 
 def getMappings():
@@ -359,17 +360,18 @@ def compare(f, root=''):
         poplist.append(vanilla)
 
     # check resolution
-    if (r := isResolutionOK(bik)) is not None:
+    r = getResolutionAlias(bik)
+    if resolutionIsOK(r):
         log(check_fstring.format(rez_string))
         log_ok(f"OK: {r}\n")
-    elif (r := isResolutionIllegal(bik)) is not None:
+    elif resolutionIsIllegal(r):
         log(check_fstring.format(rez_string), level=Verb.WARN)
-        error(f"WARNING: %s is using an illegal resolution ({r})\n" % f)
-        errors["res"] += 1
+        error(f"WARNING: {f} is using an illegal resolution ({r})\n")
+        errors['res'] += 1
     else:
         log(check_fstring.format(rez_string), level=Verb.WARN)
-        error("WARNING: resolution not recognized (%dx%d)\n" % (bik.get("width"), bik.get("height")))
-        errors["res"] += 1
+        error(f"WARNING: resolution not recognized ({r})\n")
+        errors['res'] += 1
 
     # check frame count
     bfc = bik.get("frame_count")
