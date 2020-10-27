@@ -558,8 +558,8 @@ def check(d):
                 if lastdir != i.get('dir'):
                     directory = i.get('dir')
                 lastdir = i.get('dir')
-                error(f"{'':>19s}{os.path.join(directory, i.get('name'))}\n")
-                
+                error(f"{'':>19s}{directory + '/' + i.get('name')}\n")  # literal / for consistency with database
+
         errors = dict(Counter(errors) + Counter({"missing": total - (count - errors.get("db", 0))}))
     else:
         log_ok("found %d files in database\n")
@@ -633,13 +633,19 @@ def main():
 
     log_to_file = args.no_log
     if log_to_file:
-        log_path = "alov_sanity_checker_%s.log" % (datetime.now().strftime("%y%m%dT%H%M"))
+        log_path = ""
         if game is not None:
-            log_path = "alov_sanity_checker_%s_%s.log" % (game, datetime.now().strftime("%y%m%dT%H%M"))
-            if intermediate:
-                log_path = "alov_sanity_checker_%s_prores_%s.log" % (game, datetime.now().strftime("%y%m%dT%H%M"))
+            log_path = "%s_%s" % (log_path, game)
+        if intermediate:
+            log_path = "%s_prores" % log_path
+        if quick:
+            log_path = "%s_quick" % log_path
+        log_path = "%s_%s" % (log_path, datetime.now().strftime("%y%m%dT%H%M"))
+        log_path = "alov_sanity_checker%s.log" % log_path
+
         logfile = open(log_path, 'w')
         log("opened log file %s\n\n" % log_path, level=Verb.WARN)
+
     log_verbosity = args.log_verbosity
     log_verbosity = log_verbosity if args.error_log is None else args.error_log
     log_verbosity = log_verbosity if args.short_log is None else args.short_log
