@@ -3006,7 +3006,7 @@
 "frame_count_header": 90
 },
 {
-"name": "ARK_INTRO_Shuttle_Cutscenes.bik",
+"name": "Ark004_Intro.bik",
 "dir": "ME3 Mods/ARK Mod/0.90/DLC_MOD_EGM_Ark/Movies",
 "width": 1920,
 "height": 1079,
@@ -3290,8 +3290,8 @@
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
-"frame_count": 2428,
-"frame_count_header": 2428
+"frame_count": 2565,
+"frame_count_header": 2565
 },
 {
 "name": "End03_NorDepart.bik",
@@ -3571,150 +3571,6 @@
 "fps": 29.97,
 "frame_count": 705,
 "frame_count_header": 705
-},
-{
-"name": "End004.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 2263,
-"frame_count_header": 2263
-},
-{
-"name": "End02_Cit_Flower.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 4145,
-"frame_count_header": 4145
-},
-{
-"name": "End03_C_NorEst.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 700,
-"frame_count_header": 700
-},
-{
-"name": "End03_D_CitPieces.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 538,
-"frame_count_header": 538
-},
-{
-"name": "End03_D_FlashForward_MirandaVan.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 163,
-"frame_count_header": 163
-},
-{
-"name": "End03_D_NorRetreatGood.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 2901,
-"frame_count_header": 2901
-},
-{
-"name": "End03_D_RanQGD_WasteLand.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 234,
-"frame_count_header": 234
-},
-{
-"name": "End03_Flashback_EDI.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 106,
-"frame_count_header": 106
-},
-{
-"name": "End03_LondonBlueOutro.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 6929,
-"frame_count_header": 6929
-},
-{
-"name": "End03_LondonGreenOutro.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 6929,
-"frame_count_header": 6929
-},
-{
-"name": "End03_NorDepart.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 709,
-"frame_count_header": 709
-},
-{
-"name": "End03_OO_Liara.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 499,
-"frame_count_header": 499
-},
-{
-"name": "End03_S_NorEst.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 700,
-"frame_count_header": 700
-},
-{
-"name": "End03_S_NorRetreatGood.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 24.0,
-"frame_count": 930,
-"frame_count_header": 930
-},
-{
-"name": "End03_S_RanQGA_NoMask.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 325,
-"frame_count_header": 325
-},
-{
-"name": "OptOut_NewFinale.bik",
-"dir": "ME3 Mods/MEHEM/v0.5/DLC_CON_MEHEM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 1843,
-"frame_count_header": 1843
 },
 {
 "name": "OmgHub_Approach.bik",
