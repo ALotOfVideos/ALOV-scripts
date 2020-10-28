@@ -263,21 +263,21 @@ def compare(f, root=''):
 
     if not os.path.isfile(f):
         error(f"file {f} does not exist\n")
-        return 1
+        return 1, None
 
     db = getDB()
     if db is None:
         error("database missing\n")
-        return 1
+        return 1, None
 
     fm = getMappings()
     if fm is None:
         error("folder mappings missing\n")
-        return 1
+        return 1, None
 
     bik = getBikProperties(f, root)
     if bik.get('defect') is not None:
-        return bik
+        return bik, None
 
     realname = bik.get('name')
     name = realname
@@ -344,7 +344,7 @@ def compare(f, root=''):
                     break
         if vanilla.get('name') is None:
             error("WARNING: cutscene not found in vanilla database\n")
-            return errors
+            return errors, None
         else:
             error("WARNING: cutscene uses wrong capitalization\n")
             log(capitalization_fstring.format("vanilla:", vanilla.get('name')), level=Verb.WARN)
@@ -541,9 +541,10 @@ def check(d):
         log(log_string.format(count, total), level=Verb.WARN)
         e, r = compare(bik, d)
         errors = dict(Counter(errors) + Counter(e))
-        if resolutions.get(r['resolution']) is None:
-            resolutions[r['resolution']] = list()
-        resolutions[r['resolution']].append(r['bik'])
+        if r is not None:
+            if resolutions.get(r['resolution']) is None:
+                resolutions[r['resolution']] = list()
+            resolutions[r['resolution']].append(r['bik'])
 
 
     missing_fstring = "{:>18s}\n"
@@ -698,7 +699,7 @@ def main():
         index(args.index[0])
     else:
         if args.compare is not None:
-            errors = compare(args.compare[1])
+            errors, _ = compare(args.compare[1])
         elif args.check is not None:
             errors = check(args.check[1])
 
