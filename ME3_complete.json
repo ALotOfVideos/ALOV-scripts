@@ -3636,15 +3636,6 @@
 "frame_count_header": 1397
 },
 {
-"name": "NorEnd_Hackett_Speech_Intro.bik",
-"dir": "ME3 Mods/PEOM to EGM/v1.5.3.2 to v1.52/DLC_CON_PEOM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 300,
-"frame_count_header": 300
-},
-{
 "name": "Cit001_FF_distraction.bik",
 "dir": "ME3 Mods/Project Variety/3.0/DLC_MOD_ProjectVariety/Movies",
 "width": 1920,
@@ -3690,15 +3681,6 @@
 "frame_count_header": 97
 },
 {
-"name": "10.bik",
-"dir": "TextureMovies/BASEGAME",
-"width": 256,
-"height": 128,
-"fps": 30.0,
-"frame_count": 687,
-"frame_count_header": 687
-},
-{
 "name": "11822C.bik",
 "dir": "TextureMovies/BASEGAME",
 "width": 512,
@@ -3706,24 +3688,6 @@
 "fps": 30.0,
 "frame_count": 459,
 "frame_count_header": 459
-},
-{
-"name": "1578BB8.bik",
-"dir": "TextureMovies/BASEGAME",
-"width": 512,
-"height": 256,
-"fps": 30.0,
-"frame_count": 358,
-"frame_count_header": 358
-},
-{
-"name": "169C6F4.bik",
-"dir": "TextureMovies/BASEGAME",
-"width": 512,
-"height": 256,
-"fps": 30.0,
-"frame_count": 335,
-"frame_count_header": 335
 },
 {
 "name": "28E1CC.bik",
@@ -3751,15 +3715,6 @@
 "fps": 30.0,
 "frame_count": 155,
 "frame_count_header": 155
-},
-{
-"name": "8F4298.bik",
-"dir": "TextureMovies/BASEGAME",
-"width": 512,
-"height": 256,
-"fps": 30.0,
-"frame_count": 576,
-"frame_count_header": 576
 },
 {
 "name": "AC9764.bik",
