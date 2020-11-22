@@ -109,10 +109,11 @@ def isRes(i, w, h):
 
 def getResolutionAlias(i):
     global resolutions
+    literal = f"{i.get('width')}x{i.get('height')}"
     for n, r in resolutions.items():
         if isRes(i, r.get('w'), r.get('h')):
-            return n
-    return f"{i.get('width')}x{i.get('height')}"
+            return n, f"{n}: {literal}"
+    return literal, literal
 
 
 def resolutionIs(what, r):
@@ -359,17 +360,17 @@ def compare(f, root=''):
         poplist.append(vanilla)
 
     # check resolution
-    r = getResolutionAlias(bik)
-    if resolutionIsOK(r):
+    rAlias, rLiteral = getResolutionAlias(bik)
+    if resolutionIsOK(rAlias):
         log(check_fstring.format(rez_string))
-        log_ok(f"OK: {r}\n")
-    elif resolutionIsIllegal(r):
+        log_ok(f"OK: {rAlias}\n")
+    elif resolutionIsIllegal(rAlias):
         log(check_fstring.format(rez_string), level=Verb.WARN)
-        error(f"WARNING: {f} is using an illegal resolution ({r})\n")
+        error(f"WARNING: {f} is using an illegal resolution ({rLiteral})\n")
         errors['res'] += 1
     else:
         log(check_fstring.format(rez_string), level=Verb.WARN)
-        error(f"WARNING: resolution not recognized ({r})\n")
+        error(f"WARNING: resolution not recognized ({rLiteral})\n")
         errors['res'] += 1
 
     # check frame count
@@ -496,7 +497,7 @@ def compare(f, root=''):
     # check header integrity
     errors['header'] += checkHeader(bik, check_fstring, "4. checking header:")
 
-    return errors, {'resolution': r, 'bik': bik}
+    return errors, {'resolution': rAlias, 'bik': bik}
 
 
 def printTree(files):
