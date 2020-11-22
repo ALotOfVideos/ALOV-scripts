@@ -2971,34 +2971,34 @@
 },
 {
 "name": "Ark002_attack.bik",
-"dir": "ME3 Mods/ARK Mod/0.90/DLC_MOD_EGM_Ark/Movies",
-"width": 1280,
-"height": 720,
+"dir": "ME3 Mods/ARK Mod/0.91/DLC_MOD_EGM_Ark/Movies",
+"width": 1920,
+"height": 1079,
 "fps": 30.0,
 "frame_count": 264,
 "frame_count_header": 264
 },
 {
 "name": "Ark002_Intro.bik",
-"dir": "ME3 Mods/ARK Mod/0.90/DLC_MOD_EGM_Ark/Movies",
-"width": 1280,
-"height": 720,
-"fps": 29.97,
+"dir": "ME3 Mods/ARK Mod/0.91/DLC_MOD_EGM_Ark/Movies",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
 "frame_count": 417,
 "frame_count_header": 417
 },
 {
 "name": "Ark002_OutroC.bik",
-"dir": "ME3 Mods/ARK Mod/0.90/DLC_MOD_EGM_Ark/Movies",
+"dir": "ME3 Mods/ARK Mod/0.91/DLC_MOD_EGM_Ark/Movies",
 "width": 1920,
-"height": 1080,
-"fps": 29.97,
+"height": 1079,
+"fps": 30.0,
 "frame_count": 844,
 "frame_count_header": 844
 },
 {
 "name": "Ark004_Beacon.bik",
-"dir": "ME3 Mods/ARK Mod/0.90/DLC_MOD_EGM_Ark/Movies",
+"dir": "ME3 Mods/ARK Mod/0.91/DLC_MOD_EGM_Ark/Movies",
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
@@ -3007,7 +3007,7 @@
 },
 {
 "name": "Ark004_Intro.bik",
-"dir": "ME3 Mods/ARK Mod/0.90/DLC_MOD_EGM_Ark/Movies",
+"dir": "ME3 Mods/ARK Mod/0.91/DLC_MOD_EGM_Ark/Movies",
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
@@ -3016,16 +3016,16 @@
 },
 {
 "name": "ArkGlb_FTL.bik",
-"dir": "ME3 Mods/ARK Mod/0.90/DLC_MOD_EGM_Ark/Movies",
+"dir": "ME3 Mods/ARK Mod/0.91/DLC_MOD_EGM_Ark/Movies",
 "width": 1920,
-"height": 1080,
+"height": 1079,
 "fps": 30.0,
 "frame_count": 798,
 "frame_count_header": 798
 },
 {
 "name": "Smls_ShutLoop_Ark004.bik",
-"dir": "ME3 Mods/ARK Mod/0.90/DLC_MOD_EGM_Ark/Movies",
+"dir": "ME3 Mods/ARK Mod/0.91/DLC_MOD_EGM_Ark/Movies",
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
@@ -3088,169 +3088,178 @@
 },
 {
 "name": "GLO_mm_Relay.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 29.97,
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
 "frame_count": 64,
 "frame_count_header": 64
 },
 {
 "name": "mm_Approach.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1280,
-"height": 720,
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
 "fps": 30.0,
 "frame_count": 146,
 "frame_count_header": 146
 },
 {
 "name": "mm_AsteroidX57.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 400,
-"frame_count_header": 400
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
+"fps": 60.0,
+"frame_count": 800,
+"frame_count_header": 800
 },
 {
 "name": "mm_Beacon.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 29.97,
-"frame_count": 1091,
-"frame_count_header": 1091
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 963,
+"frame_count_header": 963
 },
 {
 "name": "mm_CollectorShp.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1280,
-"height": 720,
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
 "fps": 30.0,
 "frame_count": 413,
 "frame_count_header": 413
 },
 {
 "name": "mm_HereticStn.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1280,
-"height": 720,
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
 "fps": 30.0,
 "frame_count": 294,
 "frame_count_header": 294
 },
 {
 "name": "mm_Implants.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
 "width": 1920,
-"height": 1080,
-"fps": 29.97,
+"height": 1079,
+"fps": 30.0,
 "frame_count": 312,
 "frame_count_header": 312
 },
 {
 "name": "mm_ImplantsSht.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 29.97,
-"frame_count": 30,
-"frame_count_header": 30
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 60,
+"frame_count_header": 60
 },
 {
 "name": "mm_MinutemanSn.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1280,
-"height": 720,
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
 "fps": 30.0,
 "frame_count": 188,
 "frame_count_header": 188
 },
 {
 "name": "mm_Omega4.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1280,
-"height": 720,
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
 "fps": 30.0,
 "frame_count": 179,
 "frame_count_header": 179
 },
 {
 "name": "mm_OmegaA.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1280,
-"height": 720,
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
 "fps": 30.0,
-"frame_count": 300,
-"frame_count_header": 300
+"frame_count": 289,
+"frame_count_header": 289
 },
 {
 "name": "mm_OmegaB.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 29.97,
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
 "frame_count": 177,
 "frame_count_header": 177
 },
 {
 "name": "mm_ReaperRelayArv.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1280,
-"height": 720,
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
 "fps": 30.0,
 "frame_count": 60,
 "frame_count_header": 60
 },
 {
 "name": "mm_TartarusCERB.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 29.97,
-"frame_count": 297,
-"frame_count_header": 297
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 271,
+"frame_count_header": 271
 },
 {
 "name": "mm_TartarusCOLL.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 29.97,
-"frame_count": 469,
-"frame_count_header": 469
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 464,
+"frame_count_header": 464
 },
 {
 "name": "mm_VirmireAsh.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1950,
-"height": 1080,
-"fps": 29.97,
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
 "frame_count": 705,
 "frame_count_header": 705
 },
 {
 "name": "mm_VirmireKdn.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1950,
-"height": 1080,
-"fps": 29.97,
-"frame_count": 701,
-"frame_count_header": 701
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
+"fps": 30.0,
+"frame_count": 705,
+"frame_count_header": 705
 },
 {
 "name": "Nor_ArmorSelect.bik",
-"dir": "ME3 Mods/EGM/v1.52/DLC_MOD_EGM/Movies",
-"width": 1280,
-"height": 720,
-"fps": 30.0,
-"frame_count": 120,
-"frame_count_header": 120
+"dir": "ME3 Mods/EGM/v1.60/DLC_MOD_EGM/Movies",
+"width": 1920,
+"height": 1079,
+"fps": 60.0,
+"frame_count": 240,
+"frame_count_header": 240
+},
+{
+"name": "Blank.bik",
+"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
+"width": 1920,
+"height": 1080,
+"fps": 60.0,
+"frame_count": 60,
+"frame_count_header": 60
 },
 {
 "name": "End03_D_CitPieces.bik",
-"dir": "ME3 Mods/ITEM/1.5",
+"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
@@ -3259,7 +3268,7 @@
 },
 {
 "name": "End03_D_FutureEarth.bik",
-"dir": "ME3 Mods/ITEM/1.5",
+"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
 "width": 1920,
 "height": 1079,
 "fps": 60.0,
@@ -3268,7 +3277,7 @@
 },
 {
 "name": "End03_D_RanGeth.bik",
-"dir": "ME3 Mods/ITEM/1.5",
+"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
@@ -3277,7 +3286,7 @@
 },
 {
 "name": "End03_D_RanPeace.bik",
-"dir": "ME3 Mods/ITEM/1.5",
+"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
@@ -3286,7 +3295,7 @@
 },
 {
 "name": "End03_Device_Dock_Bad.bik",
-"dir": "ME3 Mods/ITEM/1.5",
+"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
@@ -3295,7 +3304,7 @@
 },
 {
 "name": "End03_NorDepart.bik",
-"dir": "ME3 Mods/ITEM/1.5",
+"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
@@ -3304,7 +3313,7 @@
 },
 {
 "name": "End03_Shepard_Alive_Fem.bik",
-"dir": "ME3 Mods/ITEM/1.5",
+"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
@@ -3313,7 +3322,7 @@
 },
 {
 "name": "End03_Shepard_Alive_Male.bik",
-"dir": "ME3 Mods/ITEM/1.5",
+"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
@@ -3636,71 +3645,8 @@
 "frame_count_header": 300
 },
 {
-"name": "End01_Rannoch_Peace.bik",
-"dir": "ME3 Mods/PEOM/v1.5.3.2/DLC_CON_PEOM/Movies",
-"width": 1920,
-"height": 1080,
-"fps": 30.0,
-"frame_count": 543,
-"frame_count_header": 543
-},
-{
-"name": "End04_Andromeda_Teaser.bik",
-"dir": "ME3 Mods/PEOM/v1.5.3.2/DLC_CON_PEOM/Movies",
-"width": 1920,
-"height": 1080,
-"fps": 25.0,
-"frame_count": 573,
-"frame_count_header": 573
-},
-{
-"name": "Extended_Refusal.bik",
-"dir": "ME3 Mods/PEOM/v1.5.3.2/DLC_CON_PEOM/Movies",
-"width": 1920,
-"height": 1080,
-"fps": 60.0,
-"frame_count": 1658,
-"frame_count_header": 1658
-},
-{
-"name": "PEOM_AAGun_Fail.bik",
-"dir": "ME3 Mods/PEOM/v1.5.3.2/DLC_CON_PEOM/Movies",
-"width": 1920,
-"height": 1080,
-"fps": 30.0,
-"frame_count": 300,
-"frame_count_header": 300
-},
-{
-"name": "PEOM_Hammer_Assault.bik",
-"dir": "ME3 Mods/PEOM/v1.5.3.2/DLC_CON_PEOM/Movies",
-"width": 1920,
-"height": 1080,
-"fps": 30.0,
-"frame_count": 2504,
-"frame_count_header": 2504
-},
-{
-"name": "PEOM_HammerLanding_High.bik",
-"dir": "ME3 Mods/PEOM/v1.5.3.2/DLC_CON_PEOM/Movies",
-"width": 1920,
-"height": 1080,
-"fps": 30.0,
-"frame_count": 1868,
-"frame_count_header": 1868
-},
-{
-"name": "PEOM_HammerLanding_Low.bik",
-"dir": "ME3 Mods/PEOM/v1.5.3.2/DLC_CON_PEOM/Movies",
-"width": 1920,
-"height": 1080,
-"fps": 30.0,
-"frame_count": 1694,
-"frame_count_header": 1694
-},
-{
 "name": "Cit001_FF_distraction.bik",
-"dir": "ME3 Mods/Project Variety",
+"dir": "ME3 Mods/Project Variety/3.0/DLC_MOD_ProjectVariety/Movies",
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
@@ -3709,7 +3655,7 @@
 },
 {
 "name": "Lev004_WW_CortezInsert.bik",
-"dir": "ME3 Mods/Project Variety",
+"dir": "ME3 Mods/Project Variety/3.0/DLC_MOD_ProjectVariety/Movies",
 "width": 1920,
 "height": 1079,
 "fps": 30.0,
@@ -3718,7 +3664,7 @@
 },
 {
 "name": "End03_Flashback_Tali.bik",
-"dir": "ME3 Mods/Tali Remastered/V1.02",
+"dir": "ME3 Mods/Tali Remastered/V1.02/Base/Movies",
 "width": 1280,
 "height": 720,
 "fps": 29.63,
@@ -3727,7 +3673,7 @@
 },
 {
 "name": "End03_S_RanQGA_NoMask.bik",
-"dir": "ME3 Mods/Tali Remastered/V1.02",
+"dir": "ME3 Mods/Tali Remastered/V1.02/DLC_CON_TaliMaster/Movies",
 "width": 1280,
 "height": 720,
 "fps": 30.0,
@@ -3736,7 +3682,7 @@
 },
 {
 "name": "End03_Flashback_Tali.bik",
-"dir": "ME3 Mods/Tali Remastered/V1.02/ME2 like",
+"dir": "ME3 Mods/Tali Remastered/V1.02/ME2_Like/Movies",
 "width": 1280,
 "height": 720,
 "fps": 29.63,
