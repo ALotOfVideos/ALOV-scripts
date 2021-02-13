@@ -118,7 +118,12 @@ def getResolutionAlias(i):
 
 def resolutionIs(what, r):
     global config
-    return r in config.get('resolutions', {}).get(what, [])
+    global intermediate
+    resolutions = 'resolutions'
+    if intermediate:
+        resolutions = 'resolutions_intermediate'
+
+    return r in config.get(resolutions, {}).get(what, [])
 
 
 def resolutionIsOK(r):
