@@ -72,5 +72,22 @@
                 "1440p"
             ]
         }
+    },
+    "MEA": {
+        "resolutions": {
+            "allowed": [],
+            "illegal": []
+        },
+        "resolutions_intermediate": {
+            "allowed": [
+                "4K"
+            ],
+            "illegal": [
+                "1079p",
+                "1081p",
+                "1080p",
+                "1440p"
+            ]
+        }
     }
 }
