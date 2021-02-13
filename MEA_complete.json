@@ -1,0 +1,1127 @@
+[
+{
+"name": "Archon_Sam_Threat2.webm",
+"dir": ".",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 215,
+"frame_count_header": 215
+},
+{
+"name": "aya_0105_landing_return_d_return.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 767,
+"frame_count_header": 767
+},
+{
+"name": "aya_0110_landleave_d_depart.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 525,
+"frame_count_header": 525
+},
+{
+"name": "bio_0000_tem_landing_d_landing.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 927,
+"frame_count_header": 927
+},
+{
+"name": "bio_0000_tem_landing_d_mantarays.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 525,
+"frame_count_header": 525
+},
+{
+"name": "bio_0000_tem_landing_d_planetapproach.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 605,
+"frame_count_header": 605
+},
+{
+"name": "bio_0000_tem_landing_return_d_return.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 280,
+"frame_count_header": 280
+},
+{
+"name": "bio_0000_tem_leave_d_depart.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 541,
+"frame_count_header": 541
+},
+{
+"name": "crit_ex_0200_shuttle_debrief_dShuttles.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 247,
+"frame_count_header": 247
+},
+{
+"name": "crit_ex_0750_shuttle_escape_c.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 251,
+"frame_count_header": 251
+},
+{
+"name": "crit_fin_030_reveal_and_trap_insert.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 597,
+"frame_count_header": 597
+},
+{
+"name": "crit_fin_600_landing_sequence_d.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 135,
+"frame_count_header": 135
+},
+{
+"name": "crit_fin_890_blueskies.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 998,
+"frame_count_header": 998
+},
+{
+"name": "crit_fin_fleet_to_landing.webm",
+"dir": ".",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 150,
+"frame_count_header": 0
+},
+{
+"name": "dune_0000_tem_landing_highaltitude.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 860,
+"frame_count_header": 860
+},
+{
+"name": "dune_0000_tem_landing_highaltitude2.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 415,
+"frame_count_header": 415
+},
+{
+"name": "dune_0000_tem_landing_planetapproach.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 559,
+"frame_count_header": 559
+},
+{
+"name": "dune_0000_tem_landing_touchdown.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 790,
+"frame_count_header": 790
+},
+{
+"name": "dune_0030_tem_leave_unc_depart1.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 686,
+"frame_count_header": 686
+},
+{
+"name": "GT_030_ScourgeHit.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 256,
+"frame_count_header": 256
+},
+{
+"name": "GT_040_Nexus_Reveal_01.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 205,
+"frame_count_header": 205
+},
+{
+"name": "GT_040_Nexus_Reveal_02.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 300,
+"frame_count_header": 300
+},
+{
+"name": "GT_040_Nexus_Reveal_03.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 161,
+"frame_count_header": 161
+},
+{
+"name": "GT_040_Nexus_Reveal_04.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 108,
+"frame_count_header": 108
+},
+{
+"name": "GT_040_Nexus_Reveal_05.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 153,
+"frame_count_header": 153
+},
+{
+"name": "GT_040_Nexus_Reveal_06.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 304,
+"frame_count_header": 304
+},
+{
+"name": "GT_050_Tempest_Nexus_Voyage.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 298,
+"frame_count_header": 298
+},
+{
+"name": "GT_060_EOS_First_Settlement_01.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 164,
+"frame_count_header": 164
+},
+{
+"name": "GT_060_EOS_First_Settlement_02.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 143,
+"frame_count_header": 143
+},
+{
+"name": "GT_080_Archon_F2F_01.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 83,
+"frame_count_header": 83
+},
+{
+"name": "GT_080_Archon_F2F_02.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 131,
+"frame_count_header": 131
+},
+{
+"name": "GT_080_Archon_F2F_03.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 106,
+"frame_count_header": 106
+},
+{
+"name": "GT_090_Archon_Escape_01.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 252,
+"frame_count_header": 252
+},
+{
+"name": "GT_090_Archon_Escape_02.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 286,
+"frame_count_header": 286
+},
+{
+"name": "GT_090_Archon_Escape_03.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 89,
+"frame_count_header": 89
+},
+{
+"name": "GT_090_Archon_Escape_04.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 119,
+"frame_count_header": 119
+},
+{
+"name": "GT_100_Aya_Approach_01.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 297,
+"frame_count_header": 297
+},
+{
+"name": "GT_100_Aya_Approach_02.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 90,
+"frame_count_header": 90
+},
+{
+"name": "GT_100_Aya_Approach_03.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 240,
+"frame_count_header": 240
+},
+{
+"name": "GT_120_m4_arrival.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 218,
+"frame_count_header": 218
+},
+{
+"name": "GT_130-140_M4_Wrapup.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 454,
+"frame_count_header": 454
+},
+{
+"name": "GT_150_Loyasa_Start_Mission_01.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 99,
+"frame_count_header": 99
+},
+{
+"name": "GT_150_Loyasa_Start_Mission_02.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 253,
+"frame_count_header": 253
+},
+{
+"name": "GT_160_LoyHMF_Ship_01.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 150,
+"frame_count_header": 150
+},
+{
+"name": "GT_160_LoyHMF_Ship_02.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 83,
+"frame_count_header": 83
+},
+{
+"name": "GT_160_LoyHMF_Ship_03.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 262,
+"frame_count_header": 262
+},
+{
+"name": "GT_160_LoyHMF_Ship_04.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 72,
+"frame_count_header": 72
+},
+{
+"name": "GT_170_Cargo_Confront_01.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 125,
+"frame_count_header": 125
+},
+{
+"name": "GT_170_Cargo_Confront_02.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 138,
+"frame_count_header": 138
+},
+{
+"name": "GT_170_Cargo_Confront_03.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 137,
+"frame_count_header": 137
+},
+{
+"name": "GT_180_Loyhmm_Shiproll_2.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 120,
+"frame_count_header": 120
+},
+{
+"name": "GT_180_Loyhmm_Shiproll_3.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 120,
+"frame_count_header": 120
+},
+{
+"name": "GT_200_Meridian_Holo_01.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 92,
+"frame_count_header": 92
+},
+{
+"name": "GT_200_Meridian_Holo_02.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 1049,
+"frame_count_header": 1049
+},
+{
+"name": "GT_210_Meridian_Send_off.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 330,
+"frame_count_header": 330
+},
+{
+"name": "GT_220_Mako_Landing_01.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 206,
+"frame_count_header": 206
+},
+{
+"name": "GT_220_Mako_Landing_02.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 355,
+"frame_count_header": 355
+},
+{
+"name": "GT_220_Mako_Landing_03.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 110,
+"frame_count_header": 110
+},
+{
+"name": "GT_220_Mako_Landing_04.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 343,
+"frame_count_header": 343
+},
+{
+"name": "GT_230_M7_RemnantCity_Return.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 130,
+"frame_count_header": 130
+},
+{
+"name": "GT_270_SpaceBattle_01.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 189,
+"frame_count_header": 189
+},
+{
+"name": "GT_270_SpaceBattle_02.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 192,
+"frame_count_header": 192
+},
+{
+"name": "GT_270_SpaceBattle_03.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 788,
+"frame_count_header": 788
+},
+{
+"name": "GT_270_SpaceBattle_04.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 167,
+"frame_count_header": 167
+},
+{
+"name": "GT_270_SpaceBattle_05.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 828,
+"frame_count_header": 828
+},
+{
+"name": "GT_270_SpaceBattle_06.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 218,
+"frame_count_header": 218
+},
+{
+"name": "GT_270_SpaceBattle_07.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 216,
+"frame_count_header": 216
+},
+{
+"name": "GT_275_M7_Pathfinders.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 201,
+"frame_count_header": 201
+},
+{
+"name": "GT_280_ArkCrash_01.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 196,
+"frame_count_header": 196
+},
+{
+"name": "GT_280_ArkCrash_02.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 112,
+"frame_count_header": 112
+},
+{
+"name": "GT_280_ArkCrash_03.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 161,
+"frame_count_header": 161
+},
+{
+"name": "GT_280_ArkCrash_04.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 618,
+"frame_count_header": 618
+},
+{
+"name": "GT_290_Final_Shot.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 277,
+"frame_count_header": 277
+},
+{
+"name": "ice_0000_tem_landing_d_enterclouds.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 353,
+"frame_count_header": 353
+},
+{
+"name": "ice_0000_tem_landing_d_planetapproach.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 529,
+"frame_count_header": 529
+},
+{
+"name": "ice_0000_tem_landing_d_tempestshaking.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 209,
+"frame_count_header": 209
+},
+{
+"name": "ice_0000_tem_landing_d_touchdown.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 654,
+"frame_count_header": 654
+},
+{
+"name": "ice_0030_tem_leave_d_depart.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 432,
+"frame_count_header": 432
+},
+{
+"name": "intrld25_0200_arch_escape_PR_P7.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 483,
+"frame_count_header": 483
+},
+{
+"name": "intrld25_0250_aya_landing_PR_P1.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 214,
+"frame_count_header": 214
+},
+{
+"name": "intrld35_aya_0500_vault_m_shuttledepart.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 371,
+"frame_count_header": 371
+},
+{
+"name": "intrld35_kad_0150_landing_intro_m_approach.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 594,
+"frame_count_header": 594
+},
+{
+"name": "intrld35_kad_0150_landing_intro_m_touchdown.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 785,
+"frame_count_header": 785
+},
+{
+"name": "Intrld_0000_Tem_Tempest_Reveal1.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 202,
+"frame_count_header": 202
+},
+{
+"name": "Intrld_0050_Near_Death_cc.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 1983,
+"frame_count_header": 1983
+},
+{
+"name": "intrld_0200_Archon_proxycc_Part0.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 3808,
+"frame_count_header": 3808
+},
+{
+"name": "kad_leaving_d_depart.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 948,
+"frame_count_header": 948
+},
+{
+"name": "Krogan_Exhaltation.webm",
+"dir": ".",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 181,
+"frame_count_header": 0
+},
+{
+"name": "loy_ang_0050_shuttle_in_d.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 596,
+"frame_count_header": 596
+},
+{
+"name": "loy_hmf_0100_approachnew1_d.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 451,
+"frame_count_header": 451
+},
+{
+"name": "loyalty_hmm_1050_transition_out_d.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 338,
+"frame_count_header": 338
+},
+{
+"name": "loyalty_kro_beat0440_depart.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 751,
+"frame_count_header": 751
+},
+{
+"name": "luna_0000_tem_landing_d_approach.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 405,
+"frame_count_header": 405
+},
+{
+"name": "luna_0000_tem_landing_d_landing.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 952,
+"frame_count_header": 952
+},
+{
+"name": "luna_00030_tem_leave_unc_d_depart.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 556,
+"frame_count_header": 556
+},
+{
+"name": "m4_0400_archon_f2f_m_Dream.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 87,
+"frame_count_header": 87
+},
+{
+"name": "M7Archon.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 288,
+"frame_count_header": 288
+},
+{
+"name": "M7Reveal1.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 13,
+"frame_count_header": 13
+},
+{
+"name": "M7Reveal2Neuron1.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 19,
+"frame_count_header": 19
+},
+{
+"name": "M7Reveal3Rush.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 16,
+"frame_count_header": 16
+},
+{
+"name": "mer_landing_return_d_return.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 1003,
+"frame_count_header": 1003
+},
+{
+"name": "mer_leave_d_depart.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 251,
+"frame_count_header": 251
+},
+{
+"name": "nex_landing_return_d_phase1.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 451,
+"frame_count_header": 451
+},
+{
+"name": "nex_landing_return_d_phase2a.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 451,
+"frame_count_header": 451
+},
+{
+"name": "nex_landing_return_d_phase2b.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 451,
+"frame_count_header": 451
+},
+{
+"name": "nex_landing_return_d_phase3a.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 450,
+"frame_count_header": 450
+},
+{
+"name": "nex_landing_return_d_phase3b.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 450,
+"frame_count_header": 450
+},
+{
+"name": "nex_landing_return_d_touchdown.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 588,
+"frame_count_header": 588
+},
+{
+"name": "nex_leave_d_depart.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 601,
+"frame_count_header": 601
+},
+{
+"name": "Nexus_Tram_Transistion_d.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 341,
+"frame_count_header": 341
+},
+{
+"name": "PrimusPostCredits.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 677,
+"frame_count_header": 677
+},
+{
+"name": "Pro_Shp_0000_departure_c_female.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 821,
+"frame_count_header": 821
+},
+{
+"name": "Pro_Shp_0000_departure_c_male.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 821,
+"frame_count_header": 821
+},
+{
+"name": "Pro_Shp_0000_departure_c_part1.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 1149,
+"frame_count_header": 1149
+},
+{
+"name": "Pro_Shp_0000_departure_c_part2.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 1149,
+"frame_count_header": 1149
+},
+{
+"name": "Pro_Shp_0000_intro_c.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 2076,
+"frame_count_header": 2076
+},
+{
+"name": "RemnantCityMap.webm",
+"dir": ".",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 413,
+"frame_count_header": 0
+},
+{
+"name": "Salarian_Exhaltation.webm",
+"dir": ".",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 143,
+"frame_count_header": 0
+},
+{
+"name": "stm_0100_landing_highaltitude.webm",
+"dir": ".",
+"width": 1280,
+"height": 720,
+"fps": 30.0,
+"frame_count": 162,
+"frame_count_header": 0
+},
+{
+"name": "stm_0100_landing_planetflyby.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 289,
+"frame_count_header": 289
+},
+{
+"name": "stm_0100_landing_surfaceflyby.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 370,
+"frame_count_header": 370
+},
+{
+"name": "stm_0100_landing_touchdown.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 464,
+"frame_count_header": 464
+},
+{
+"name": "stm_0105_leave_d_depart.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 297,
+"frame_count_header": 297
+},
+{
+"name": "Tem_Tempest_Launch1.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 425,
+"frame_count_header": 425
+},
+{
+"name": "TempestGlobal.webm",
+"dir": ".",
+"width": 1920,
+"height": 1088,
+"fps": 30.0,
+"frame_count": 245,
+"frame_count_header": 245
+}
+]
