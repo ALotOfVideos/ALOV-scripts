@@ -3250,7 +3250,7 @@
 },
 {
 "name": "Blank.bik",
-"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
+"dir": "ME3 Mods/ITEM/2.5/DLC_MOD_IT/Movies",
 "width": 1920,
 "height": 1080,
 "fps": 60.0,
@@ -3259,72 +3259,90 @@
 },
 {
 "name": "End03_D_CitPieces.bik",
-"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
-"width": 1920,
-"height": 1079,
+"dir": "ME3 Mods/ITEM/2.5/DLC_MOD_IT/Movies",
+"width": 2048,
+"height": 1152,
 "fps": 30.0,
 "frame_count": 524,
 "frame_count_header": 524
 },
 {
+"name": "End03_D_FleetIntro.bik",
+"dir": "ME3 Mods/ITEM/2.5/DLC_MOD_IT/Movies",
+"width": 2048,
+"height": 1152,
+"fps": 30.0,
+"frame_count": 1177,
+"frame_count_header": 1177
+},
+{
 "name": "End03_D_FutureEarth.bik",
-"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
-"width": 1920,
-"height": 1079,
+"dir": "ME3 Mods/ITEM/2.5/DLC_MOD_IT/Movies",
+"width": 2048,
+"height": 1152,
 "fps": 60.0,
 "frame_count": 1032,
 "frame_count_header": 1032
 },
 {
 "name": "End03_D_RanGeth.bik",
-"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
-"width": 1920,
-"height": 1079,
+"dir": "ME3 Mods/ITEM/2.5/DLC_MOD_IT/Movies",
+"width": 2048,
+"height": 1152,
 "fps": 30.0,
 "frame_count": 234,
 "frame_count_header": 234
 },
 {
 "name": "End03_D_RanPeace.bik",
-"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
-"width": 1920,
-"height": 1079,
+"dir": "ME3 Mods/ITEM/2.5/DLC_MOD_IT/Movies",
+"width": 2048,
+"height": 1152,
 "fps": 30.0,
 "frame_count": 325,
 "frame_count_header": 325
 },
 {
 "name": "End03_Device_Dock_Bad.bik",
-"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
-"width": 1920,
-"height": 1079,
+"dir": "ME3 Mods/ITEM/2.5/DLC_MOD_IT/Movies",
+"width": 2048,
+"height": 1152,
 "fps": 30.0,
-"frame_count": 2565,
-"frame_count_header": 2565
+"frame_count": 2574,
+"frame_count_header": 2574
 },
 {
 "name": "End03_NorDepart.bik",
-"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
-"width": 1920,
-"height": 1079,
+"dir": "ME3 Mods/ITEM/2.5/DLC_MOD_IT/Movies",
+"width": 2048,
+"height": 1152,
 "fps": 30.0,
 "frame_count": 680,
 "frame_count_header": 680
 },
 {
+"name": "End03_NorDock.bik",
+"dir": "ME3 Mods/ITEM/2.5/DLC_MOD_IT/Movies",
+"width": 2048,
+"height": 1152,
+"fps": 30.0,
+"frame_count": 346,
+"frame_count_header": 346
+},
+{
 "name": "End03_Shepard_Alive_Fem.bik",
-"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
-"width": 1920,
-"height": 1079,
+"dir": "ME3 Mods/ITEM/2.5/DLC_MOD_IT/Movies",
+"width": 2048,
+"height": 1152,
 "fps": 30.0,
 "frame_count": 660,
 "frame_count_header": 660
 },
 {
 "name": "End03_Shepard_Alive_Male.bik",
-"dir": "ME3 Mods/ITEM/1.5.1/DLC_MOD_IT/Movies",
-"width": 1920,
-"height": 1079,
+"dir": "ME3 Mods/ITEM/2.5/DLC_MOD_IT/Movies",
+"width": 2048,
+"height": 1152,
 "fps": 30.0,
 "frame_count": 660,
 "frame_count_header": 660
@@ -3679,6 +3697,33 @@
 "fps": 29.63,
 "frame_count": 97,
 "frame_count_header": 97
+},
+{
+"name": "End01_HammerDescent.bik",
+"dir": "ME3 Mods/TEB/0.7.1/DLC_MOD_LONDON/Movies",
+"width": 2048,
+"height": 1152,
+"fps": 30.0,
+"frame_count": 718,
+"frame_count_header": 718
+},
+{
+"name": "End01_HammerLanding.bik",
+"dir": "ME3 Mods/TEB/0.7.1/DLC_MOD_LONDON/Movies",
+"width": 2048,
+"height": 1152,
+"fps": 30.0,
+"frame_count": 986,
+"frame_count_header": 986
+},
+{
+"name": "End01_Sword_intro_pt4GQa.bik",
+"dir": "ME3 Mods/TEB/0.7.1/DLC_MOD_LONDON/Movies",
+"width": 2048,
+"height": 1152,
+"fps": 30.0,
+"frame_count": 542,
+"frame_count_header": 542
 },
 {
 "name": "11822C.bik",
