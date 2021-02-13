@@ -57,5 +57,9 @@
 			"DLC_MOD_ALOV_Optional/Movies/ProMar_IM_Cutaway.bik": "BIOGame/Movies",
 			"DLC_MOD_ALOV_Optional/Movies/Smls_2_Loop.bik": "BIOGame/Movies",
 			"DLC_MOD_ALOV_Optional/Movies/Smls_NorFTL.bik": "BIOGame/Movies"
+		},
+	"MEA":
+		{
+			".": "."
 		}
 }
