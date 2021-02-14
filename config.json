@@ -80,7 +80,8 @@
         },
         "resolutions_intermediate": {
             "allowed": [
-                "4K"
+                "4K",
+                "MEA-4K"
             ],
             "illegal": [
                 "1079p",
