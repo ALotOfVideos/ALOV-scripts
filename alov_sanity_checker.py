@@ -442,7 +442,9 @@ def compare(f, root=''):
         elif factor < factor_thresh:
             debug_path.append("elif factor < factor_thresh:")
             log(check_fstring.format(frame_string), level=Verb.WARN)
-            log("WARNING: FPS downgraded", level=Verb.WARN)
+            log("WARNING: FPS downgraded\n", level=Verb.WARN)
+            log(frames_fstring.format("vanilla:", vfc, "frames @", vfps, "FPS"), level=Verb.WARN)
+            log(frames_fstring.format("found:", bfc, "frames @", bfps, "FPS"), level=Verb.WARN)
             errors['frame'] += 1
         else:
             debug_path.append("else:")
