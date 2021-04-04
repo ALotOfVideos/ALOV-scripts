@@ -190,6 +190,9 @@ def getBikProperties(f, root=''):
         error(f"{f} could not be read: verify whether the file is intact\n")
         return {'defect': 1}
 
+    if probe_bik.get('duration_ts') is None:
+        probe_bik['duration_ts'] = 0
+
     bik = {
         'name': os.path.basename(f), # localisation .replace(f[-7:-4], "INT"),
         'dir': getRelativeDir(os.path.dirname(f), root),
