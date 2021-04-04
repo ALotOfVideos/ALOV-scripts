@@ -75,8 +75,18 @@
     },
     "MEA": {
         "resolutions": {
-            "allowed": [],
-            "illegal": []
+            "allowed": [
+                "4K",
+                "MEA-4K",
+                "MEA-1088p"
+            ],
+            "illegal": [
+                "1079p",
+                "1081p",
+                "1080p",
+                "1152p",
+                "1440p"
+            ]
         },
         "resolutions_intermediate": {
             "allowed": [
