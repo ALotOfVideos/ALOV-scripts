@@ -274,6 +274,7 @@ def compare(f, root=''):
     global poplist
     global unknownlist
     global intermediate
+    global game
 
     if not os.path.isfile(f):
         error(f"file {f} does not exist\n")
@@ -299,7 +300,7 @@ def compare(f, root=''):
     # replace intermediate file extension with vanilla extension to match library
     if intermediate:
         ext = '.bik'
-        if game == 'MEA''':
+        if game == 'MEA':
             ext = '.webm'
         name = file_ext.sub(ext, realname)
 
@@ -512,7 +513,8 @@ def compare(f, root=''):
     log(f"{debug_path}\n", level=Verb.DEBUG)
 
     # check header integrity
-    errors['header'] += checkHeader(bik, check_fstring, "4. checking header:")
+    if not (game == 'MEA' and not intermediate):
+        errors['header'] += checkHeader(bik, check_fstring, "4. checking header:")
 
     return errors, {'resolution': rAlias, 'bik': bik}
 
